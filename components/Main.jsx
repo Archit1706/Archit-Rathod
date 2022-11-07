@@ -14,7 +14,7 @@ const Main = () => {
                         Hello!
                     </p>
                     <h1 className="py-4 text-gray-700">
-                        I&apos;`m{" "}
+                        I&apos;m{" "}
                         <span className="text-[#5651e5]">
                             {firstname + " " + lastname}
                         </span>

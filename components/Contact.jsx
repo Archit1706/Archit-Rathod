@@ -30,7 +30,7 @@ const Contact = () => {
                     Contact
                 </p>
                 <h2 className="py-4">
-                    Let&apos;`s collab!
+                    Let&apos;s collab!
                 </h2>
                 <div className="grid lg:grid-cols-5 gap-8">
                     <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
@@ -51,7 +51,7 @@ const Contact = () => {
                                 <p className="py-4">
                                     I am available for freelance or part-time
                                     internships / postions. Contact me and
-                                    let&apos;`s
+                                    let&apos;s
                                     talk.
                                 </p>
                                 <div>
