@@ -65,26 +65,26 @@ const Navbar = () => {
                                 Home
                             </li>
                         </Link>
-                        <Link href="/#about">
+                        <a href="/#about">
                             <li className="ml-10 text-sm uppercase hover:border-b hover:border-violet-500 ease-in-out duration-500">
                                 About
                             </li>
-                        </Link>
-                        <Link href="/#skills">
+                        </a>
+                        <a href="/#skills">
                             <li className="ml-10 text-sm uppercase hover:border-b hover:border-violet-500 ease-in-out duration-500">
                                 Skills
                             </li>
-                        </Link>
-                        <Link href="/#projects">
+                        </a>
+                        <a href="/#projects">
                             <li className="ml-10 text-sm uppercase hover:border-b hover:border-violet-500 ease-in-out duration-500">
                                 Projects
                             </li>
-                        </Link>
-                        <Link href="/#contact">
+                        </a>
+                        <a href="/#contact">
                             <li className="ml-10 text-sm uppercase hover:border-b hover:border-violet-500 ease-in-out duration-500">
                                 Contact
                             </li>
-                        </Link>
+                        </a>
                     </ul>
                     <div
                         onClick={handleNavbar}
@@ -175,7 +175,7 @@ const Navbar = () => {
                         </ul>
                         <div className="pt-8">
                             <p className="uppercase tracking-widest text-[#5651e5]">
-                                Let&apos;`s
+                                Let&apos;s
                                 Connect
                             </p>
                             <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">

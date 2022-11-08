@@ -57,7 +57,7 @@ const projects = [
         url: "/proctor-it",
         desc: "An Application that detects face before start of the exam and keeps track of eye movement during the exam.",
         tech: ["Python", "OpenCV", "Tkinter"],
-        link: "",
+        link: "/",
         github: "https://github.com/Archit1706/PROCTOR_IT-A-Virtual-Invigilator",
     },
     {

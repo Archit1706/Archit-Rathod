@@ -45,12 +45,13 @@ const Skills = () => {
                     {databases.map((database, index) => {
                         return (
                             <div
-                            key={index}
+                                key={index}
                                 className={`p-4 shadow-lg shadow-${database.color} rounded-xl hover:scale-105 ease-in duration-300`}
                             >
                                 <div className="grid grid-cols-2 gap-4 justify-center items-center">
                                     <div className="m-auto">
                                         <Image
+                                            key={index}
                                             src={database.img}
                                             width="80"
                                             height="80"
@@ -72,12 +73,13 @@ const Skills = () => {
                     {tools.map((tool, index) => {
                         return (
                             <div
-                            key={index}
+                                key={index}
                                 className={`p-4 shadow-lg shadow-${tool.color} rounded-xl hover:scale-105 ease-in duration-300`}
                             >
                                 <div className="grid grid-cols-2 gap-4 justify-center items-center">
                                     <div className="m-auto">
                                         <Image
+                                            key={index}
                                             src={tool.img}
                                             width="80"
                                             height="80"
