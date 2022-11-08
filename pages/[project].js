@@ -9,7 +9,7 @@ import { projects } from "../config";
 const ProjectDetails = () => {
     const router = useRouter();
     const { project } = router.query;
-    const projectData = projects.find((p) => p.url === `/${project}`);
+    let projectData = projects.find((p) => p.url === `/${project}`);
     if (!projectData) projectData = projects[0];
 
     return (
