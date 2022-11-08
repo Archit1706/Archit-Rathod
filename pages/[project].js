@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { projects } from "../config";
 
-const project = () => {
+const ProjectDetails = () => {
     const router = useRouter();
     const { project } = router.query;
     const projectData = projects.find((p) => p.url === `/${project}`);
@@ -44,7 +44,7 @@ const project = () => {
                     <a href={projectData.github} target="__blank" rel="noreferrer">
                         <button className="px-8 py-2 mt-4">Code</button>
                     </a>
-                    
+
                 </div>
                 <div className="col-span-4 md:col-span-1 shadow-xl shadow-gray-400 rounded-xl p-4">
                     <div className="p-2">
@@ -71,7 +71,7 @@ const project = () => {
                             <p className="text-gray-600 py-2 flex items-center ">
                                 <RiRadioButtonFill className="pr-2" /> HTML
                             </p> */}
-                            
+
                         </div>
                     </div>
                 </div>
@@ -83,4 +83,4 @@ const project = () => {
     );
 };
 
-export default project;
+export default ProjectDetails;

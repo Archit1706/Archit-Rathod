@@ -14,7 +14,11 @@ const About = () => {
                     </p>
                     <h2 className="py-4">Who I Am</h2>
                     {about.map((para, index) => {
-                        return <p key={index} className="py-2 text-gray-600">{para}</p>;
+                        return (
+                            <p key={index} className="py-2 text-gray-600">
+                                {para}
+                            </p>
+                        );
                     })}
 
                     {/* (Mongo DB, Express, React and Node JS) */}
