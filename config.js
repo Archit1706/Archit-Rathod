@@ -25,7 +25,7 @@ import Netlify from "/public/assets/skills/netlify.png";
 const firstname = "Archit";
 const lastname = "Rathod";
 // const tags = ["Full-Stack", "Web Developer"]
-const tagline = "I have 2 years of experience in working in Web Domain. Currently I am building projects using MERN Stack."
+const tagline = "I have 1 year of experience in working in Web Domain. Currently I am building projects using MERN Stack."
 
 const about = ["I am a Third Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and a DSA Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have two years of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science and Machine Learning. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
 
@@ -107,7 +107,7 @@ const languages = [
         name: "CSS",
         img: Css,
         alt: "CSS Logo",
-        color: "blue-300",
+        color: "blue-400",
     },
     {
         name: "JavaScript",
