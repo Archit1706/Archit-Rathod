@@ -4,6 +4,7 @@ import Emoji from '/public/assets/projects/emoji.jpg'
 import Proctor from '/public/assets/projects/proctor.png'
 import Quotes from '/public/assets/projects/quotes.jpg'
 import Weather from '/public/assets/projects/weather.jpg'
+import Healthy from '/public/assets/projects/healthy.jpg'
 
 // skills images
 import Cpp from "/public/assets/skills/cpp.png";
@@ -49,6 +50,16 @@ const projects = [
         tech: ["React JS", "CSS", "API"],
         link: "https://emoji-nation.netlify.app/",
         github: "https://github.com/Archit1706/Emoji-Nation",
+    },
+    {
+        title: "Healthy Me!",
+        img: Healthy,
+        alt: "Healthy Me!",
+        url: "/healthy-me",
+        desc: "A web application that keeps track of your daily calorie intake by taking inputs about your food and water intake during breakfast, lunch and dinner. It also displays the total calories consumed and the total water intake.",
+        tech: ["React JS", "Tailwind CSS", "Node JS", "Mongo DB", "Food API"],
+        link: "",
+        github: "https://github.com/Archit1706/Codeissance_22_Keyboard-Interrupt",
     },
     {
         title: "Proctor It!",
