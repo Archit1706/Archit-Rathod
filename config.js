@@ -1,5 +1,7 @@
 // project images
 import Edusys from '/public/assets/projects/edusys.png'
+import FirstPaper from '/public/assets/projects/firstpaper.jpg'
+import Moviescape from '/public/assets/projects/moviescape.jpg'
 import Emoji from '/public/assets/projects/emoji.jpg'
 import Proctor from '/public/assets/projects/proctor.png'
 import Quotes from '/public/assets/projects/quotes.jpg'
@@ -40,6 +42,26 @@ const projects = [
         tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB"],
         link: "https://edusys-tsec.netlify.app/",
         github: "https://github.com/Archit1706/EduSys-Frontend",
+    },
+    {
+        title: "First Paper",
+        img: FirstPaper,
+        alt: "First Paper",
+        url: "/first-paper",
+        desc: "First Paper is a place where students, professors, researchers, learners or anyone who aims to write a research paper and is unsure about the domain, subject or topic to choose or wants to gather existing research work and can get suggestions based on their search queries run through our ML model.",
+        tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ArXiv Dataset"],
+        link: "https://first-paper.vercel.app/",
+        github: "https://github.com/Archit1706/First-Paper",
+    },
+    {
+        title: "Moviescape",
+        img: Moviescape,
+        alt: "Moviescape",
+        url: "/mmoviescape",
+        desc: "A web application that displays the latest movies and tv shows. It also displays the details of the movie or tv show when clicked on. Details include IMDB Rating, Release Date, Genres, Overview, etc.",
+        tech: ["React JS", "Tailwind", "TMDB API"],
+        link: "https://moviescape.netlify.app/",
+        github: "https://github.com/Archit1706/Movie-App",
     },
     {
         title: "Emoji Nation",
