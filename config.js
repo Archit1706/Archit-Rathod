@@ -39,7 +39,7 @@ const projects = [
         img: Powerup,
         alt: "Power Up",
         url: "/power-up",
-        desc: "A web application that maps COs, POs and PSOs of a course to the corresponding course outcomes. It automates the entire flow of Outcome Based Education(OBE) System of a college. And reduces the manual work of the faculty.",
+        desc: "Power Up is a health monitoring and diet tracking app that is compatible with a vast range of smart watches and wearable devices that run Wear OS. Data is easily collected with Google Fitness Intergation for a seamless user experience. Users can keep a track of their weight, steps, calories and also set goals, dietary preference and/or health condition. Based on the details, users can chat with differnt AI based chatbots.",
         tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
         link: "https://powerup.sidd065.repl.co/",
         github: "https://github.com/Archit1706/PowerUp",
