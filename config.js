@@ -1,6 +1,6 @@
 // project images
 import Edusys from '/public/assets/projects/edusys.png'
-import Powerup from '/public/assets/projects/powerup.png'
+import Powerup from '/public/assets/projects/power.png'
 import FirstPaper from '/public/assets/projects/firstpaper.jpg'
 import Moviescape from '/public/assets/projects/moviescape.jpg'
 import Emoji from '/public/assets/projects/emoji.jpg'
