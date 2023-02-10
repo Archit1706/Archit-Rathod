@@ -1,7 +1,8 @@
 // project images
 import Edusys from '/public/assets/projects/edusys.png'
-import Powerup from '/public/assets/projects/power.png'
+import PowerUp from '/public/assets/projects/powerup.jpg'
 import FirstPaper from '/public/assets/projects/firstpaper.jpg'
+import SocialVision from '/public/assets/projects/socialvision.jpg'
 import Moviescape from '/public/assets/projects/moviescape.jpg'
 import Emoji from '/public/assets/projects/emoji.jpg'
 import Proctor from '/public/assets/projects/proctor.png'
@@ -36,7 +37,7 @@ const about = ["I am a Third Year Information Technology Student at Thadomal Sha
 const projects = [
     {
         title: "Power Up",
-        img: Powerup,
+        img: PowerUp,
         alt: "Power Up",
         url: "/power-up",
         desc: "Power Up is a health monitoring and diet tracking app that is compatible with a vast range of smart watches and wearable devices that run Wear OS. Data is easily collected with Google Fitness Intergation for a seamless user experience. Users can keep a track of their weight, steps, calories and also set goals, dietary preference and/or health condition. Based on the details, users can chat with differnt AI based chatbots.",
@@ -63,6 +64,16 @@ const projects = [
         tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ArXiv Dataset"],
         link: "https://first-paper.vercel.app/",
         github: "https://github.com/Archit1706/First-Paper",
+    },
+    {
+        title: "Social Vision",
+        img: SocialVision,
+        alt: "Social Vision",
+        url: "/social-vision",
+        desc: "First Paper is a place where students, professors, researchers, learners or anyone who aims to write a research paper and is unsure about the domain, subject or topic to choose or wants to gather existing research work and can get suggestions based on their search queries run through our ML model.",
+        tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ArXiv Dataset"],
+        link: "",
+        github: "https://github.com/Archit1706/SocialVision",
     },
     {
         title: "Moviescape",
