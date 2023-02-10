@@ -1,8 +1,8 @@
 // project images
 import Edusys from './public/assets/projects/edusys.png'
-import PowerUp from './public/assets/projects/powerup.jpg'
+// import PowerUp from './public/assets/projects/powerup.jpg'
 import FirstPaper from './public/assets/projects/firstpaper.jpg'
-import SocialVision from './public/assets/projects/socialvision.jpg'
+// import SocialVision from './public/assets/projects/socialvision.jpg'
 import Moviescape from './public/assets/projects/moviescape.jpg'
 import Emoji from './public/assets/projects/emoji.jpg'
 import Proctor from './public/assets/projects/proctor.png'
@@ -35,16 +35,16 @@ const tagline = "I have 1 year of experience in working in Web Domain. Currently
 const about = ["I am a Third Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and a DSA Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science and Machine Learning. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
 
 const projects = [
-    {
-        title: "Power Up",
-        img: PowerUp,
-        alt: "Power Up",
-        url: "/power-up",
-        desc: "Power Up is a health monitoring and diet tracking app that is compatible with a vast range of smart watches and wearable devices that run Wear OS. Data is easily collected with Google Fitness Intergation for a seamless user experience. Users can keep a track of their weight, steps, calories and also set goals, dietary preference and/or health condition. Based on the details, users can chat with differnt AI based chatbots.",
-        tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
-        link: "https://powerup.sidd065.repl.co/",
-        github: "https://github.com/Archit1706/PowerUp",
-    },
+    // {
+    //     title: "Power Up",
+    //     img: PowerUp,
+    //     alt: "Power Up",
+    //     url: "/power-up",
+    //     desc: "Power Up is a health monitoring and diet tracking app that is compatible with a vast range of smart watches and wearable devices that run Wear OS. Data is easily collected with Google Fitness Intergation for a seamless user experience. Users can keep a track of their weight, steps, calories and also set goals, dietary preference and/or health condition. Based on the details, users can chat with differnt AI based chatbots.",
+    //     tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
+    //     link: "https://powerup.sidd065.repl.co/",
+    //     github: "https://github.com/Archit1706/PowerUp",
+    // },
     {
         title: "Edu Sys",
         img: Edusys,
@@ -65,16 +65,16 @@ const projects = [
         link: "https://first-paper.vercel.app/",
         github: "https://github.com/Archit1706/First-Paper",
     },
-    {
-        title: "Social Vision",
-        img: SocialVision,
-        alt: "Social Vision",
-        url: "/social-vision",
-        desc: "Social Vision is a system that connects people who have posted similar articles in the past within a certain time limit and refers to this as 'coordinated inauthentic behavior' The system also attempts to detect the agenda of these networks using keyword extraction, the propaganda behind them with multi-class classification, and identifies fake news using sentiment analysis. A recommendation system and a word cloud of the most important keywords in the articles were also implemented.",
-        tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ML Models", "Fast API"],
-        link: "",
-        github: "https://github.com/Archit1706/SocialVision",
-    },
+    // {
+    //     title: "Social Vision",
+    //     img: SocialVision,
+    //     alt: "Social Vision",
+    //     url: "/social-vision",
+    //     desc: "Social Vision is a system that connects people who have posted similar articles in the past within a certain time limit and refers to this as 'coordinated inauthentic behavior' The system also attempts to detect the agenda of these networks using keyword extraction, the propaganda behind them with multi-class classification, and identifies fake news using sentiment analysis. A recommendation system and a word cloud of the most important keywords in the articles were also implemented.",
+    //     tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ML Models", "Fast API"],
+    //     link: "",
+    //     github: "https://github.com/Archit1706/SocialVision",
+    // },
     {
         title: "Moviescape",
         img: Moviescape,
