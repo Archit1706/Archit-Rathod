@@ -1,5 +1,6 @@
 // project images
 import Edusys from '/public/assets/projects/edusys.png'
+import Powerup from '/public/assets/projects/powerup.png'
 import FirstPaper from '/public/assets/projects/firstpaper.jpg'
 import Moviescape from '/public/assets/projects/moviescape.jpg'
 import Emoji from '/public/assets/projects/emoji.jpg'
@@ -33,6 +34,16 @@ const tagline = "I have 1 year of experience in working in Web Domain. Currently
 const about = ["I am a Third Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and a DSA Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science and Machine Learning. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
 
 const projects = [
+    {
+        title: "Power Up",
+        img: Powerup,
+        alt: "Power Up",
+        url: "/power-up",
+        desc: "A web application that maps COs, POs and PSOs of a course to the corresponding course outcomes. It automates the entire flow of Outcome Based Education(OBE) System of a college. And reduces the manual work of the faculty.",
+        tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
+        link: "https://powerup.sidd065.repl.co/",
+        github: "https://github.com/Archit1706/PowerUp",
+    },
     {
         title: "Edu Sys",
         img: Edusys,
