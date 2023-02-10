@@ -1,14 +1,14 @@
 // project images
-import Edusys from '/public/assets/projects/edusys.png'
-import PowerUp from '/public/assets/projects/powerup.jpg'
-import FirstPaper from '/public/assets/projects/firstpaper.jpg'
-import SocialVision from '/public/assets/projects/socialvision.jpg'
-import Moviescape from '/public/assets/projects/moviescape.jpg'
-import Emoji from '/public/assets/projects/emoji.jpg'
-import Proctor from '/public/assets/projects/proctor.png'
-import Quotes from '/public/assets/projects/quotes.jpg'
-import Weather from '/public/assets/projects/weather.jpg'
-import Healthy from '/public/assets/projects/healthy.jpg'
+import Edusys from './public/assets/projects/edusys.png'
+import PowerUp from './public/assets/projects/powerup.jpg'
+import FirstPaper from './public/assets/projects/firstpaper.jpg'
+import SocialVision from './public/assets/projects/socialvision.jpg'
+import Moviescape from './public/assets/projects/moviescape.jpg'
+import Emoji from './public/assets/projects/emoji.jpg'
+import Proctor from './public/assets/projects/proctor.png'
+import Quotes from './public/assets/projects/quotes.jpg'
+import Weather from './public/assets/projects/weather.jpg'
+import Healthy from './public/assets/projects/healthy.jpg'
 
 // skills images
 import Cpp from "/public/assets/skills/cpp.png";
