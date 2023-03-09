@@ -2,6 +2,8 @@
 import Edusys from './public/assets/projects/edusys.png'
 import PowerUp from './public/assets/projects/powerup.jpg'
 import FirstPaper from './public/assets/projects/firstpaper.jpg'
+import TheOneFinder from './public/assets/projects/theonefinder.jpg'
+import HomeGinie from './public/assets/projects/homeginie.jpg'
 import SocialVision from './public/assets/projects/socialvision.jpg'
 import Moviescape from './public/assets/projects/moviescape.jpg'
 import Emoji from './public/assets/projects/emoji.jpg'
@@ -72,8 +74,28 @@ const projects = [
         url: "/social-vision",
         desc: "Social Vision is a system that connects people who have posted similar articles in the past within a certain time limit and refers to this as 'coordinated inauthentic behavior' The system also attempts to detect the agenda of these networks using keyword extraction, the propaganda behind them with multi-class classification, and identifies fake news using sentiment analysis. A recommendation system and a word cloud of the most important keywords in the articles were also implemented.",
         tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ML Models", "Fast API"],
-        link: "",
+        link: "https://network-analysis-weld.vercel.app/",
         github: "https://github.com/Archit1706/SocialVision",
+    },
+    {
+        title: "The One Finder",
+        img: TheOneFinder,
+        alt: "The One Finder",
+        url: "/the-one-finder",
+        desc: "The One Finder uses AI-ML technology to help users find their perfect match. Users can calculate their profile score based on the completion of their profile information, and a sentiment analysis feature helps them understand how their bio might be perceived by others. For added convenience and privacy, we have included an end-to-end encrypted chat feature, and a drag-and-drop left and right swipe feature for easy profile matching.To upgrade to the pro model, users can use the integrated Stripe payment system. Overall, our dating website offers a comprehensive solution for finding compatible matches and connecting with other users in a secure and efficient manner.",
+        tech: ["Next JS", "Tailwind", "MongoDB", "Firebase", "Python", "Fast API"],
+        link: "",
+        github: "https://github.com/Archit1706/The-One-Finder",
+    },
+    {
+        title: "Home Ginie",
+        img: HomeGinie,
+        alt: "Home Ginie",
+        url: "/home-ginie",
+        desc: "Home Ginie is a website designed to predict the price of houses in the United States based on various factors including average income, house age, number of rooms and bedrooms, and population. Our advanced algorithm uses these factors to predict the estimated price of a house. Additionally, our website features a gallery of different house images that are displayed when the user hovers over them.",
+        tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ML Models", "Fast API"],
+        link: "https://home-ginie.vercel.app/",
+        github: "https://github.com/Archit1706/Home-Ginie",
     },
     {
         title: "Moviescape",
