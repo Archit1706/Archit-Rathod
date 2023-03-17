@@ -1,6 +1,7 @@
 // project images
 import Edusys from './public/assets/projects/edusys.png'
 import PowerUp from './public/assets/projects/powerup.jpg'
+import CouponVault from './public/assets/projects/couponvault.jpg'
 import FirstPaper from './public/assets/projects/firstpaper.jpg'
 import TheOneFinder from './public/assets/projects/theonefinder.jpg'
 import HomeGinie from './public/assets/projects/homeginie.jpg'
@@ -27,13 +28,15 @@ import Mongo from "/public/assets/skills/mongo.png";
 import Sql from "/public/assets/skills/sql.png";
 import Node from "/public/assets/skills/node.png";
 import ReactImg from "/public/assets/skills/react.png";
+import NextImg from "/public/assets/skills/nextjs.png";
+import Ts from "/public/assets/skills/typescript.png";
+import Vercel from "/public/assets/skills/vercel.png";
 import Netlify from "/public/assets/skills/netlify.png";
 
 const firstname = "Archit";
 const lastname = "Rathod";
-// const tags = ["Full-Stack", "Web Developer"]
-const tagline = "I have 1 year of experience in working in Web Domain. Currently I am building projects using MERN Stack."
-
+const tags = ["Frontend", "Backend", "Python"]
+const tagline = "I have a year of experience in creating websites. Currently I am building Web usint Next JS and learning Machine Learning.";
 const about = ["I am a Third Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and a DSA Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science and Machine Learning. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
 
 const projects = [
@@ -46,6 +49,16 @@ const projects = [
         tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
         link: "https://powerup.sidd065.repl.co/",
         github: "https://github.com/Archit1706/PowerUp",
+    },
+    {
+        title: "Coupon Vault",
+        img: CouponVault,
+        alt: "Coupon Vault",
+        url: "/coupon-vault",
+        desc: "A headless promotion engine that empowers merchants to generate both dynamic and static coupon codes while customizing all the attributes of the coupon code generation process. Our promotion engine is flexible, scalable, and easily integrated into any web/ app platform. Merchants can set specific rules and conditions for generating dynamic coupon codes and create bulk static coupon codes with the ability to set limits on usage, expiration dates, and customer eligibility.",
+        tech: ["Next JS", "Tailwind", "Node JS", "Express", "MongoDB"],
+        link: "https://coupon-vault.vercel.app/",
+        github: "https://github.com/Archit1706/Coupon-Vault",
     },
     {
         title: "Edu Sys",
@@ -84,7 +97,7 @@ const projects = [
         url: "/the-one-finder",
         desc: "The One Finder uses AI-ML technology to help users find their perfect match. Users can calculate their profile score based on the completion of their profile information, and a sentiment analysis feature helps them understand how their bio might be perceived by others. For added convenience and privacy, we have included an end-to-end encrypted chat feature, and a drag-and-drop left and right swipe feature for easy profile matching.To upgrade to the pro model, users can use the integrated Stripe payment system. Overall, our dating website offers a comprehensive solution for finding compatible matches and connecting with other users in a secure and efficient manner.",
         tech: ["Next JS", "Tailwind", "MongoDB", "Firebase", "Python", "Fast API"],
-        link: "",
+        link: "https://the-one-finder.vercel.app/",
         github: "https://github.com/Archit1706/The-One-Finder",
     },
     {
@@ -93,7 +106,7 @@ const projects = [
         alt: "Home Ginie",
         url: "/home-ginie",
         desc: "Home Ginie is a website designed to predict the price of houses in the United States based on various factors including average income, house age, number of rooms and bedrooms, and population. Our advanced algorithm uses these factors to predict the estimated price of a house. Additionally, our website features a gallery of different house images that are displayed when the user hovers over them.",
-        tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ML Models", "Fast API"],
+        tech: ["Next JS", "Tailwind", "Python", "ML Model (Linear Reression)", "Fast API"],
         link: "https://home-ginie.vercel.app/",
         github: "https://github.com/Archit1706/Home-Ginie",
     },
@@ -192,6 +205,12 @@ const languages = [
         alt: "JavaScript Logo",
         color: "yellow-300",
     },
+    {
+        name: "TypeScript",
+        img: Ts,
+        alt: "Typescript Logo",
+        color: "blue-500",
+    },
 ];
 
 const tools = [
@@ -206,6 +225,12 @@ const tools = [
         img: Node,
         alt: "Node Logo",
         color: "lime-400",
+    },
+    {
+        name: "Next JS",
+        img: NextImg,
+        alt: "Next Logo",
+        color: "gray-800",
     },
     {
         name: "Postman",
@@ -236,6 +261,12 @@ const tools = [
         img: Github,
         alt: "Github Logo",
         color: "pink-400",
+    },
+    {
+        name: "Vercel",
+        img: Vercel,
+        alt: "Vercel Logo",
+        color: "zinc-800",
     },
     {
         name: "Netlify",
@@ -269,4 +300,4 @@ const SocialLinks = {
     medium: "https://medium.com/@architrathod77",
 }
 
-export { firstname, lastname, tagline, about, projects, languages, databases, tools, SocialLinks };
+export { firstname, lastname, tags, tagline, about, projects, languages, databases, tools, SocialLinks };
