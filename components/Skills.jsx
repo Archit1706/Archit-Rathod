@@ -46,7 +46,7 @@ const Skills = () => {
                         return (
                             <div
                                 key={index}
-                                className={`p-4 shadow-lg shadow-${database.color} rounded-xl hover:scale-105 ease-in duration-300`}
+                                className={`p-4 shadow-lg shadow-gray-300 hover:shadow-${database.color} rounded-xl hover:scale-105 ease-in duration-300`}
                             >
                                 <div className="grid grid-cols-2 gap-4 justify-center items-center">
                                     <div className="m-auto">
@@ -74,7 +74,7 @@ const Skills = () => {
                         return (
                             <div
                                 key={index}
-                                className={`p-4 shadow-lg shadow-${tool.color} rounded-xl hover:scale-105 ease-in duration-300`}
+                                className={`p-4 shadow-lg shadow-gray-300 hover:shadow-${tool.color} rounded-xl hover:scale-105 ease-in duration-300`}
                             >
                                 <div className="grid grid-cols-2 gap-4 justify-center items-center">
                                     <div className="m-auto">

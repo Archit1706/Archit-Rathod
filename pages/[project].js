@@ -39,12 +39,20 @@ const ProjectDetails = () => {
                     <p>
                         {projectData.desc}
                     </p>
-                    <a href={projectData.link} target="__blank" rel="noreferrer">
-                        <button className="px-8 py-2 mt-4 mr-8">Demo</button>
-                    </a>
-                    <a href={projectData.github} target="__blank" rel="noreferrer">
-                        <button className="px-8 py-2 mt-4">Code</button>
-                    </a>
+                    {projectData.link != "" && (
+                        <a href={projectData.link} target="__blank" rel="noreferrer">
+                            <button className="px-8 py-2 mt-4 mr-8">Demo</button>
+                        </a>
+                    )}
+
+                    {
+                        projectData.github != "" && (
+                            <a href={projectData.github} target="__blank" rel="noreferrer">
+                                <button className="px-8 py-2 mt-4">Code</button>
+                            </a>
+                        )
+                    }
+
 
                 </div>
                 <div className="col-span-4 md:col-span-1 shadow-xl shadow-gray-400 rounded-xl p-4">
@@ -77,7 +85,7 @@ const ProjectDetails = () => {
                     </div>
                 </div>
                 <Link href="/#projects">
-                    <p className="underline cursor-pointer">Back</p>
+                    <p className="underline cursor-pointer text-xl">Back</p>
                 </Link>
             </div>
         </div>

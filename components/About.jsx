@@ -24,7 +24,7 @@ const About = () => {
                     {/* (Mongo DB, Express, React and Node JS) */}
                     <a href="#projects">
                         <p className="py-2 text-gray-600 underline cursor-pointer">
-                            Check Out some of my latest projects
+                            Check out some of my latest projects
                         </p>
                     </a>
                 </div>

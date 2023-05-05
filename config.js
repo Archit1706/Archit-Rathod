@@ -1,7 +1,9 @@
 // project images
 import Edusys from './public/assets/projects/edusys.png'
+import BidBazaar from './public/assets/projects/bidbazaar.jpg'
 import PowerUp from './public/assets/projects/powerup.jpg'
 import CouponVault from './public/assets/projects/couponvault.jpg'
+import Reflections from './public/assets/projects/reflections.png'
 import FirstPaper from './public/assets/projects/firstpaper.jpg'
 import TheOneFinder from './public/assets/projects/theonefinder.jpg'
 import HomeGinie from './public/assets/projects/homeginie.jpg'
@@ -32,14 +34,28 @@ import NextImg from "/public/assets/skills/nextjs.png";
 import Ts from "/public/assets/skills/typescript.png";
 import Vercel from "/public/assets/skills/vercel.png";
 import Netlify from "/public/assets/skills/netlify.png";
+import Aws from "/public/assets/skills/aws.png";
+import Vscode from "/public/assets/skills/vscode.png";
+import Powerbi from "/public/assets/skills/powerbi.png";
 
 const firstname = "Archit";
 const lastname = "Rathod";
 const tags = ["Frontend", "Backend", "Python"]
-const tagline = "I have a year of experience in creating websites. Currently I am building Web usint Next JS and learning Machine Learning.";
-const about = ["I am a Third Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and a DSA Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science and Machine Learning. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
+const tagline = "I have a year of experience in creating websites. Currently I am building Web using Next JS and exploring Machine Learning and AI.";
+const about = ["I am a Third Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science, Machine Learning and AI. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
 
 const projects = [
+    {
+        title: "Bid Bazaar",
+        img: BidBazaar,
+        alt: "Bid Bazaar",
+        url: "/bid-bazaar",
+        desc: "Bid-Bazaar is an online auction platform that enables users to create and bid on auctions for a wide range of products and services like cars, bikes, laptops, mobiles, real estates and government contracts. The platform also has a chat feature where users can chat with each other. We also have live Bidding feature where users can bid on the product in real time. For Government Contracts we use the reverse auction method where the lowest bidder wins the contract.",
+        tech: ["Next JS", "Tailwind", "Node JS", "Express", "MongoDB", "Socket.io", "Cloudinary"],
+        link: "",
+        github: "https://github.com/Archit1706/TIAA-Hackathon",
+
+    },
     {
         title: "Power Up",
         img: PowerUp,
@@ -59,6 +75,16 @@ const projects = [
         tech: ["Next JS", "Tailwind", "Node JS", "Express", "MongoDB"],
         link: "https://coupon-vault.vercel.app/",
         github: "https://github.com/Archit1706/Coupon-Vault",
+    },
+    {
+        title: "Reflections Blogs",
+        img: Reflections,
+        alt: "Reflections Blogs",
+        url: "/reflections",
+        desc: "Reflections, a blogging platform designed to empower individuals to share their unique stories and experiences. Whether you're a seasoned writer or just starting out, Reflections provides the tools you need to craft engaging, thought-provoking content and share it with the world.",
+        tech: ["Next JS", "Tailwind", "ML Models", "Python", "MongoDB", "Open AI"],
+        link: "https://reflections-blog.vercel.app/",
+        github: "https://github.com/Archit1706/Reflections-Blogs",
     },
     {
         title: "Edu Sys",
@@ -147,7 +173,7 @@ const projects = [
         url: "/proctor-it",
         desc: "An Application that detects face before start of the exam and keeps track of eye movement during the exam.",
         tech: ["Python", "OpenCV", "Tkinter"],
-        link: "/",
+        link: "",
         github: "https://github.com/Archit1706/PROCTOR_IT-A-Virtual-Invigilator",
     },
     {
@@ -254,13 +280,13 @@ const tools = [
         name: "Git",
         img: Git,
         alt: "Git Logo",
-        color: "amber-600",
+        color: "orange-600",
     },
     {
         name: "Github",
         img: Github,
         alt: "Github Logo",
-        color: "pink-400",
+        color: "stone-400",
     },
     {
         name: "Vercel",
@@ -272,8 +298,26 @@ const tools = [
         name: "Netlify",
         img: Netlify,
         alt: "Netlify Logo",
-        color: "purple-400",
+        color: "teal-400",
     },
+    {
+        name: "AWS",
+        img: Aws,
+        alt: "AWS Logo",
+        color: "orange-400",
+    },
+    {
+        name: "Power BI",
+        img: Powerbi,
+        alt: "Power BI Logo",
+        color: "amber-400",
+    },
+    {
+        name: "VS Code",
+        img: Vscode,
+        alt: "VS Code Logo",
+        color: "blue-800",
+    }
 ];
 
 const databases = [
