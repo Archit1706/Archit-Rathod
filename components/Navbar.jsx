@@ -182,6 +182,7 @@ const Navbar = () => {
                                     href={SocialLinks.linkedIn}
                                     target="_blank"
                                     rel="noreferrer"
+                                    about="LinkedIn"
                                 >
                                     <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 hover:scale-105 ease-in duration-300 hover:shadow-[#0A66C2] hover:text-[#0A66C2]">
                                         <FaLinkedinIn />
@@ -192,6 +193,7 @@ const Navbar = () => {
                                     href={SocialLinks.twitter}
                                     target="_blank"
                                     rel="noreferrer"
+                                    about="Twitter"
                                 >
                                     <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 hover:scale-105 ease-in duration-300 hover:shadow-[#00acee] hover:text-[#00acee]">
                                         <FaTwitter />
@@ -202,6 +204,7 @@ const Navbar = () => {
                                     href={SocialLinks.github}
                                     target="_blank"
                                     rel="noreferrer"
+                                    about="Github"
                                 >
                                     <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 hover:scale-105 ease-in duration-300 hover:shadow-zinc-700 hover:text-zinc-700">
                                         <FaGithub />
@@ -212,6 +215,7 @@ const Navbar = () => {
                                     href={"mailto:" + SocialLinks.mail}
                                     target="_blank"
                                     rel="noreferrer"
+                                    about="Mail"
                                 >
                                     <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 hover:scale-105 ease-in duration-300 hover:shadow-red-500 hover:text-red-500">
                                         <FiMail />
@@ -222,6 +226,7 @@ const Navbar = () => {
                                     href={SocialLinks.leetcode}
                                     target="_blank"
                                     rel="noreferrer"
+                                    about="Leetcode"
                                 >
                                     <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 hover:scale-105 ease-in duration-300 hover:shadow-yellow-300 hover:text-yellow-500">
                                         <SiLeetcode />
@@ -232,6 +237,7 @@ const Navbar = () => {
                                     href={SocialLinks.medium}
                                     target="_blank"
                                     rel="noreferrer"
+                                    about="Medium"
                                 >
                                     <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 hover:scale-105 ease-in duration-300 hover:shadow-slate-800">
                                         <BsMedium />

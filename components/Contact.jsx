@@ -10,17 +10,12 @@ import { firstname, lastname, SocialLinks } from "../config";
 const Contact = () => {
     const [formData, setFormData] = useState({});
 
-    useEffect(() => {
-        console.log(formData);
-    }, [formData]);
-
     const changeHandler = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(formData);
     };
 
     return (
@@ -129,26 +124,34 @@ const Contact = () => {
                             >
                                 <div className="grid md:grid-cols-2 gap-4 w-full py-2">
                                     <div className="flex flex-col">
-                                        <label className="uppercase text-sm py-2">
+                                        <label
+                                            className="uppercase text-sm py-2"
+                                            htmlFor="name"
+                                        >
                                             Name
                                         </label>
                                         <input
                                             className="border-2 rounded-lg p-3 flex border-gray-300"
                                             type="text"
                                             name="name"
+                                            id="name"
                                             onChange={changeHandler}
                                             required
                                         />
                                     </div>
 
                                     <div className="flex flex-col">
-                                        <label className="uppercase text-sm py-2">
+                                        <label
+                                            className="uppercase text-sm py-2"
+                                            htmlFor="phone"
+                                        >
                                             Phone No.
                                         </label>
                                         <input
                                             className="border-2 rounded-lg p-3 flex border-gray-300"
                                             type="tel"
                                             name="phone"
+                                            id="phone"
                                             onChange={changeHandler}
                                             // pattern="[1-9]{1}[0-9]{9}"
                                             // required
@@ -156,39 +159,51 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col py-2">
-                                    <label className="uppercase text-sm py-2">
+                                    <label
+                                        className="uppercase text-sm py-2"
+                                        htmlFor="email"
+                                    >
                                         Email
                                     </label>
                                     <input
                                         className="border-2 rounded-lg p-3 flex border-gray-300"
                                         type="email"
                                         name="email"
+                                        id="email"
                                         onChange={changeHandler}
                                         required
                                     />
                                 </div>
 
                                 <div className="flex flex-col py-2">
-                                    <label className="uppercase text-sm py-2">
+                                    <label
+                                        className="uppercase text-sm py-2"
+                                        htmlFor="subject"
+                                    >
                                         Subject
                                     </label>
                                     <input
                                         className="border-2 rounded-lg p-3 flex border-gray-300"
                                         type="text"
                                         name="subject"
+                                        id="subject"
                                         onChange={changeHandler}
                                         required
                                     />
                                 </div>
 
                                 <div className="flex flex-col py-2">
-                                    <label className="uppercase text-sm py-2">
+                                    <label
+                                        className="uppercase text-sm py-2"
+                                        htmlFor="message"
+                                    >
                                         Message
                                     </label>
                                     <textarea
                                         className="border-2 rounded-lg p-3 flex border-gray-300"
                                         rows="7"
                                         name="message"
+                                        id="message"
                                         onChange={changeHandler}
                                         required
                                     ></textarea>
