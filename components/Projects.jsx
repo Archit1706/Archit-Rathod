@@ -15,7 +15,7 @@ const Projects = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => {
                         return (
-                            <AnimationWrapper>
+                            <AnimationWrapper key={index}>
                                 <div
                                     key={index}
                                     className="relative flex items justify-center h-auto shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#5651e5] to-[#709dff]"

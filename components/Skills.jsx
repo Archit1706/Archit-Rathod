@@ -17,7 +17,7 @@ const Skills = () => {
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-8">
                     {languages.map((language, index) => {
                         return (
-                            <AnimationWrapper>
+                            <AnimationWrapper key={index}>
                                 <div
                                     key={index}
                                     className={`p-4 shadow-lg shadow-gray-300 hover:shadow-${language.color} rounded-xl hover:scale-105 ease-in duration-300`}
@@ -47,7 +47,7 @@ const Skills = () => {
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-8">
                     {databases.map((database, index) => {
                         return (
-                            <AnimationWrapper>
+                            <AnimationWrapper key={index}>
                                 <div
                                     key={index}
                                     className={`p-4 shadow-lg shadow-gray-300 hover:shadow-${database.color} rounded-xl hover:scale-105 ease-in duration-300`}
@@ -77,7 +77,7 @@ const Skills = () => {
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-8">
                     {tools.map((tool, index) => {
                         return (
-                            <AnimationWrapper>
+                            <AnimationWrapper key={index}>
                                 <div
                                     key={index}
                                     className={`p-4 shadow-lg shadow-gray-300 hover:shadow-${tool.color} rounded-xl hover:scale-105 ease-in duration-300`}
