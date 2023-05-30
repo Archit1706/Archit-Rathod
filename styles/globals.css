@@ -32,7 +32,7 @@ html {
     }
     button,
     button[type="submit"] {
-        @apply cursor-pointer shadow-xl shadow-gray-400 rounded-lg uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white;
+        @apply cursor-pointer shadow-xl shadow-gray-400 rounded-lg uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white hover:scale-105;
     }
     .logo {
         @apply font-["Ubuntu"];

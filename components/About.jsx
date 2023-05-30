@@ -3,7 +3,7 @@ import { about } from "../config";
 
 const About = () => {
     return (
-        <div
+        <section
             id="about"
             className="w-full md:h-screen p-2 flex items-center pt-16 py-8"
         >
@@ -36,7 +36,7 @@ const About = () => {
                     />
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -4,14 +4,34 @@ import { BsMedium } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import { SiLeetcode } from "react-icons/si";
 import { firstname, lastname, tagline, SocialLinks } from "../config";
+import { motion } from "framer-motion";
 
 const Main = () => {
+    const container = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delayChildren: 0.5,
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const item = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+        },
+    };
     return (
-        <div id="home" className="w-full h-screen text-center">
+        <section id="home" className="w-full h-screen text-center">
             <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
                 <div className="">
                     <p className="mt-32 md:mt-16 uppercase tracking-widest text-sm text-gray-600">
-                        Hello There!
+                        Hello There 🤟!
                     </p>
                     <h1 className="py-4 text-gray-700">
                         I&apos;m{" "}
@@ -30,75 +50,123 @@ const Main = () => {
                         {tagline}
                     </p>
                     <div className="flex items-center justify-evenly max-w-[330] m-auto py-4">
-                        <a
+                        <motion.a
                             href={SocialLinks.linkedIn}
                             target="_blank"
                             rel="noreferrer"
                             about="LinkedIn"
+                            initial={{ rotate: 180, scale: 0 }}
+                            animate={{ rotate: 360, scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: 0.4,
+                            }}
                         >
                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-6 hover:scale-110 ease-in duration-300 hover:shadow-[#0A66C2] hover:text-[#0A66C2]">
                                 <FaLinkedinIn />
                             </div>
-                        </a>
+                        </motion.a>
 
-                        <a
+                        <motion.a
                             href={SocialLinks.twitter}
                             target="_blank"
                             rel="noreferrer"
                             about="Twitter"
+                            initial={{ rotate: 180, scale: 0 }}
+                            animate={{ rotate: 360, scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: 0.5,
+                            }}
                         >
                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-6 hover:scale-110 ease-in duration-300 hover:shadow-[#00acee] hover:text-[#00acee]">
                                 <FaTwitter />
                             </div>
-                        </a>
+                        </motion.a>
 
-                        <a
+                        <motion.a
                             href={SocialLinks.github}
                             target="_blank"
                             rel="noreferrer"
                             about="Github"
+                            initial={{ rotate: 180, scale: 0 }}
+                            animate={{ rotate: 360, scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: 0.6,
+                            }}
                         >
                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-6 hover:scale-110 ease-in duration-300 hover:shadow-zinc-700 hover:text-zinc-700">
                                 <FaGithub />
                             </div>
-                        </a>
+                        </motion.a>
 
-                        <a
+                        <motion.a
                             href={"mailto:" + SocialLinks.mail}
                             target="_blank"
                             rel="noreferrer"
                             about="Mail"
+                            initial={{ rotate: 180, scale: 0 }}
+                            animate={{ rotate: 360, scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: 0.5,
+                            }}
                         >
                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-6 hover:scale-110 ease-in duration-300 hover:shadow-red-500 hover:text-red-500">
                                 <FiMail />
                             </div>
-                        </a>
+                        </motion.a>
 
-                        <a
+                        <motion.a
                             href={SocialLinks.leetcode}
                             target="_blank"
                             rel="noreferrer"
                             about="Leetcode"
+                            initial={{ rotate: 180, scale: 0 }}
+                            animate={{ rotate: 360, scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: 0.4,
+                            }}
                         >
                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-6 hover:scale-110 ease-in duration-300 hover:shadow-yellow-300 hover:text-yellow-500">
                                 <SiLeetcode />
                             </div>
-                        </a>
+                        </motion.a>
 
-                        <a
+                        <motion.a
                             href={SocialLinks.medium}
                             target="_blank"
                             rel="noreferrer"
                             about="Medium"
+                            initial={{ rotate: 180, scale: 0 }}
+                            animate={{ rotate: 360, scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: 0.5,
+                            }}
                         >
                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-6 hover:scale-110 ease-in duration-300 hover:shadow-slate-800 hover:text-slate-800">
                                 <BsMedium />
                             </div>
-                        </a>
+                        </motion.a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

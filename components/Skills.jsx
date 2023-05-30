@@ -5,7 +5,7 @@ import AnimationWrapper from "./AnimationWrapper";
 
 const Skills = () => {
     return (
-        <div id="skills" className="w-full p-2 pt-20 ">
+        <section id="skills" className="w-full p-2 pt-20 ">
             <div className="max-w-[1240px] mx-auto flex flex-col justify-center">
                 <p className="uppercase text-xl tracking-widest text-[#5651e5]">
                     Skills
@@ -102,7 +102,7 @@ const Skills = () => {
                     })}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

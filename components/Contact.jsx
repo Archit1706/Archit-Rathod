@@ -19,7 +19,7 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="w-full pt-8 lg:h-screen">
+        <section id="contact" className="w-full pt-8 lg:h-screen">
             <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
                 <p className="uppercase text-xl tracking-widest text-[#5651e5]">
                     Contact
@@ -227,7 +227,7 @@ const Contact = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

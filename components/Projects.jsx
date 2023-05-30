@@ -6,7 +6,7 @@ import { projects } from "../config";
 
 const Projects = () => {
     return (
-        <div id="projects" className="w-full h-auto P-2">
+        <section id="projects" className="w-full h-auto P-2">
             <div className="max-w-[1240px] mx-auto px-2 py-16">
                 <p className="py-4 uppercase text-xl tracking-widest text-[#5651e5]">
                     Projects
@@ -40,7 +40,7 @@ const Projects = () => {
                                             href={project.url}
                                             about={project.desc}
                                         >
-                                            <p className="text-center py-3 bg-white text-gray-700 uppercase font-bold text-large cursor-pointer rounded-xl ">
+                                            <p className="text-center py-3 bg-white text-gray-700 uppercase font-bold text-large cursor-pointer rounded-xl hover:text-[#5651e5] hover:scale-95">
                                                 Read More
                                             </p>
                                         </Link>
@@ -51,7 +51,7 @@ const Projects = () => {
                     })}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
