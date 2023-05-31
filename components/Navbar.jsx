@@ -178,7 +178,7 @@ const Navbar = () => {
                                 <p className="uppercase tracking-widest text-[#5651e5]">
                                     Let&apos;s Connect
                                 </p>
-                                <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
+                                <div className=" flex flex-row flex-wrap gap-4 justify-center items-center my-4 w-full sm:w-[80%]">
                                     <a
                                         href={SocialLinks.linkedIn}
                                         target="_blank"

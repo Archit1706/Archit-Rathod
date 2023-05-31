@@ -55,12 +55,12 @@ export default function Home() {
       <AnimationWrapper>
         <About />
       </AnimationWrapper>
-      <AnimationWrapper>
-        <Skills />
-      </AnimationWrapper>
-      <AnimationWrapper>
-        <Projects />
-      </AnimationWrapper>
+      {/* <AnimationWrapper> */}
+      <Skills />
+      {/* </AnimationWrapper> */}
+      {/* <AnimationWrapper> */}
+      <Projects />
+      {/* </AnimationWrapper> */}
       <AnimationWrapper>
         <Contact />
       </AnimationWrapper>

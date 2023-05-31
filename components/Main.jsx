@@ -7,25 +7,6 @@ import { firstname, lastname, tagline, SocialLinks } from "../config";
 import { motion } from "framer-motion";
 
 const Main = () => {
-    const container = {
-        hidden: { opacity: 1, scale: 0 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                delayChildren: 0.5,
-                staggerChildren: 0.2,
-            },
-        },
-    };
-
-    const item = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-        },
-    };
     return (
         <section id="home" className="w-full h-screen text-center">
             <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
