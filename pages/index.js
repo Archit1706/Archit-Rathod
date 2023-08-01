@@ -32,7 +32,7 @@ export default function Home() {
         <meta property="og:url" content="https://www.architrathod.codes/" />
         <meta property="og:title" content="Archit Rathod | Portfolio" />
         <meta property="og:description" content="Full-Stack Web Developer, MERN Stack, Next.js, Proficient in Python and C++." />
-        <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+        <meta property="og:image" content="https://www.architrathod.codes/assets/portfolio.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Archit Rathod" />
@@ -42,7 +42,7 @@ export default function Home() {
         <meta property="twitter:url" content="https://www.architrathod.codes/" />
         <meta property="twitter:title" content="Archit Rathod | Portfolio" />
         <meta property="twitter:description" content="Full-Stack Web Developer, MERN Stack, Next.js, Proficient in Python and C++." />
-        <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+        <meta property="twitter:image" content="https://www.architrathod.codes/assets/portfolio.jpg" />
         <meta name="twitter:site" content="@ArchitRathod_17" />
         <meta name="twitter:creator" content="@ArchitRathod_17" />
 
