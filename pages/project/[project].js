@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import Edusys from "../public/assets/projects/edusys.png";
 import Image from "next/image";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { projects } from "../config";
-import AnimationWrapper from "../components/AnimationWrapper";
+import { projects } from "../../config";
+import AnimationWrapper from "../../components/AnimationWrapper";
 
 const ProjectDetails = () => {
     const router = useRouter();

@@ -41,8 +41,8 @@ import Powerbi from "/public/assets/skills/powerbi.png";
 const firstname = "Archit";
 const lastname = "Rathod";
 const tags = ["Frontend", "Backend", "Python"]
-const tagline = "I have a year of experience in creating websites. Currently I am building Web using Next JS and exploring Machine Learning and AI.";
-const about = ["I am a Third Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science, Machine Learning and AI. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
+const tagline = "I have a year of experience in creating websites. Currently I am building Web using Next.js and exploring Machine Learning and AI.";
+const about = ["I am a Final Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science, Machine Learning and AI. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
 
 const projects = [
     {

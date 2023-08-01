@@ -22,7 +22,7 @@ const Main = () => {
                     </h1>
                     <h1 className="py-2 text-gray-700">
                         A{" "}
-                        <span className=" underline decoration-[#5651e5] decoration-wavy decoration-[3px]">
+                        <span className=" text-transparent bg-clip-text bg-gradient-to-l from-violet-700 to-pink-600 transition-colors duration-300">
                             Full-Stack
                         </span>{" "}
                         Web Developer

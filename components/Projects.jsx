@@ -37,7 +37,7 @@ const Projects = () => {
                                             )}
                                         </p>
                                         <Link
-                                            href={project.url}
+                                            href={"/project" + project.url}
                                             about={project.desc}
                                         >
                                             <p className="text-center py-3 bg-white text-gray-700 uppercase font-bold text-large cursor-pointer rounded-xl hover:text-[#5651e5] hover:scale-95">
