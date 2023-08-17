@@ -69,16 +69,6 @@ const projects = [
 
     },
     {
-        title: "Power Up",
-        img: PowerUp,
-        alt: "Power Up",
-        url: "/power-up",
-        desc: "Power Up is a health monitoring and diet tracking app that is compatible with a vast range of smart watches and wearable devices that run Wear OS. Data is easily collected with Google Fitness Intergation for a seamless user experience. Users can keep a track of their weight, steps, calories and also set goals, dietary preference and/or health condition. Based on the details, users can chat with differnt AI based chatbots.",
-        tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
-        link: "https://powerup.sidd065.repl.co/",
-        github: "https://github.com/Archit1706/PowerUp",
-    },
-    {
         title: "Coupon Vault",
         img: CouponVault,
         alt: "Coupon Vault",
@@ -99,6 +89,16 @@ const projects = [
         github: "https://github.com/Archit1706/Reflections-Blogs",
     },
     {
+        title: "Power Up",
+        img: PowerUp,
+        alt: "Power Up",
+        url: "/power-up",
+        desc: "Power Up is a health monitoring and diet tracking app that is compatible with a vast range of smart watches and wearable devices that run Wear OS. Data is easily collected with Google Fitness Intergation for a seamless user experience. Users can keep a track of their weight, steps, calories and also set goals, dietary preference and/or health condition. Based on the details, users can chat with differnt AI based chatbots.",
+        tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
+        link: "https://powerup.sidd065.repl.co/",
+        github: "https://github.com/Archit1706/PowerUp",
+    },
+    {
         title: "Edu Sys",
         img: Edusys,
         alt: "Edu Sys",
@@ -109,16 +109,6 @@ const projects = [
         github: "https://github.com/Archit1706/EduSys-Frontend",
     },
     {
-        title: "First Paper",
-        img: FirstPaper,
-        alt: "First Paper",
-        url: "/first-paper",
-        desc: "First Paper is a place where students, professors, researchers, learners or anyone who aims to write a research paper and is unsure about the domain, subject or topic to choose or wants to gather existing research work and can get suggestions based on their search queries run through our ML model.",
-        tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ArXiv Dataset"],
-        link: "https://first-paper.vercel.app/",
-        github: "https://github.com/Archit1706/First-Paper",
-    },
-    {
         title: "Social Vision",
         img: SocialVision,
         alt: "Social Vision",
@@ -127,6 +117,16 @@ const projects = [
         tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ML Models", "Fast API"],
         link: "https://network-analysis-weld.vercel.app/",
         github: "https://github.com/Archit1706/SocialVision",
+    },
+    {
+        title: "First Paper",
+        img: FirstPaper,
+        alt: "First Paper",
+        url: "/first-paper",
+        desc: "First Paper is a place where students, professors, researchers, learners or anyone who aims to write a research paper and is unsure about the domain, subject or topic to choose or wants to gather existing research work and can get suggestions based on their search queries run through our ML model.",
+        tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ArXiv Dataset"],
+        link: "https://first-paper.vercel.app/",
+        github: "https://github.com/Archit1706/First-Paper",
     },
     {
         title: "The One Finder",
