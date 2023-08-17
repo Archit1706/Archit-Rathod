@@ -1,5 +1,6 @@
 // project images
 import Edusys from './public/assets/projects/edusys.png'
+import AttireAI from './public/assets/projects/attireai.jpg'
 import BidBazaar from './public/assets/projects/bidbazaar.jpg'
 import PowerUp from './public/assets/projects/powerup.jpg'
 import CouponVault from './public/assets/projects/couponvault.jpg'
@@ -45,6 +46,17 @@ const tagline = "I have a year of experience in creating websites. Currently I a
 const about = ["I am a Final Year Information Technology Student at Thadomal Shahani Engineering College, Bandra. I am a Full Stack Developer and Problem Solving Enthusiast. I am a self-taught programmer and I am always looking for new opportunities to learn and grow.", "I have one year of experience in Web Development majorly in MERN Stack. I am currently working on my skills in the field of Data Science, Machine Learning and AI. I also participate in many hackathons.", "In my leisure time I like reading stuff revolving around finance and investments. I also like watching tennis and Scifi movies."];
 
 const projects = [
+    {
+        title: "Attire AI",
+        img: AttireAI,
+        alt: "Attire AI",
+        url: "/attire-ai",
+        desc: "AttireAI: Your ultimate fashion companion powered by Gen AI. Discover and create personalized fashion outfits with ease through natural, conversational interactions. Revolutionizing the way you explore fashion, AttireAI analyzes your style preferences, past purchases, and social media trends to curate tailor-made outfit recommendations. Elevate your shopping experience on Flipkart with cohesive and trendy outfit ideas that reflect your unique fashion taste.",
+        tech: ["Next JS", "Tailwind", "Node JS", "LangChain", "LLama", "NLTK"],
+        link: "https://attire-ai.vercel.app",
+        github: "",
+
+    },
     {
         title: "Bid Bazaar",
         img: BidBazaar,
