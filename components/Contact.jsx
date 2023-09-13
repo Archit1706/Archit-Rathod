@@ -16,6 +16,7 @@ const Contact = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        setFormData({});
     };
 
     return (
@@ -188,7 +189,7 @@ const Contact = () => {
                                         name="subject"
                                         id="subject"
                                         onChange={changeHandler}
-                                        required
+                                        // required
                                     />
                                 </div>
 

@@ -1,4 +1,5 @@
 // project images
+import VoiceSentri from '../public/assets/projects/voicesentri.jpg'
 import Edusys from './public/assets/projects/edusys.png'
 import AttireAI from './public/assets/projects/attireai.jpg'
 import BidBazaar from './public/assets/projects/bidbazaar.jpg'
@@ -36,8 +37,10 @@ import Ts from "/public/assets/skills/typescript.png";
 import Vercel from "/public/assets/skills/vercel.png";
 import Netlify from "/public/assets/skills/netlify.png";
 import Aws from "/public/assets/skills/aws.png";
+import Gcp from "/public/assets/skills/gcp.png";
 import Vscode from "/public/assets/skills/vscode.png";
 import Powerbi from "/public/assets/skills/powerbi.png";
+import FastApi from "/public/assets/skills/fastapi.png";
 
 const firstname = "Archit";
 const lastname = "Rathod";
@@ -47,12 +50,23 @@ const about = ["I am a Final Year Information Technology Student at Thadomal Sha
 
 const projects = [
     {
+        title: "Voice Sentri",
+        img: VoiceSentri,
+        alt: "Voice Sentri",
+        url: "/voicesentri",
+        desc: "VoiceSentri: A call centre solution featuring dual dashboards for rookies and managers, offering distinct access controls and insightful features: chat analysis for chat summaries, sentiment scores, and key words; audio sentiment analysis with seven emotion classification using librosa, and a robust reporting system with MongoDB integration for easy review of sentiment analysis results.",
+        tech: ["Next JS", "Tailwind", "Node JS", "FastAPI", "Librosa", "Transformers"],
+        link: "https://voice-sentri.vercel.app/",
+        github: "https://github.com/Archit1706/VoiceSentri",
+
+    },
+    {
         title: "Attire AI",
         img: AttireAI,
         alt: "Attire AI",
         url: "/attire-ai",
         desc: "AttireAI: Your ultimate fashion companion powered by Gen AI. Discover and create personalized fashion outfits with ease through natural, conversational interactions. Revolutionizing the way you explore fashion, AttireAI analyzes your style preferences, past purchases, and social media trends to curate tailor-made outfit recommendations. Elevate your shopping experience on Flipkart with cohesive and trendy outfit ideas that reflect your unique fashion taste.",
-        tech: ["Next JS", "Tailwind", "Node JS", "LangChain", "LLama", "NLTK"],
+        tech: ["Next JS", "Tailwind", "Flask", "LangChain", "LLama", "NLTK"],
         link: "https://attire-ai.vercel.app",
         github: "",
 
@@ -271,6 +285,12 @@ const tools = [
         color: "gray-800",
     },
     {
+        name: "Fast API",
+        img: FastApi,
+        alt: "Fast API Logo",
+        color: "lime-400",
+    },
+    {
         name: "Postman",
         img: Postman,
         alt: "Postman Logo",
@@ -317,6 +337,12 @@ const tools = [
         img: Aws,
         alt: "AWS Logo",
         color: "orange-400",
+    },
+    {
+        name: "GCP",
+        img: Gcp,
+        alt: "GCP Logo",
+        color: "blue-600",
     },
     {
         name: "Power BI",
