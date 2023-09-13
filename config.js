@@ -1,5 +1,5 @@
 // project images
-import VoiceSentri from '../public/assets/projects/voicesentri.jpg'
+import VoiceSentri from './public/assets/projects/voicesentri.jpg'
 import Edusys from './public/assets/projects/edusys.png'
 import AttireAI from './public/assets/projects/attireai.jpg'
 import BidBazaar from './public/assets/projects/bidbazaar.jpg'
