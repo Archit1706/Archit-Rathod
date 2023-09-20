@@ -27,6 +27,7 @@ import Postman from "/public/assets/skills/postman.png";
 import Git from "/public/assets/skills/git.png";
 import Github from "/public/assets/skills/github.png";
 import Tailwind from "/public/assets/skills/tailwind.png";
+import Flask from "public/assets/skills/flask.png"
 import Jquery from "/public/assets/skills/jquery.png";
 import Mongo from "/public/assets/skills/mongo.png";
 import Sql from "/public/assets/skills/sql.png";
@@ -289,6 +290,12 @@ const tools = [
         img: FastApi,
         alt: "Fast API Logo",
         color: "lime-400",
+    },
+    {
+        name: "Flask",
+        img: Flask,
+        alt: "Fast API Logo",
+        color: "sky-400",
     },
     {
         name: "Postman",
