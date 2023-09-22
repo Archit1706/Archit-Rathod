@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
 import { BsMedium } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import { SiLeetcode } from "react-icons/si";
@@ -63,16 +64,6 @@ const Contact = () => {
                                         </a>
 
                                         <a
-                                            href={SocialLinks.twitter}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-[#00acee] hover:text-[#00acee]">
-                                                <FaTwitter />
-                                            </div>
-                                        </a>
-
-                                        <a
                                             href={SocialLinks.github}
                                             target="_blank"
                                             rel="noreferrer"
@@ -89,6 +80,16 @@ const Contact = () => {
                                         >
                                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-red-500 hover:text-red-500">
                                                 <FiMail />
+                                            </div>
+                                        </a>
+
+                                        <a
+                                            href={SocialLinks.twitter}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-black/70 hover:text-black">
+                                                <RiTwitterXFill />
                                             </div>
                                         </a>
 
