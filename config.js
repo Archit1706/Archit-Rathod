@@ -386,7 +386,7 @@ const SocialLinks = {
     github: "https://github.com/Archit1706",
     mail: "architrathod77@gmail.com",
     leetcode: "https://leetcode.com/Archit176/",
-    medium: "https://medium.com/@architrathod77",
+    medium: "/blogs",
 }
 
 export { firstname, lastname, tags, tagline, about, projects, languages, databases, tools, SocialLinks };
