@@ -29,9 +29,13 @@ const AnimationWrapper = ({ children }) => {
     // };
 
     useEffect(() => {
-        const observer = new IntersectionObserver(handleIntersection, {
-            threshold: 0.2, // Adjust this threshold as needed
-        });
+        const observer = new IntersectionObserver(
+            handleIntersection,
+            {
+                threshold: 0.2, // Adjust this threshold as needed
+            },
+            [handleIntersection]
+        );
 
         if (sectionRef.current) {
             observer.observe(sectionRef.current);

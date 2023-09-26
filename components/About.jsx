@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { about } from "../config";
 
 const About = () => {
@@ -29,9 +30,11 @@ const About = () => {
                     </a>
                 </div>
                 <div className="w-[60%] md:w-[90%] my-auto mx-auto rounded-xl shadow-xl shadow-gray-400 p-3 flex items-center justify-center hover:scale-105 ease-in duration-300">
-                    <img
+                    <Image
+                        height={500}
+                        width={500}
                         className="rounded-xl"
-                        src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbXB1dGVyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+                        src={"/assets/about.jpg"}
                         alt="about-pc-pic"
                     />
                 </div>

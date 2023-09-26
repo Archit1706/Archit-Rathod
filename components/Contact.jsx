@@ -7,6 +7,7 @@ import { SiLeetcode } from "react-icons/si";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import Link from "next/link";
 import { firstname, lastname, SocialLinks } from "../config";
+import Image from "next/image";
 
 const Contact = () => {
     const [formData, setFormData] = useState({});
@@ -31,10 +32,12 @@ const Contact = () => {
                     <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
                         <div className="lg:p-4 h-full">
                             <div>
-                                <img
+                                <Image
                                     className="rounded-xl hover:scale-105 ease-in duration-300"
-                                    src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvbnRhY3R8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+                                    src={"/assets/contact.jpeg"}
                                     alt="contact-pic"
+                                    height={500}
+                                    width={500}
                                 />
                             </div>
 

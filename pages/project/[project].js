@@ -14,7 +14,7 @@ const ProjectDetails = () => {
 
     useEffect(() => {
         document.title = projectData.title + " | Archit Rathod";
-    }, [])
+    }, [projectData])
 
     return (
         <AnimationWrapper>

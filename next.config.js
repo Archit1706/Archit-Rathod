@@ -17,6 +17,9 @@ module.exports = withNextra(
       defaultLocale: 'en-US'
     },
     reactStrictMode: true,
+    images: {
+      domains: ['images.unsplash.com']
+    }
   },
 )
 
