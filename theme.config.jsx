@@ -7,6 +7,7 @@ export default {
             )}
             {meta.tag && <meta name="keywords" content={meta.tag} />}
             {meta.author && <meta name="author" content={meta.author} />}
+            <title>{title} - Archit Blog&apos;s</title>
         </>
     ),
     readMore: "Read More →",
