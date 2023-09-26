@@ -11,7 +11,7 @@ export default {
     ),
     readMore: "Read More →",
     postFooter: null,
-    darkMode: false,
+    darkMode: true,
     // navs: [
     //     {
     //         url: "https://github.com/shuding/nextra",
