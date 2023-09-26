@@ -10,7 +10,7 @@ import AnimationWrapper from '../components/AnimationWrapper'
 
 export default function Home() {
   return (
-    <div>
+    <div className=''>
       <Head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

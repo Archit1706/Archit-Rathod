@@ -3,7 +3,7 @@ title: Next.js Pages
 date: 2021/3/18
 description: Learn more about Next.js pages.
 tag: web development
-author: You
+author: Archit Rathod
 ---
 
 # Next.js Pages
@@ -12,12 +12,22 @@ In Next.js, a **page** is a [React Component](https://reactjs.org/docs/component
 
 **Example**: If you create `pages/about.js` that exports a React component like below, it will be accessible at `/about`.
 
-```
+```js copy filename="index.js"
 function About() {
-  return <div>About</div>
+    return <div>About</div>;
 }
 
-export default About
+export default About;
+```
+
+```ansi
+[0m [0;32m✓[0m [0;2msrc/[0mindex[0;2m.test.ts (1)[0m
+  [0;2m Test Files [0m [0;1;32m1 passed[0;98m (1)[0m
+  [0;2m      Tests [0m [0;1;32m1 passed[0;98m (1)[0m
+  [0;2m   Start at [0m 23:32:41
+  [0;2m   Duration [0m 11ms
+  [42;1;39;0m PASS [0;32m Waiting for file changes...[0m
+         [0;2mpress [0;1mh[0;2m to show help, press [0;1mq[0;2m to quit
 ```
 
 ### Pages with Dynamic Routes
