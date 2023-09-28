@@ -46,7 +46,7 @@ const AnimationWrapper = ({ children }) => {
                 observer.unobserve(sectionRef.current);
             }
         };
-    }, []);
+    }, [handleIntersection, sectionRef.current]);
 
     return (
         <motion.div
