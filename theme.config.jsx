@@ -46,6 +46,16 @@ export default {
                 {children}
             </h2>
         ),
+        img: ({ src, alt }) => (
+            <img
+                src={src}
+                alt={alt}
+                style={{
+                    maxWidth: "100%",
+                    border: "1px solid #ddd",
+                }}
+            />
+        ),
     },
     cusdis: {
         appId: "0ef50a7d-37e0-4d00-a269-397b79156b21",
