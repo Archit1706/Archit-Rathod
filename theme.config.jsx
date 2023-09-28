@@ -71,7 +71,7 @@ export default {
     readMore: "Read More →",
     postFooter: null,
     // dateFormatter: (date) => `Last updated at ${date.toDateString()}`,
-    // darkMode: true,
+    darkMode: true,
     // navs: [
     //     {
     //         url: "https://github.com/shuding/nextra",
