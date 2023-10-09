@@ -20,16 +20,6 @@ function About() {
 export default About;
 ```
 
-```ansi
-[0m [0;32m✓[0m [0;2msrc/[0mindex[0;2m.test.ts (1)[0m
-  [0;2m Test Files [0m [0;1;32m1 passed[0;98m (1)[0m
-  [0;2m      Tests [0m [0;1;32m1 passed[0;98m (1)[0m
-  [0;2m   Start at [0m 23:32:41
-  [0;2m   Duration [0m 11ms
-  [42;1;39;0m PASS [0;32m Waiting for file changes...[0m
-         [0;2mpress [0;1mh[0;2m to show help, press [0;1mq[0;2m to quit
-```
-
 ### Pages with Dynamic Routes
 
 Next.js supports pages with dynamic routes. For example, if you create a file called `pages/posts/[id].js`, then it will be accessible at `posts/1`, `posts/2`, etc.
@@ -246,3 +236,13 @@ We've discussed two forms of pre-rendering for Next.js.
 
 -   **Static Generation (Recommended):** The HTML is generated at **build time** and will be reused on each request. To make a page use Static Generation, either export the page component, or export `getStaticProps` (and `getStaticPaths` if necessary). It's great for pages that can be pre-rendered ahead of a user's request. You can also use it with Client-side Rendering to bring in additional data.
 -   **Server-side Rendering:** The HTML is generated on **each request**. To make a page use Server-side Rendering, export `getServerSideProps`. Because Server-side Rendering results in slower performance than Static Generation, use this only if absolutely necessary.
+
+{/* ```ansi */}
+{/* [0m [0;32m✓[0m [0;2msrc/[0mindex[0;2m.test.ts (1)[0m */}
+{/* [0;2m Test Files [0m [0;1;32m1 passed[0;98m (1)[0m */}
+{/* [0;2m      Tests [0m [0;1;32m1 passed[0;98m (1)[0m */}
+{/* [0;2m   Start at [0m 23:32:41 */}
+{/* [0;2m   Duration [0m 11ms */}
+{/* [42;1;39;0m PASS [0;32m Waiting for file changes...[0m */}
+{/* [0;2mpress [0;1mh[0;2m to show help, press [0;1mq[0;2m to quit */}
+{/* ``` */}
