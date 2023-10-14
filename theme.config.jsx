@@ -75,6 +75,18 @@ export default {
             )}
             {meta.tag && <meta name="keywords" content={meta.tag} />}
             {meta.author && <meta name="author" content={meta.author} />}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@archit_rathod17" />
+            <meta name="twitter:creator" content="@archit_rathod17" />
+            <meta property="og:type" content="website" />
+            <meta property="og:site_name" content="Archit Blog's!" />
+            <meta property="og:title" content={title} />
+            {meta.description && (
+                <meta property="og:description" content={meta.description} />
+            )}
+            {meta.image && <meta property="og:image" content={meta.image} />}
+            <meta name="theme-color" content="#000" />
+
             <title>{title} | Archit Blog&apos;s!</title>
         </>
     ),
