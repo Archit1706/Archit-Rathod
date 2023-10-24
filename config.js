@@ -44,6 +44,12 @@ import Gcp from "/public/assets/skills/gcp.png";
 import Vscode from "/public/assets/skills/vscode.png";
 import Powerbi from "/public/assets/skills/powerbi.png";
 import FastApi from "/public/assets/skills/fastapi.png";
+import Numpy from "/public/assets/skills/numpy.png";
+import Pandas from "/public/assets/skills/pandas.png";
+import OpenCV from "/public/assets/skills/opencv.png";
+import Plotly from "/public/assets/skills/plotly.png";
+import Sklearn from "/public/assets/skills/sklearn.png";
+import Matplotlib from "/public/assets/skills/matplotlib.png";
 
 const firstname = "Archit";
 const lastname = "Rathod";
@@ -76,7 +82,7 @@ const projects = [
     },
     {
         title: "SwarBhaav",
-        img: SwarBhav,
+        img: SwarBhaav,
         alt: "SwarBhaav",
         url: "/swarbhaav",
         desc: "SwarBhaav: A call centre solution featuring dual dashboards for rookies and managers, offering distinct access controls and insightful features: chat analysis for chat summaries, sentiment scores, and key words; audio sentiment analysis with seven emotion classification using librosa, and a robust reporting system with MongoDB integration for easy review of sentiment analysis results.",
@@ -320,6 +326,42 @@ const tools = [
         img: Flask,
         alt: "Fast API Logo",
         color: "sky-400",
+    },
+    {
+        name: "NumPy",
+        img: Numpy,
+        alt: "NumPy Logo",
+        color: "blue-500",
+    },
+    {
+        name: "Pandas",
+        img: Pandas,
+        alt: "Pandas Logo",
+        color: "blue-400",
+    },
+    {
+        name: "OpenCV",
+        img: OpenCV,
+        alt: "OpenCV Logo",
+        color: "gray-800",
+    },
+    {
+        name: "Plotly",
+        img: Plotly,
+        alt: "Plotly Logo",
+        color: "blue-600",
+    },
+    {
+        name: "Scikit Learn",
+        img: Sklearn,
+        alt: "Scikit Learn Logo",
+        color: "orange-400",
+    },
+    {
+        name: "Matplotlib",
+        img: Matplotlib,
+        alt: "Matplotlib Logo",
+        color: "blue-600",
     },
     {
         name: "Postman",
