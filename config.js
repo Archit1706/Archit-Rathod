@@ -1,5 +1,7 @@
 // project images
-import VoiceSentri from './public/assets/projects/voicesentri.jpg'
+import AscendAI from './public/assets/projects/ascendai.jpg'
+import PhishFence from './public/assets/projects/phishfence.jpg'
+import SwarBhaav from './public/assets/projects/swarbhaav.jpg'
 import Edusys from './public/assets/projects/edusys.png'
 import AttireAI from './public/assets/projects/attireai.jpg'
 import BidBazaar from './public/assets/projects/bidbazaar.jpg'
@@ -51,14 +53,36 @@ const about = ["I am a Final Year Information Technology Student at Thadomal Sha
 
 const projects = [
     {
-        title: "Voice Sentri",
-        img: VoiceSentri,
-        alt: "Voice Sentri",
-        url: "/voicesentri",
-        desc: "VoiceSentri: A call centre solution featuring dual dashboards for rookies and managers, offering distinct access controls and insightful features: chat analysis for chat summaries, sentiment scores, and key words; audio sentiment analysis with seven emotion classification using librosa, and a robust reporting system with MongoDB integration for easy review of sentiment analysis results.",
-        tech: ["Next JS", "Tailwind", "Node JS", "FastAPI", "Librosa", "Transformers"],
-        link: "https://voice-sentri.vercel.app/",
-        github: "https://github.com/Archit1706/VoiceSentri",
+        title: "Ascend AI",
+        img: AscendAI,
+        alt: "Ascend AI",
+        url: "/ascend-ai",
+        desc: "Ascend AI is a revolutionary interview preparation platform designed to elevate your communication skills and confidence. With its cutting-edge features, Ascend AI offers comprehensive AI analysis, real-time tone and pitch feedback, facial expression recognition, and precise video mock interview reviews. It's your personal interview coach, ensuring you present your best self in every interview.",
+        tech: ["Next JS", "Tailwind", "LLama C++", "FastAPI", "Librosa", "Transformers", "OpenCV", "MongoDB", "Whisper"],
+        link: "https://ascend-ai-mpr.vercel.app/",
+        github: "https://github.com/Archit1706/Ascend.ai",
+
+    },
+    {
+        title: "PhiishFence",
+        img: PhishFence,
+        alt: "PhiishFence",
+        url: "/phisfence",
+        desc: "PhishFence is an innovative AI and ML-powered solution designed to automatically detect and block phishing domains among newly registered websites. By integrating WHOIS data, real-time URL fetching, image comparison, and typosquatting checks, it swiftly identifies threats, enhancing user security. With a user-friendly interface and a chatbot for assistance, PhishFence offers comprehensive protection against phishing attacks and assists users in making informed decisions.",
+        tech: ["Next JS", "Tailwind", "Selenium", "FastAPI", "WhoisDB", "LighGBM", "OpenCV", "OpenAI"],
+        link: "https://phishfence.vercel.app/",
+        github: "https://github.com/Archit1706/PhishFence",
+
+    },
+    {
+        title: "SwarBhaav",
+        img: SwarBhav,
+        alt: "SwarBhaav",
+        url: "/swarbhaav",
+        desc: "SwarBhaav: A call centre solution featuring dual dashboards for rookies and managers, offering distinct access controls and insightful features: chat analysis for chat summaries, sentiment scores, and key words; audio sentiment analysis with seven emotion classification using librosa, and a robust reporting system with MongoDB integration for easy review of sentiment analysis results.",
+        tech: ["Next JS", "Tailwind", "Node JS", "FastAPI", "Librosa", "Transformers", "OpenAI"],
+        link: "https://swarbhaav.vercel.app/",
+        github: "https://github.com/Archit1706/SwarBhaav",
 
     },
     {
@@ -130,7 +154,7 @@ const projects = [
         url: "/social-vision",
         desc: "Social Vision is a system that connects people who have posted similar articles in the past within a certain time limit and refers to this as 'coordinated inauthentic behavior' The system also attempts to detect the agenda of these networks using keyword extraction, the propaganda behind them with multi-class classification, and identifies fake news using sentiment analysis. A recommendation system and a word cloud of the most important keywords in the articles were also implemented.",
         tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ML Models", "Fast API"],
-        link: "https://network-analysis-weld.vercel.app/",
+        link: "https://social-vision.vercel.app/",
         github: "https://github.com/Archit1706/SocialVision",
     },
     {
