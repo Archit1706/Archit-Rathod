@@ -1,5 +1,7 @@
 // project images
+import RealEstate360 from './public/assets/projects/realestate360.jpg'
 import AscendAI from './public/assets/projects/ascendai.jpg'
+import FitSphere from './public/assets/projects/fitsphere.jpg'
 import PhishFence from './public/assets/projects/phishfence.jpg'
 import SwarBhaav from './public/assets/projects/swarbhaav.jpg'
 import Edusys from './public/assets/projects/edusys.png'
@@ -59,6 +61,17 @@ const about = ["I am a Final Year Information Technology Student at Thadomal Sha
 
 const projects = [
     {
+        title: "RealEstate 360",
+        img: RealEstate360,
+        alt: "RealEstate-360",
+        url: "/real-estate-360",
+        desc: "RealEstate360, the future of online house-hunting, is a platform that leverages Augmented Reality (AR), Virtual Reality (VR), and Artificial Intelligence (AI) to provide an immersive, interactive, and informative experience for both real estate agents and homebuyers. The platform allows users to explore houses virtually, getting a feel for the layout and atmosphere, and uses AI and ML to provide insights and suggestions. Real estate agents can showcase houses in a more realistic and immersive way, making customers happier and increasing sales.",
+        tech: ["Next JS", "Tailwind", "FastAPI", "Node.js", "AR-VR", "Socket I/O", "ManziPango", "Panellum React", "MongoDB", "Three.js"],
+        link: "https://realestate360.vercel.app/",
+        github: "https://github.com/Archit1706/RealEstate-360",
+
+    },
+    {
         title: "Ascend AI",
         img: AscendAI,
         alt: "Ascend AI",
@@ -70,9 +83,20 @@ const projects = [
 
     },
     {
-        title: "PhiishFence",
+        title: "FitSphere",
+        img: FitSphere,
+        alt: "FitSphere",
+        url: "/fitsphere",
+        desc: "FitSphere is a state-of-the-art pose estimation system that leverages Computer Vision and Machine Learning to enhance the field of sports and fitness. The system offers automated exercise recognition, accurate rep and set counting, progress tracking, exercise recommendations, and a warning system to improve the fitness journey for users.",
+        tech: ["React JS", "Tailwind", "OpenCV", "FastAPI", "MongoDB", "PoseNet", "OpenPose"],
+        link: "https://fitsphere.vercel.app/",
+        github: "https://github.com/Archit1706/FitSphere",
+
+    },
+    {
+        title: "PhishFence",
         img: PhishFence,
-        alt: "PhiishFence",
+        alt: "PhishFence",
         url: "/phisfence",
         desc: "PhishFence is an innovative AI and ML-powered solution designed to automatically detect and block phishing domains among newly registered websites. By integrating WHOIS data, real-time URL fetching, image comparison, and typosquatting checks, it swiftly identifies threats, enhancing user security. With a user-friendly interface and a chatbot for assistance, PhishFence offers comprehensive protection against phishing attacks and assists users in making informed decisions.",
         tech: ["Next JS", "Tailwind", "Selenium", "FastAPI", "WhoisDB", "LighGBM", "OpenCV", "OpenAI"],
