@@ -68,7 +68,7 @@ const projects = [
         desc: "RealEstate360, the future of online house-hunting, is a platform that leverages Augmented Reality (AR), Virtual Reality (VR), and Artificial Intelligence (AI) to provide an immersive, interactive, and informative experience for both real estate agents and homebuyers. The platform allows users to explore houses virtually, getting a feel for the layout and atmosphere, and uses AI and ML to provide insights and suggestions. Real estate agents can showcase houses in a more realistic and immersive way, making customers happier and increasing sales.",
         tech: ["Next JS", "Tailwind", "FastAPI", "Node.js", "AR-VR", "Socket I/O", "ManziPango", "Panellum React", "MongoDB", "Three.js"],
         link: "https://realestate360.vercel.app/",
-        github: "https://github.com/Archit1706/RealEstate-360",
+        github: "https://github.com/Archit1706/RealEstate360",
 
     },
     {
