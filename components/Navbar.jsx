@@ -82,6 +82,11 @@ const Navbar = () => {
                                     Projects
                                 </li>
                             </a>
+                            <a href="#research">
+                                <li className="ml-10 text-sm uppercase hover:border-b hover:border-violet-500 ease-in-out duration-500">
+                                    Research
+                                </li>
+                            </a>
                             <a href="#contact">
                                 <li className="ml-10 text-sm uppercase hover:border-b hover:border-violet-500 ease-in-out duration-500">
                                     Contact
@@ -107,7 +112,7 @@ const Navbar = () => {
                     <div
                         className={
                             !isOpen
-                                ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+                                ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500 overflow-auto no-scrollbar"
                                 : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
                         }
                     >
@@ -164,6 +169,14 @@ const Navbar = () => {
                                         className="py-4 text-sm hover:text-violet-600"
                                     >
                                         Projects
+                                    </li>
+                                </Link>
+                                <Link href="/#research">
+                                    <li
+                                        onClick={() => setIsOpen(!isOpen)}
+                                        className="py-4 text-sm hover:text-violet-600"
+                                    >
+                                        Research
                                     </li>
                                 </Link>
                                 <Link href="/#contact">
