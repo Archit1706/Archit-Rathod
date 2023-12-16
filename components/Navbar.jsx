@@ -82,7 +82,7 @@ const Navbar = () => {
                                     Projects
                                 </li>
                             </a>
-                            <a href="#research">
+                            <a href="#researchs">
                                 <li className="ml-10 text-sm uppercase hover:border-b hover:border-violet-500 ease-in-out duration-500">
                                     Research
                                 </li>
@@ -171,7 +171,7 @@ const Navbar = () => {
                                         Projects
                                     </li>
                                 </Link>
-                                <Link href="/#research">
+                                <Link href="/#researchs">
                                     <li
                                         onClick={() => setIsOpen(!isOpen)}
                                         className="py-4 text-sm hover:text-violet-600"
