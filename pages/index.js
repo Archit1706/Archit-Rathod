@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
+import "../styles/globals.css";
 
 import Main from "../components/Main";
 import About from "../components/About";
