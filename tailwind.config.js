@@ -9,8 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         ubuntu: ["Ubuntu", "sans-serif"],
-        homemadeApple: ["Homemade Apple", "cursive"],
-        satisfy: ["Satisfy", "cursive"],
+        galada: ["Galada", "cursive"],
       }
     },
   },
