@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import next from "next";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const [shadow, setShadow] = useState(false);
     const [navBg, setNavBg] = useState("#ecf0f3");
     const [linkColor, setLinkColor] = useState("#1f2937");
@@ -52,14 +52,13 @@ const Navbar = () => {
             <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
                 <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
                     <Link href="/">
-                        <h2 className="font-satisfy mx-4 px-4 text-transparent text-4xl sm:text-5xl md:text-6xl bg-clip-text bg-gradient-to-r from-violet-700 to-pink-600">
+                        <h2 className="font-galada mx-4 px-4 text-transparent text-4xl sm:text-5xl bg-clip-text bg-gradient-to-r from-violet-700 to-pink-600">
                             {firstname}
                         </h2>
                     </Link>
 
                     <div>
                         <ul
-                            // style={{ backgroundColor: `${linkColor}` }}
                             className="hidden md:flex mx-4"
                         >
                             <Link href="/">
@@ -119,7 +118,7 @@ const Navbar = () => {
                         <div>
                             <div className="flex w-full items-center justify-between">
                                 <Link href="/">
-                                    <h2 className="font-satisfy px-2 text-transparent text-4xl sm:text-6xl bg-clip-text bg-gradient-to-r from-violet-700 to-pink-600">
+                                    <h2 className="font-galada px-2 text-transparent text-4xl sm:text-6xl bg-clip-text bg-gradient-to-r from-violet-700 to-pink-600">
                                         {firstname}
                                     </h2>
                                 </Link>
@@ -132,7 +131,7 @@ const Navbar = () => {
                                 </div>
                             </div>
                             <div className="border-b border-gray-300 my-4">
-                                <p className="w-[85%] md:w-[90%] py-4 text-black">
+                                <p className=" py-4 text-black">
                                     Create something new everyday!
                                 </p>
                             </div>
