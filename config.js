@@ -61,7 +61,7 @@ const tags = ["Frontend", "Backend", "Python"];
 const tagline =
     "I have a year of experience in creating websites. Currently I am building Web using Next.js and exploring Machine Learning and AI.";
 const about = [
-    "I'm a Master's student in Computer Science at UIC with a background in Information Technology from the University of Mumbai. I'm passionate about web development and problem-solving.",
+    "I'm a Master's student in Computer Science at University of Illinois at Chicago (UIC) with a background in Information Technology from the University of Mumbai. I'm passionate about web development and problem-solving.",
     "I have two years of experience as a full-stack developer specializing in the MERN stack and Next.js. I'm expanding my expertise in Data Science, Machine Learning, and AI. A hackathon enthusiast, I've clinched victories in six competitive events.",
     "In my leisure, I dive into finance and investments, enjoy tennis, and love watching sci-fi movies. Always eager to learn and grow, I'm looking for new opportunities.",
 ];
