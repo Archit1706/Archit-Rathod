@@ -1,0 +1,276 @@
+---
+title: JavaScript by Practice
+date: 2024/09/23
+description: Javascript by practice is my approach of learning and revising core javascript concepts by solving problems and implementing them in real world scenarios.
+tag: Interview Preparation, Coding Problems, Software Engineering, Javascript, Leetcode
+author: Archit Rathod, ChatGPT
+---
+
+# JavaScript by Practice
+
+Here are 30 JavaScript practice questions, progressing from basic to advanced, and aimed at real-life problem solving while covering core JavaScript concepts often asked in interviews:
+
+### Basic Level (1-10)
+
+1. **Reverse a String**  
+   Write a function to reverse a given string. (Hint: use string methods and loops).
+
+```javascript copy
+// Inbuilt Functions
+fucntion reverseString(s) {
+    return s.split("").reverse().join("");
+}
+
+// Loop
+function reverseString(s) {
+    reversed = ""
+    for (let i = s.length - 1; i >= 0; i--) {
+        reversed += s[i]
+    }
+    return reversed
+}
+
+// loop with less iterations and inplace
+function reverseString(s) {
+    let start = 0;
+    let end = s.length - 1;
+
+    while (start < end) {
+        [s[start], s[end]] = [s[end], s[start]];
+        start ++;
+        end --;
+    }
+}
+```
+
+2. **Palindrome Checker**  
+   Create a function that checks if a string is a palindrome (reads the same forwards and backwards).
+
+```javascript copy
+// loop
+funciton isPalindrome(str) {
+    for (let i = 0; i <= str.length / 2; i++) {
+        if (str[i] != str[str.length - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+// Two Pointers
+funciton isPalindrome(str) {
+    let start = 0;
+    let end = str.length - 1;
+
+    while (start < end) {
+        if (str[start] != str[end]) return false;
+
+        start ++;
+        end --;
+    }
+    return true
+}
+
+// Built-in Functions
+function isPalindrome(str) {
+    str = str.toLowerCase();
+    return str === str.split("").reverse().join("");
+}
+```
+
+3. **FizzBuzz Problem**  
+   Write a function that prints numbers from 1 to 100. But for multiples of 3, print "Fizz" instead of the number, and for multiples of 5, print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
+
+```javascript copy
+// Loop
+function FizzBuzz(n=100) {
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            console.log("FizzBuzz");
+        }
+        else if (i % 3 == 0) {
+            console.log("Fizz");
+        }
+
+        else if (i % 5 == 0) {
+            console.log("Buzz");
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+
+// Ternary Operator
+fucntion FizzBuzz(n=100) {
+    for (let i = 1; i <= n; i++) {
+        console.log(
+            (i % 3 == 0 && i % 5 == 0) ? "FizzBuzz" :
+            (i % 3 == 0) ? "Fizz":
+            (i % 5 == 0) ? "Buzz":
+            i
+        );
+    }
+}
+```
+
+4. **Find Maximum in Array**  
+   Write a function that takes an array of numbers and returns the largest number. Avoid using `Math.max()`.
+
+```javascript copy
+function findMax(arr) {
+    let maxEle = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= maxEle) {
+            maxEle = arr[i];
+        }
+    }
+    return maxEle;
+}
+
+function findMax(arr) {
+    max = arr[0];
+    for (const ele of arr) {
+        if (ele > max) {
+            max = ele;
+        }
+    }
+    return max;
+}
+```
+
+5. **Sum of Array**  
+   Create a function that returns the sum of all elements in a given array.
+
+```javascript copy
+// Loop
+function sumArr(arr, n) {
+    sum = 0;
+    for (const ele of arr) {
+        sum += ele;
+    }
+    return sum;
+}
+
+// Recursive
+function sumArr(arr, n) {
+    if (n === 0) return 0;
+    return arr[n - 1] + sumArr(arr, n - 1);
+}
+```
+
+6. **Remove Duplicates from Array**  
+   Write a function that removes duplicates from an array of integers without using `Set`.
+
+```javascript copy
+function removeDuplicates(arr) {
+    hashmap = {}
+    for (let i = 0; i < arr.length; i++) {
+
+    }
+}
+```
+
+7. **Factorial Calculation**  
+   Write a function that calculates the factorial of a number recursively.
+
+```javascript copy
+funciton factorial(n) {
+    if (n === 0) return 1;
+
+    return n * factorial(n - 1);
+}
+```
+
+8. **Check if Number is Prime**  
+   Write a function that checks whether a given number is prime or not.
+
+```javascript copy
+function checkPrime(n) {
+    
+}
+
+```
+
+9. **Anagram Checker**  
+   Create a function that checks if two given strings are anagrams (i.e., same letters but in different order).
+
+10. **Flatten a Multidimensional Array**  
+    Write a function that flattens a nested array into a single array (e.g., `[[1, 2], [3, 4]]` → `[1, 2, 3, 4]`).
+
+### Intermediate Level (11-20)
+
+11. **Debounce Function Implementation**  
+    Implement a debounce function that delays the processing of a function until after a specified time has elapsed since it was last called.
+
+12. **Throttling Function**  
+    Write a function that limits the number of times a function can be executed over time (throttling).
+
+13. **Deep Clone an Object**  
+    Write a function that performs a deep clone of a given object (i.e., copies all nested objects/arrays).
+
+14. **Sum of Nested Array**  
+    Write a function that sums all numbers in a deeply nested array (e.g., `[1, [2, [3, 4]]]` → `10`).
+
+15. **Currying Function**  
+    Implement a curried function that accepts one argument at a time, until all arguments are provided, and then returns the result.
+
+16. **Event Delegation Example**  
+    Write a code snippet that implements event delegation for handling clicks on dynamically created elements in a list.
+
+17. **Two Sum Problem**  
+    Write a function that, given an array of numbers and a target number, finds two numbers in the array that sum to the target.
+
+18. **Binary Search Algorithm**  
+    Write a binary search function that searches for a value in a sorted array.
+
+19. **Promise.all Polyfill**  
+    Implement a custom version of `Promise.all` that accepts an array of promises and returns a promise that resolves when all promises resolve, or rejects if any promise rejects.
+
+20. **Merge Two Sorted Arrays**  
+    Write a function that merges two sorted arrays into a single sorted array without using array methods like `sort()`.
+
+### Advanced Level (21-30)
+
+21. **LRU Cache Implementation**  
+    Implement an LRU (Least Recently Used) cache using JavaScript objects or classes.
+
+22. **Memoization**  
+    Create a function that memoizes the results of another function, storing results for previously computed inputs.
+
+23. **Generate Permutations**  
+    Write a function to generate all possible permutations of an array of numbers.
+
+24. **Debouncing in Real-time Search Input**  
+    Implement a debounce function to optimize a search input field in a web application (e.g., triggering search only after the user has stopped typing).
+
+25. **Custom Event Emitter**  
+    Write a simple event emitter class that allows registering event listeners and emitting events.
+
+26. **Implement `call`, `apply`, and `bind` Methods**  
+    Create your own versions of JavaScript’s `call`, `apply`, and `bind` methods.
+
+27. **Function Composition**  
+    Write a function that composes multiple functions into one, where the result of each function is passed to the next.
+
+28. **Asynchronous JavaScript**  
+    Write a function that fetches data from an API using `fetch`, handles errors, and returns the result as a resolved promise.
+
+29. **Implement a Queue using Two Stacks**  
+    Use two stacks to implement a queue. Provide enqueue and dequeue operations.
+
+30. **Scheduler using `setTimeout`**  
+    Implement a function that schedules tasks to run at specific intervals using `setTimeout` and allows for cancellation.
+
+### Additional Topics Covered:
+
+-   **Closures**
+-   **Hoisting**
+-   **Prototypes and Inheritance**
+-   **Asynchronous JavaScript (Promises, async/await)**
+-   **JavaScript Design Patterns (e.g., Singleton, Factory)**
+-   **ES6+ Features (e.g., destructuring, arrow functions, template literals)**
+-   **Error handling**
+
+These questions will give you a comprehensive preparation for JavaScript interviews by covering basic, intermediate, and advanced concepts while focusing on solving real-life coding problems.

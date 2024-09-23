@@ -1,0 +1,345 @@
+---
+title: Neetcode 150
+date: 2024/09/13
+description: Neetcode 150 is a collection of 150 coding problems for software engineers and developers to practice their coding skills.
+tag: Interview Preparation, Coding Problems, Software Engineering, Python, Leetcode
+author: Archit Rathod, Neetcode
+---
+
+# Neetcode 150
+
+Neetcode 150 is a collection of 150 coding problems for software engineers and developers to practice their coding skills. The problems are carefully selected to cover a wide range of topics and difficulty levels, making it an ideal resource for interview preparation and skill development.
+
+1. Problem 1: Duplicate Integer
+
+#### Description
+
+-   Given an integer array `nums`, return `true` if any value appears more than once in the array, otherwise return `false`.
+
+#### Examples
+
+Example 1:
+
+-   Input: nums = [1, 2, 3, 3]
+-   Output: true
+
+Example 2:
+
+-   Input: nums = [1, 2, 3, 4]
+-   Output: false
+
+#### Hints / Notes:
+
+1. Brute Force
+
+-   The problem can be solved using two for loops (brute force) to compare each element with every other element in the array.
+-   This approach has a time complexity of O(n^2) and a space complexity of O(1).
+
+2. Hash Set
+
+-   At the expense of space complexity, we can use a hash set to store the elements as we iterate through the array.
+-   If we encounter an element that is already present in the hash set, we return `true`.
+-   This approach has a time complexity of O(n) and a space complexity of O(n).
+
+3. Sorting
+
+-   We can sort the array and then iterate through it to check if any adjacent elements are the same.
+-   This approach has a time complexity of O(n log n) and a space complexity of O(1).
+
+4. Pythonic Solution
+
+-   In Python, we can use the `set` data structure to store the elements and then compare the lengths of the original array and the set.
+-   If the lengths are different, it means that there are duplicate elements in the array.
+-   This approach has a time complexity of O(n) and a space complexity of O(n).
+
+#### Solution
+
+```python
+# Pythonic Solution
+def containsDuplicate(nums):
+    return len(nums) != len(set(nums))
+
+# Sorting
+def containsDuplicate(nums):
+    nums.sort()
+    for i in range(1, len(nums)):
+        if nums[i] == nums[i - 1]:
+            return True
+    return False
+
+# Hash Set
+def containsDuplicate(nums):
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
+
+# Brute Force
+def containsDuplicate(nums):
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] == nums[j]:
+                return True
+    return False
+```
+
+#### Complexity Analysis
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(n)
+
+2. Is Anagram
+
+#### Description
+
+Given two strings `s` and `t`, return `true` if the two strings are anagrams of each other, otherwise return `false`.
+An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
+#### Examples
+
+Example 1:
+
+-   Input: s = "anagram", t = "nagaram"
+-   Output: true
+
+Example 2:
+
+-   Input: s = "rat", t = "car"
+-   Output: false
+
+#### Hints / Notes:
+
+1. Sorting
+
+-   We can sort both strings and compare them to check if they are anagrams.
+-   This approach has a time complexity of O(n log n) and a space complexity of O(1).
+
+2. Hash Map
+
+-   We can use a hash map to store the frequency of characters in both strings.
+-   We iterate once to calcualte the frequency of the characters in both the strings and store them in a hash map.
+-   If the frequencies of characters are the same in both strings, they are anagrams. For this we can compare the hash maps of both the strings or iterate through the hash maps to check if the frequencies are the same.
+-   This approach has a time complexity of O(n) and a space complexity of O(n).
+
+3. Pythonic Solution
+
+-   In Python, we can use the `Counter` class from the `collections` module to calculate the frequency of characters in both strings.
+-   We can then compare the two counters to check if they are anagrams.
+-   This approach has a time complexity of O(n) and a space complexity of O(n).
+
+#### Solution
+
+```python
+# Pythonic Solution
+from collections import Counter
+
+def isAnagram(s, t):
+    return Counter(s) == Counter(t)
+
+# Hash Map
+def isAnagram(s, t):
+    if len(s) != len(t):
+        return False
+    freq_s = {}
+    freq_t = {}
+    for char in s:
+        freq_s[char] = freq_s.get(char, 0) + 1
+    for char in t:
+        freq_t[char] = freq_t.get(char, 0) + 1
+    return freq_s == freq_t
+
+# Sorting
+def isAnagram(s, t):
+    return sorted(s) == sorted(t)
+```
+
+#### Complexity Analysis
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(n)
+
+3. Two Integer Sum
+
+#### Description
+
+Given an array of integers `nums` and an integer `target`, return the indices `i` and `j` such that `nums[i] + nums[j] == target` and `i != j`.
+
+You may assume that every input has exactly one pair of indices `i` and `j` that satisfy the condition.
+
+Return the answer with the smaller index first.
+
+#### Examples
+
+Example 1:
+
+-   Input: nums = [2, 7, 11, 15], target = 9
+-   Output: [0, 1]
+-   Explanation: nums[0] + nums[1] == 9, so the answer is [0, 1].
+
+Example 2:
+
+-   Input: nums = [3, 2, 4], target = 6
+-   Output: [1, 2]
+-   Explanation: nums[1] + nums[2] == 6, so the answer is [1, 2].
+
+#### Hints / Notes:
+
+1. Brute Force
+
+-   The problem can be solved using two for loops (brute force) to compare each element with every other element in the array.
+-   Too reduce the number of comparisons we can limit the inner loop to start from the next element of the outer loop.
+-   This approach has a time complexity of O(n^2) and a space complexity of O(1).
+
+2. Hash Map
+
+-   We can use a hash map to store the elements as we iterate through the array.
+-   For each element `num` in the array, we check if `target - num` is present in the hash map.
+-   If it is present, we return the indices of `num` and `target - num`.
+-   This approach has a time complexity of O(n) and a space complexity of O(n).
+
+3. Sorting
+
+-   We can sort the array and then use two pointers to find the pair of elements that sum up to the target.
+-   This method fails if we need to return the smaller index first.
+-   This approach has a time complexity of O(n log n) and a space complexity of O(1).
+
+#### Solution
+
+```python
+# Hash Map
+def twoSum(nums, target):
+    num_to_index = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in num_to_index:
+            return [num_to_index[complement], i]
+        num_to_index[num] = i
+
+# Brute Force
+def twoSum(nums, target):
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+```
+
+#### Complexity Analysis
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(n)
+
+4. Anagram Groups
+
+#### Description
+
+Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+#### Examples
+
+Example 1:
+
+-   Input: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+-   Output: [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]
+
+Example 2:
+
+-   Input: strs = [""]
+-   Output: [[""]]
+
+#### Hints / Notes:
+
+1. Hash Map and Sorting
+
+-   We can use a hash map to group the anagrams together.
+-   For each string in the array, we can sort the characters and use the sorted string as the key in the hash map.
+-   The value corresponding to each key will be a list of anagrams.
+-   This approach has a time complexity of O(n k log k), where n is the number of strings and k is the maximum length of a string, and a space complexity of O(n k).
+
+2. Pythonic Solution
+
+-   In Python, we can use the `defaultdict` class from the `collections` module to group the anagrams together.
+-   We can use the sorted string as the key in the `defaultdict` and append the original string to the list of anagrams.
+-   This approach has a time complexity of O(n k log k), where n is the number of strings and k is the maximum length of a string, and a space complexity of O(n k).
+
+3. Hash Map and Character Count
+
+-   Instead of sorting the characters, we can count the frequency of each character in the string.
+-   We can use a tuple of character counts as the key in the hash map.
+-   The character count can be stored as a tuble (list) of 26 elements, where each element represents the frequency of a character. (Hint: Use the `ord` function to convert a character to its ASCII value and subtract the ASCII value of 'a' to get the index in the list.)
+-   This approach has a time complexity of O(n k), where n is the number of strings and k is the maximum length of a string, and a space complexity of O(n k).
+
+#### Solution
+
+```python
+# Hash Map and Sorting
+def groupAnagrams(strs):
+    anagrams = {}
+    for s in strs:
+        key = tuple(sorted(s))
+        if key in anagrams:
+            anagrams[key].append(s)
+        else:
+            anagrams[key] = [s]
+    return list(anagrams.values())
+
+# Pythonic Solution
+from collections import defaultdict
+
+def groupAnagrams(strs):
+    anagrams = defaultdict(list)
+    for s in strs:
+        anagrams[tuple(sorted(s))].append(s)
+    return list(anagrams.values())
+
+# Hash Map and Character Count
+def groupAnagrams(strs):
+    anagrams = {}
+    for s in strs:
+        count = [0] * 26
+        for char in s:
+            count[ord(char) - ord('a')] += 1
+        key = tuple(count)
+        if key in anagrams:
+            anagrams[key].append(s)
+        else:
+            anagrams[key] = [s]
+    return list(anagrams.values())
+```
+
+#### Complexity Analysis
+
+-   Time Complexity: O(n k)
+-   Space Complexity: O(n k)
+
+5. Top k Elements in list
+
+#### Description
+
+Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.
+
+#### Examples
+
+Example 1:
+
+-   Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+-   Output: [1, 2]
+
+Example 2:
+
+-   Input: nums = [1], k = 1
+
+#### Hints / Notes:
+
+1. Hash Map and Sorting
+
+-   We can use a hash map to store the frequency of each element in the array.
+-   We can then sort the elements based on their frequency and return the top `k` elements.
+-   This approach has a time complexity of O(n log n), where n is the number of elements in the array, and a space complexity of O(n).
+
+2. Min Heap
+
+-   We can use a min heap to store the top `k` elements based on their frequency.
