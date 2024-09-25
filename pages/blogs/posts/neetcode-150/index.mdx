@@ -343,3 +343,236 @@ Example 2:
 2. Min Heap
 
 -   We can use a min heap to store the top `k` elements based on their frequency.
+-   We can use the `heapq` module to implement the min heap.
+-   This approach has a time complexity of O(n log k), where n is the number of elements in the array and k is the number of most frequent elements to return.
+-   This approach has a space complexity of O(n) to store the hash map and the heap.
+
+3. Bucket Sort
+
+-   We can use bucket sort to sort the elements based on their frequency.
+-   We can use the `Counter` class from the `collections` module to calculate the frequency of each element in the array.
+-   We can then use the `sorted` function to sort the elements based on their frequency.
+-   This approach has a time complexity of O(n), where n is the number of elements in the array, and a space complexity of O(n).
+
+#### Solution
+
+```python
+# Hash Map and Sorting
+def topKFrequent(nums, k):
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    sorted_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+    return [x[0] for x in sorted_freq[:k]]
+
+
+# Min Heap
+import heapq
+
+def topKFrequent(nums, k):
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    min_heap = []
+
+    for num, count in freq.items():
+        heapq.heappush(min_heap, (count, num))
+        if len(min_heap) > k:
+            heapq.heappop(min_heap)
+    return [num for count, num in min_heap]
+
+# Bucket Sort
+from collections import Counter
+
+def topKFrequent(nums, k):
+    freq = Counter(nums)
+    buckets = [[] for _ in range(len(nums) + 1)]
+    for num, count in freq.items():
+        buckets[count].append(num)
+    result = []
+    for i in range(len(buckets) - 1, -1, -1):
+        result.extend(buckets[i])
+        if len(result) >= k:
+            return result[:k]
+```
+
+#### Complexity Analysis
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(n)
+
+6. String Encode and Decode
+
+#### Description
+
+Design an algorithm to encode a list of strings to a string and decode it back to the original list of strings.
+
+#### Examples
+
+Example 1:
+
+-   Input: ["lint", "code", "love", "you"]
+-   Output: ["lint", "code", "love", "you"]
+
+
+#### Hints / Notes:
+
+1. Custom Separator
+
+-   We can use a custom separator to encode the strings.
+-   We can use the `ord` function to convert the characters to their ASCII values and add them to the encoded string.
+-   We can use the `chr` function to convert the ASCII values back to characters.
+-   This approach has a time complexity of O(n), where n is the number of characters in the encoded string, and a space complexity of O(n).
+
+2. Length Prefix
+
+-   We can use the length of the string to encode the strings.
+-   We can use the `ord` function to convert the characters to their ASCII values and add them to the encoded string.
+-   We can use the `chr` function to convert the ASCII values back to characters.
+
+#### Solution
+
+```python
+# Custom Separator
+def encode(strs):
+    encoded = ""
+    for s in strs:
+        encoded += str(len(s)) + "#" + s
+    return encoded
+
+def decode(s):
+    decoded = []
+    i = 0
+    while i < len(s):
+        j = i
+        while s[j] != "#":
+            j += 1
+        length = int(s[i:j])
+        decoded.append(s[j + 1:j + 1 + length])
+        i = j + 1 + length
+    return decoded
+
+# Length Prefix
+def encode(strs):
+    encoded = ""
+    for s in strs:
+        encoded += str(len(s)) + "#" + s
+    return encoded
+
+def decode(s):
+    decoded = []
+    i = 0       
+    while i < len(s):
+        j = i
+        while s[j] != "#":
+            j += 1
+        length = int(s[i:j])
+        decoded.append(s[j + 1:j + 1 + length])
+        i = j + 1 + length
+    return decoded
+```
+
+#### Complexity Analysis
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(n)
+
+7. Product of Array Except Self
+
+#### Description
+
+Given an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
+
+The product of any prefix or suffix of `nums` is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation.
+
+#### Examples
+
+Example 1:
+
+-   Input: nums = [1, 2, 3, 4]
+-   Output: [24, 12, 8, 6]
+
+Example 2:
+
+-   Input: nums = [-1, 1, 0, -3, 3]
+-   Output: [0, 0, 9, 0, 0]
+
+#### Hints / Notes:
+
+1. Prefix and Suffix Products
+
+-   We can use two arrays to store the prefix and suffix products of the array.
+-   The prefix product of an element is the product of all the elements before it.
+-   The suffix product of an element is the product of all the elements after it.
+-   We can then use these arrays to calculate the product of all the elements except the current element.
+-   This approach has a time complexity of O(n), where n is the number of elements in the array, and a space complexity of O(n).
+
+2. Single Array
+
+-   We can use a single array to store the prefix and suffix products of the array.
+-   We can use the `prefix` array to store the prefix products of the array.
+-   We can use the `suffix` array to store the suffix products of the array.
+-   We can then use these arrays to calculate the product of all the elements except the current element.
+-   This approach has a time complexity of O(n), where n is the number of elements in the array, and a space complexity of O(n).  
+
+#### Solution
+
+```python
+# Prefix and Suffix Products
+def productExceptSelf(nums):
+    n = len(nums)
+    prefix = [1] * n
+    suffix = [1] * n
+
+    for i in range(1, n):
+        prefix[i] = prefix[i - 1] * nums[i - 1]
+        suffix[n - i - 1] = suffix[n - i] * nums[n - i]
+    
+    return [prefix[i] * suffix[i] for i in range(n)]
+
+# Single Array
+def productExceptSelf(nums):
+    n = len(nums)
+    result = [1] * n
+    prefix = 1
+    suffix = 1
+
+    for i in range(n):
+        result[i] *= prefix
+        prefix *= nums[i]
+        result[n - i - 1] *= suffix
+        suffix *= nums[n - i - 1]
+
+    return result
+```
+
+#### Complexity Analysis
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
