@@ -306,29 +306,203 @@ debounce(main_func, 5000)();
 12. **Throttling Function**
     Write a function that limits the number of times a function can be executed over time (throttling).
 
+```javascript copy
+function throttle(func, delay) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = new Date().getTime();
+        if (now - lastCall >= delay) {
+            lastCall = now;
+            func.apply(this, args);
+        }
+    };
+}
+
+// Example usage:
+const log = throttle(() => console.log("Throttled!"), 1000);
+window.addEventListener("scroll", log);
+```
+
 13. **Deep Clone an Object**
     Write a function that performs a deep clone of a given object (i.e., copies all nested objects/arrays).
+
+```javascript copy
+// Brute Force Solution (Using Recursion)
+function deepClone(obj) {
+    if (obj === null || typeof obj !== "object") return obj;
+    let clone = Array.isArray(obj) ? [] : {};
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            clone[key] = deepClone(obj[key]);
+        }
+    }
+    return clone;
+}
+console.log(deepClone({ a: 1, b: { c: 2 } })); // Output: { a: 1, b: { c: 2 } }
+
+// Using JSON.parse and JSON.stringify
+function deepCloneOptimized(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+console.log(deepCloneOptimized({ a: 1, b: { c: 2 } })); // Output: { a: 1, b: { c: 2 } }
+```
 
 14. **Sum of Nested Array**
     Write a function that sums all numbers in a deeply nested array (e.g., `[1, [2, [3, 4]]]` → `10`).
 
+```javascript copy
+function sumNestedArray(arr) {
+    return arr.reduce(
+        (acc, curr) =>
+            acc + (Array.isArray(curr) ? sumNestedArray(curr) : curr),
+        0
+    );
+}
+console.log(sumNestedArray([1, [2, [3, 4]], 5])); // Output: 15
+```
+
 15. **Currying Function**
     Implement a curried function that accepts one argument at a time, until all arguments are provided, and then returns the result.
+
+```javascript copy
+function curry(fn) {
+    return function curried(...args) {
+        if (args.length >= fn.length) {
+            return fn.apply(this, args);
+        } else {
+            return function (...nextArgs) {
+                return curried.apply(this, args.concat(nextArgs));
+            };
+        }
+    };
+}
+
+// Example usage:
+function add(a, b, c) {
+    return a + b + c;
+}
+const curriedAdd = curry(add);
+console.log(curriedAdd(1)(2)(3)); // Output: 6
+```
 
 16. **Event Delegation Example**
     Write a code snippet that implements event delegation for handling clicks on dynamically created elements in a list.
 
+```javascript copy
+document.querySelector("#parent").addEventListener("click", function (event) {
+    if (event.target && event.target.nodeName == "BUTTON") {
+        console.log("Button clicked:", event.target.innerText);
+    }
+});
+
+// HTML Example:
+// <div id="parent">
+//   <button>Button 1</button>
+//   <button>Button 2</button>
+// </div>
+```
+
 17. **Two Sum Problem**
     Write a function that, given an array of numbers and a target number, finds two numbers in the array that sum to the target.
 
+```javascript copy
+// Brute Force
+function twoSum(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+    return [];
+}
+console.log(twoSum([2, 7, 11, 15], 9)); // Output: [0, 1]
+
+// Using hash map
+function twoSumOptimized(arr, target) {
+    const map = {};
+    for (let i = 0; i < arr.length; i++) {
+        const complement = target - arr[i];
+        if (map[complement] !== undefined) {
+            return [map[complement], i];
+        }
+        map[arr[i]] = i;
+    }
+    return [];
+}
+console.log(twoSumOptimized([2, 7, 11, 15], 9)); // Output: [0, 1]
+```
+
 18. **Binary Search Algorithm**
     Write a binary search function that searches for a value in a sorted array.
+
+```javascript copy
+// Iterative
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] === target) return mid;
+        if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7], 4)); // Output: 3
+
+// Recursive
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] === target) return mid;
+        if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7], 4)); // Output: 3
+```
 
 19. **Promise.all Polyfill**
     Implement a custom version of `Promise.all` that accepts an array of promises and returns a promise that resolves when all promises resolve, or rejects if any promise rejects.
 
 20. **Merge Two Sorted Arrays**
     Write a function that merges two sorted arrays into a single sorted array without using array methods like `sort()`.
+
+```javascript copy
+// Brute Force
+function mergeSortedArrays(arr1, arr2) {
+    return arr1.concat(arr2).sort((a, b) => a - b);
+}
+console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6])); // Output: [1, 2, 3, 4, 5, 6]
+
+// Two Pointers
+function mergeSortedArraysOptimized(arr1, arr2) {
+    let merged = [];
+    let i = 0,
+        j = 0;
+
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] < arr2[j]) {
+            merged.push(arr1[i]);
+            i++;
+        } else {
+            merged.push(arr2[j]);
+            j++;
+        }
+    }
+
+    while (i < arr1.length) merged.push(arr1[i++]);
+    while (j < arr2.length) merged.push(arr2[j++]);
+
+    return merged;
+}
+console.log(mergeSortedArraysOptimized([1, 3, 5], [2, 4, 6])); // Output: [1, 2, 3, 4, 5, 6]
+```
 
 ### Advanced Level (21-30)
 
@@ -374,6 +548,280 @@ debounce(main_func, 5000)();
 
 These questions will give you a comprehensive preparation for JavaScript interviews by covering basic, intermediate, and advanced concepts while focusing on solving real-life coding problems.
 
+Here are some practice questions for the additional JavaScript topics you mentioned, along with code for each (including brute force, optimized solutions, or relevant variations where applicable).
+
+---
+
+### 1. **Closures**
+
+#### **Question 1:**
+
+Create a function that stores a counter and allows you to increment or retrieve its value using closures.
+
+#### **Solution (Closures)**
+
+```javascript
+function createCounter() {
+    let count = 0;
+    return {
+        increment: function () {
+            count++;
+        },
+        getValue: function () {
+            return count;
+        },
+    };
+}
+
+const counter = createCounter();
+counter.increment();
+counter.increment();
+console.log(counter.getValue()); // Output: 2
 ```
 
+---
+
+### 2. **Hoisting**
+
+#### **Question 2:**
+
+Demonstrate the behavior of function and variable hoisting in JavaScript.
+
+#### **Solution (Hoisting Example)**
+
+```javascript
+console.log(x); // Output: undefined (variable hoisting)
+var x = 5;
+
+hoistedFunction(); // Output: "This function is hoisted!"
+
+function hoistedFunction() {
+    console.log("This function is hoisted!");
+}
 ```
+
+**Explanation:**
+
+-   Variable `x` is hoisted but initialized with `undefined`.
+-   `hoistedFunction` is hoisted and can be called before its declaration.
+
+---
+
+### 3. **Prototypes and Inheritance**
+
+#### **Question 3:**
+
+Create a constructor function for a `Person` with properties `name` and `age`, and then use inheritance to create a `Student` that inherits from `Person`.
+
+#### **Solution (Prototypal Inheritance)**
+
+```javascript
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.greet = function () {
+    console.log(`Hello, my name is ${this.name}.`);
+};
+
+function Student(name, age, major) {
+    Person.call(this, name, age); // Inherit properties from Person
+    this.major = major;
+}
+
+Student.prototype = Object.create(Person.prototype); // Inherit methods from Person
+Student.prototype.constructor = Student;
+
+Student.prototype.study = function () {
+    console.log(`${this.name} is studying ${this.major}.`);
+};
+
+const student = new Student("Alice", 21, "Computer Science");
+student.greet(); // Output: "Hello, my name is Alice."
+student.study(); // Output: "Alice is studying Computer Science."
+```
+
+---
+
+### 4. **Asynchronous JavaScript (Promises, async/await)**
+
+#### **Question 4:**
+
+Write a function that fetches user data from a fake API using both Promises and `async/await`.
+
+#### **Solution (Using Promises)**
+
+```javascript
+function fetchUserData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({ name: "John", age: 30 });
+        }, 1000);
+    });
+}
+
+fetchUserData()
+    .then((data) => console.log(data)) // Output: { name: "John", age: 30 }
+    .catch((err) => console.error(err));
+```
+
+#### **Solution (Using async/await)**
+
+```javascript
+async function fetchUserDataAsync() {
+    try {
+        const data = await fetchUserData();
+        console.log(data); // Output: { name: "John", age: 30 }
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+fetchUserDataAsync();
+```
+
+---
+
+### 5. **JavaScript Design Patterns (Singleton, Factory)**
+
+#### **Question 5:**
+
+Implement the Singleton design pattern in JavaScript to ensure only one instance of a database connection exists.
+
+#### **Solution (Singleton Pattern)**
+
+```javascript
+const Database = (function () {
+    let instance;
+
+    function createInstance() {
+        return { connection: "Database connection established" };
+    }
+
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        },
+    };
+})();
+
+const db1 = Database.getInstance();
+const db2 = Database.getInstance();
+
+console.log(db1 === db2); // Output: true
+```
+
+#### **Question 6:**
+
+Create a Factory function that returns different types of employees based on a role.
+
+#### **Solution (Factory Pattern)**
+
+```javascript
+function EmployeeFactory() {}
+
+EmployeeFactory.prototype.createEmployee = function (role) {
+    switch (role) {
+        case "developer":
+            return { role: "developer", code: () => console.log("Coding...") };
+        case "designer":
+            return {
+                role: "designer",
+                design: () => console.log("Designing..."),
+            };
+        default:
+            return null;
+    }
+};
+
+const factory = new EmployeeFactory();
+const dev = factory.createEmployee("developer");
+const designer = factory.createEmployee("designer");
+
+dev.code(); // Output: "Coding..."
+designer.design(); // Output: "Designing..."
+```
+
+---
+
+### 6. **ES6+ Features (Destructuring, Arrow Functions, Template Literals)**
+
+#### **Question 7:**
+
+Use destructuring to extract values from an object and array. Implement a function using arrow functions and template literals.
+
+#### **Solution (Destructuring, Arrow Functions, Template Literals)**
+
+```javascript
+const person = { name: "Alice", age: 25 };
+const { name, age } = person;
+
+const numbers = [1, 2, 3];
+const [first, second] = numbers;
+
+const greet = (name, age) =>
+    `Hello, my name is ${name} and I am ${age} years old.`;
+
+console.log(greet(name, age)); // Output: "Hello, my name is Alice and I am 25 years old."
+```
+
+---
+
+### 7. **Error Handling**
+
+#### **Question 8:**
+
+Write a function that throws an error if a number is negative and use `try/catch` to handle the error.
+
+#### **Solution (Error Handling with try/catch)**
+
+```javascript
+function checkNumber(num) {
+    if (num < 0) {
+        throw new Error("Negative number not allowed");
+    }
+    return "Number is valid";
+}
+
+try {
+    console.log(checkNumber(-5)); // This will throw an error
+} catch (err) {
+    console.error(err.message); // Output: "Negative number not allowed"
+}
+```
+
+#### **Question 9:**
+
+Create a function that retries an async operation up to 3 times if it fails.
+
+#### **Solution (Retry with Promises and Error Handling)**
+
+```javascript
+async function retryOperation(operation, retries) {
+    for (let i = 0; i < retries; i++) {
+        try {
+            return await operation();
+        } catch (err) {
+            if (i === retries - 1)
+                throw new Error("Operation failed after retries");
+        }
+    }
+}
+
+async function sampleOperation() {
+    // Simulating a failed async operation
+    throw new Error("Operation failed");
+}
+
+retryOperation(sampleOperation, 3)
+    .then(() => console.log("Operation succeeded"))
+    .catch((err) => console.error(err.message)); // Output: "Operation failed after retries"
+```
+
+---
+
+These questions and solutions cover closures, hoisting, prototypes, inheritance, asynchronous JavaScript, design patterns, ES6+ features, and error handling. Each solution includes different approaches where applicable, to help prepare for JavaScript interviews.
