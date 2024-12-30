@@ -1,4 +1,6 @@
+import { article, body } from "framer-motion/client";
 import Cusdis from "nextra-theme-blog/cusdis";
+// import "./styles/theme.module.css";
 
 const YEAR = new Date().getFullYear();
 
@@ -10,7 +12,7 @@ export default {
     //             dangerouslySetInnerHTML={{
     //                 __html: '<script src="https://giscus.app/client.js" data-repo="officialrajdeepsingh/officialrajdeepsingh.dev" data-repo-id="R_kgDOIs4gPw" data-category="Q&A" data-category-id="DIC_kwDOIs4gP84CTV3Q" data-mapping="pathname" data-strict="1" data-reactions-enabled="1"data-emit-metadata="0" data-input-position="top" data-theme="dark_protanopia" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>',
     //             }}
-    //         ></div>
+    //         ></div>  
     //     </>
     // ),
     // navs: [
@@ -20,29 +22,17 @@ export default {
     //     newWindow: true,
     // },
     // ],
-    comments: <Cusdis />,
+    comments: <div className="h-40 mx-auto">
+        <Cusdis />
+    </div>,
     components: {
         h1: ({ children }) => (
-            <h1
-                style={{
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    backgroundImage: "linear-gradient(45deg,#7928CA,#FF0080)",
-                }}
-            >
+            <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
                 {children}
             </h1>
         ),
         h2: ({ children }) => (
-            <h2
-                style={{
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    backgroundImage: "linear-gradient(45deg,#ec4899,#a855f7)",
-                }}
-            >
+            <h2 className="text-3xl font-semibold mb-3 bg-gradient-to-r from-pink-500 to-purple-500 dark:from-pink-300 dark:to-purple-300 bg-clip-text text-transparent">
                 {children}
             </h2>
         ),
@@ -50,18 +40,49 @@ export default {
             <img
                 src={src}
                 alt={alt}
-                style={{
-                    maxWidth: "100%",
-                    border: "1px solid #ddd",
-                }}
+                className="max-w-full rounded-lg border border-gray-200 dark:border-gray-700 transition-all"
             />
+        ),
+        p: ({ children }) => (
+            <p className="text-gray-800 dark:text-gray-200 mb-4">
+                {children}
+            </p>
+        ),
+        a: ({ href, children }) => (
+            <a
+                href={href}
+                className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors"
+            >
+                {children}
+            </a>
+        ),
+        ul: ({ children }) => (
+            <ul className="list-disc list-inside space-y-2 mb-4">
+                {children}
+            </ul>
+        ),
+        li: ({ children }) => (
+            <li className="text-gray-800 dark:text-gray-200">
+                {children}
+            </li>
+        ),
+        blockquote: ({ children }) => (
+            <blockquote className="border-l-4 border-purple-500 dark:border-purple-400 pl-4 my-4 italic text-gray-700 dark:text-gray-300">
+                {children}
+            </blockquote>
+        ),
+        body: ({ children }) => (
+            <body className="text-gray-800 dark:text-gray-200 dark:bg-gray-900">{children}</body>
+        ),
+        article: ({ children }) => (
+            <article className="prose dark:prose-dark max-w-none m-2 p-2 dark:bg-gray-900">{children}</article>
         ),
     },
     cusdis: {
         appId: "0ef50a7d-37e0-4d00-a269-397b79156b21",
     },
     footer: (
-        <p>
+        <p className="text-center text-gray-600 dark:text-gray-400">
             <abbr title="This site and all it's content are licensed under the MIT License">
                 MIT
             </abbr>{" "}
@@ -87,7 +108,7 @@ export default {
             {meta.image && <meta property="og:image" content={meta.image} />}
             <meta name="theme-color" content="#000" />
 
-            <title>{title} | Archit Blog&apos;s!</title>
+            <title>{`${title} | Archit Blog's!`}</title>
         </>
     ),
     readMore: "Read More →",
@@ -101,4 +122,13 @@ export default {
     //     },
     // ],
     // primaryHue: 100,
+    layoutDark: true,
+    toggleButton: {
+        position: 'right',
+        className: 'p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'
+    },
+    primaryHue: {
+        light: 270, // purple in light mode
+        dark: 250,  // slightly different purple in dark mode
+    },
 };
