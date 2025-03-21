@@ -1,0 +1,60 @@
+.footerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.profileImage {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.contentContainer {
+  flex-grow: 1;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.dark .name {
+  color: #e5e7eb;
+}
+
+.description {
+  color: #4b5563;
+}
+
+.dark .description {
+  color: #9ca3af;
+}
+
+.readMoreButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  transition: background-color 0.2s;
+}
+
+.dark .readMoreButton {
+  background-color: #1f2937;
+  color: #d1d5db;
+}
+
+.readMoreButton:hover {
+  background-color: #e5e7eb;
+}
+
+.dark .readMoreButton:hover {
+  background-color: #374151;
+}

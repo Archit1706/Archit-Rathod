@@ -22,9 +22,14 @@ export default {
     //     newWindow: true,
     // },
     // ],
-    comments: <div className="h-40 mx-auto">
-        <Cusdis />
-    </div>,
+    comments: (
+        <div className="w-full max-w-4xl mx-auto my-8">
+            <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">Add a Comment</h2>
+            <div className="min-h-[300px] [&_iframe]:!h-[350px] [&_iframe]:!min-h-full [&_textarea]:!h-[150px] [&_textarea]:!min-h-full">
+                <Cusdis />
+            </div>
+        </div>
+    ),
     components: {
         h1: ({ children }) => (
             <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
@@ -82,12 +87,33 @@ export default {
         appId: "0ef50a7d-37e0-4d00-a269-397b79156b21",
     },
     footer: (
-        <p className="text-center text-gray-600 dark:text-gray-400">
-            <abbr title="This site and all it's content are licensed under the MIT License">
-                MIT
-            </abbr>{" "}
-            <time>{YEAR}</time> © Archit Rathod.
-        </p>
+        // <p className="text-center text-gray-600 dark:text-gray-400">
+        //     <abbr title="This site and all it's content are licensed under the MIT License">
+        //         MIT
+        //     </abbr>{" "}
+        //     <time>{YEAR}</time> © Archit Rathod.
+        // </p>
+        <div className="flex items-center gap-4 max-w-4xl mx-auto bg-gradient-to-r from-purple-400 to-pink-300 dark:from-purple-800 dark:to-pink-700 px-4 rounded-md shadow-lg">
+            <img
+                src="/assets/headshot.jpg" // Replace with your photo path
+                alt="Archit Rathod"
+                className="w-16 h-16 rounded-full object-cover"
+            />
+            <div className="flex-grow">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
+                    Archit Rathod
+                </h3>
+                <p className="text-gray-800 dark:text-gray-400">
+                    Software Developer and tech enthusiast. Passionate about web development and creating user-friendly experiences.
+                </p>
+            </div>
+            <a
+                href="/blogs/posts"
+                className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
+                Read More
+            </a>
+        </div>
     ),
     head: ({ title, meta }) => (
         <>
