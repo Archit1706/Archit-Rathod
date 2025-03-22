@@ -4,6 +4,7 @@ date: 2024/09/13
 description: Neetcode 150 is a collection of 150 coding problems for software engineers and developers to practice their coding skills.
 tag: Interview Preparation, Coding Problems, Software Engineering, Python, Leetcode
 author: Archit Rathod, Neetcode
+image: /assets/blogs/neetcode-150.webp
 ---
 
 # Neetcode 150
@@ -414,7 +415,6 @@ Example 1:
 -   Input: ["lint", "code", "love", "you"]
 -   Output: ["lint", "code", "love", "you"]
 
-
 #### Hints / Notes:
 
 1. Custom Separator
@@ -461,7 +461,7 @@ def encode(strs):
 
 def decode(s):
     decoded = []
-    i = 0       
+    i = 0
     while i < len(s):
         j = i
         while s[j] != "#":
@@ -515,7 +515,7 @@ Example 2:
 -   We can use the `prefix` array to store the prefix products of the array.
 -   We can use the `suffix` array to store the suffix products of the array.
 -   We can then use these arrays to calculate the product of all the elements except the current element.
--   This approach has a time complexity of O(n), where n is the number of elements in the array, and a space complexity of O(n).  
+-   This approach has a time complexity of O(n), where n is the number of elements in the array, and a space complexity of O(n).
 
 #### Solution
 
@@ -529,7 +529,7 @@ def productExceptSelf(nums):
     for i in range(1, n):
         prefix[i] = prefix[i - 1] * nums[i - 1]
         suffix[n - i - 1] = suffix[n - i] * nums[n - i]
-    
+
     return [prefix[i] * suffix[i] for i in range(n)]
 
 # Single Array
@@ -552,27 +552,3 @@ def productExceptSelf(nums):
 
 -   Time Complexity: O(n)
 -   Space Complexity: O(1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
