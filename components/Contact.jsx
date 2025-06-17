@@ -1,475 +1,236 @@
-// import React, { useState, useEffect } from "react";
-// import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-// import { RiTwitterXFill } from "react-icons/ri";
-// import { BsMedium } from "react-icons/bs";
-// import { FiMail } from "react-icons/fi";
-// import { SiLeetcode } from "react-icons/si";
-// import { HiOutlineChevronDoubleUp } from "react-icons/hi";
-// import Link from "next/link";
-// import { firstname, lastname, SocialLinks } from "../config";
-// import Image from "next/image";
-
-// const Contact = () => {
-//     const [formData, setFormData] = useState({});
-
-//     const changeHandler = (e) => {
-//         setFormData({ ...formData, [e.target.name]: e.target.value });
-//     };
-
-//     const submitHandler = (e) => {
-//         e.preventDefault();
-//         setFormData({});
-//     };
-
-//     return (
-//         <section id="contact" className="w-full pt-8 lg:h-screen">
-//             <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
-//                 <p className="uppercase text-xl tracking-widest text-[#5651e5]">
-//                     Contact
-//                 </p>
-//                 <h2 className="py-4">Let&apos;s collab!</h2>
-//                 <div className="grid lg:grid-cols-5 gap-8">
-//                     <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
-//                         <div className="lg:p-4 h-full">
-//                             <div>
-//                                 <Image
-//                                     className="rounded-xl hover:scale-105 ease-in duration-300"
-//                                     src={"/assets/contact.jpeg"}
-//                                     alt="contact-pic"
-//                                     height={500}
-//                                     width={500}
-//                                 />
-//                             </div>
-
-//                             <div>
-//                                 <h2 className="py-2">
-//                                     {firstname + " " + lastname}
-//                                 </h2>
-//                                 <p>Fullstack Web Developer</p>
-//                                 <p className="py-4">
-//                                     I am available for freelance or part-time
-//                                     internships / postions. Contact me and
-//                                     let&apos;s talk.
-//                                 </p>
-//                                 <div>
-//                                     <p className="uppercase pt-8">
-//                                         Connect With Me
-//                                     </p>
-//                                     <div className="flex items-center justify-between max-w-[330] m-auto py-4">
-//                                         <a
-//                                             href={SocialLinks.linkedIn}
-//                                             target="_blank"
-//                                             rel="noreferrer"
-//                                         >
-//                                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-[#0A66C2] hover:text-[#0A66C2]">
-//                                                 <FaLinkedinIn />
-//                                             </div>
-//                                         </a>
-
-//                                         <a
-//                                             href={SocialLinks.github}
-//                                             target="_blank"
-//                                             rel="noreferrer"
-//                                         >
-//                                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-zinc-700 hover:text-zinc-700">
-//                                                 <FaGithub />
-//                                             </div>
-//                                         </a>
-
-//                                         <a
-//                                             href={"mailto:" + SocialLinks.mail}
-//                                             target="_blank"
-//                                             rel="noreferrer"
-//                                         >
-//                                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-red-500 hover:text-red-500">
-//                                                 <FiMail />
-//                                             </div>
-//                                         </a>
-
-//                                         <a
-//                                             href={SocialLinks.twitter}
-//                                             target="_blank"
-//                                             rel="noreferrer"
-//                                         >
-//                                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-black/70 hover:text-black">
-//                                                 <RiTwitterXFill />
-//                                             </div>
-//                                         </a>
-
-//                                         <a
-//                                             href={SocialLinks.leetcode}
-//                                             target="_blank"
-//                                             rel="noreferrer"
-//                                         >
-//                                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-yellow-300 hover:text-yellow-500">
-//                                                 <SiLeetcode />
-//                                             </div>
-//                                         </a>
-
-//                                         <a
-//                                             href={SocialLinks.medium}
-//                                             target="_blank"
-//                                             rel="noreferrer"
-//                                         >
-//                                             <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-slate-800 hover:text-slate-800">
-//                                                 <BsMedium />
-//                                             </div>
-//                                         </a>
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                     <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
-//                         <div className="p-4">
-//                             <form
-//                                 // accept-charset="UTF-8"
-//                                 action="https://getform.io/f/0555cc27-ce13-404f-9a7b-b37f4e99f3a3"
-//                                 method="POST"
-//                             >
-//                                 <div className="grid md:grid-cols-2 gap-4 w-full py-2">
-//                                     <div className="flex flex-col">
-//                                         <label
-//                                             className="uppercase text-sm py-2"
-//                                             htmlFor="name"
-//                                         >
-//                                             Name
-//                                         </label>
-//                                         <input
-//                                             className="border-2 rounded-lg p-3 flex border-gray-300"
-//                                             type="text"
-//                                             name="name"
-//                                             id="name"
-//                                             onChange={changeHandler}
-//                                             required
-//                                         />
-//                                     </div>
-
-//                                     <div className="flex flex-col">
-//                                         <label
-//                                             className="uppercase text-sm py-2"
-//                                             htmlFor="phone"
-//                                         >
-//                                             Phone No.
-//                                         </label>
-//                                         <input
-//                                             className="border-2 rounded-lg p-3 flex border-gray-300"
-//                                             type="tel"
-//                                             name="phone"
-//                                             id="phone"
-//                                             onChange={changeHandler}
-//                                             // pattern="[1-9]{1}[0-9]{9}"
-//                                             // required
-//                                         />
-//                                     </div>
-//                                 </div>
-//                                 <div className="flex flex-col py-2">
-//                                     <label
-//                                         className="uppercase text-sm py-2"
-//                                         htmlFor="email"
-//                                     >
-//                                         Email
-//                                     </label>
-//                                     <input
-//                                         className="border-2 rounded-lg p-3 flex border-gray-300"
-//                                         type="email"
-//                                         name="email"
-//                                         id="email"
-//                                         onChange={changeHandler}
-//                                         required
-//                                     />
-//                                 </div>
-
-//                                 <div className="flex flex-col py-2">
-//                                     <label
-//                                         className="uppercase text-sm py-2"
-//                                         htmlFor="subject"
-//                                     >
-//                                         Subject
-//                                     </label>
-//                                     <input
-//                                         className="border-2 rounded-lg p-3 flex border-gray-300"
-//                                         type="text"
-//                                         name="subject"
-//                                         id="subject"
-//                                         onChange={changeHandler}
-//                                         // required
-//                                     />
-//                                 </div>
-
-//                                 <div className="flex flex-col py-2">
-//                                     <label
-//                                         className="uppercase text-sm py-2"
-//                                         htmlFor="message"
-//                                     >
-//                                         Message
-//                                     </label>
-//                                     <textarea
-//                                         className="border-2 rounded-lg p-3 flex border-gray-300"
-//                                         rows="7"
-//                                         name="message"
-//                                         id="message"
-//                                         onChange={changeHandler}
-//                                         required
-//                                     ></textarea>
-//                                 </div>
-//                                 <button
-//                                     className="w-full p-4 text-gray-100 mt-4"
-//                                     // type="submit"
-//                                     onSubmit={submitHandler}
-//                                 >
-//                                     Submit
-//                                 </button>
-//                             </form>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <div className="flex justify-center py-8">
-//                     <Link href="/">
-//                         <div className="rounded-full shadow-lg shadow-gray-400 hover:shadow-violet-500 hover:text-violet-500 p-3 md:p-5 cursor-pointer hover:scale-105 ease-in duration-300">
-//                             <HiOutlineChevronDoubleUp size={20} />
-//                         </div>
-//                     </Link>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// };
-
-// export default Contact;
-
-
-import React, { useState } from "react";
+import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { BsMedium } from "react-icons/bs";
-import { FiMail } from "react-icons/fi";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { SiLeetcode } from "react-icons/si";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
-import Link from "next/link";
-import { firstname, lastname, SocialLinks } from "../config";
-import Image from "next/image";
+import { SocialLinks, contact } from "../config";
+import { motion } from "framer-motion";
 
 const Contact = () => {
-    const [formData, setFormData] = useState({});
-
-    const changeHandler = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        setFormData({});
-    };
-
     return (
         <section
             id="contact"
-            className="w-full pt-8 lg:h-screen dark:bg-gray-900"
+            className="relative w-full min-h-screen p-2 flex items-center py-16 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent"
         >
-            <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
-                <p className="uppercase text-xl tracking-widest text-[#5651e5] dark:text-[#a29bfe]">
+            {/* Cosmic background effects */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-1/3 right-1/3 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+            </div>
+
+            <div className="max-w-[1240px] m-auto px-2 py-16 w-full relative z-10">
+                <motion.p
+                    className="py-4 uppercase text-xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold text-center"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
                     Contact
-                </p>
-                <h2 className="py-4 dark:text-white">Let&apos;s collab!</h2>
-                <div className="grid lg:grid-cols-5 gap-8">
-                    <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 dark:shadow-gray-800 rounded-xl p-4">
-                        <div className="lg:p-4 h-full">
-                            <div>
-                                <Image
-                                    className="rounded-xl hover:scale-105 ease-in duration-300"
-                                    src={"/assets/contact.jpeg"}
-                                    alt="contact-pic"
-                                    height={500}
-                                    width={500}
-                                />
-                            </div>
-                            <div>
-                                <h2 className="py-2 dark:text-gray-200">
-                                    {firstname + " " + lastname}
-                                </h2>
-                                <p className="dark:text-gray-400">
-                                    Fullstack Web Developer
-                                </p>
-                                <p className="py-4 dark:text-gray-400">
-                                    I am available for freelance or part-time
-                                    internships / positions. Contact me and
-                                    let&apos;s talk.
-                                </p>
-                                <div>
-                                    <p className="uppercase pt-8 dark:text-gray-200">
-                                        Connect With Me
-                                    </p>
-                                    <div className="flex items-center justify-between max-w-[330] m-auto py-4">
-                                        <a
-                                            href={SocialLinks.linkedIn}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-[#0A66C2] hover:text-[#0A66C2]">
-                                                <FaLinkedinIn />
-                                            </div>
-                                        </a>
+                </motion.p>
 
-                                        <a
-                                            href={SocialLinks.github}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-zinc-700 hover:text-zinc-700">
-                                                <FaGithub />
-                                            </div>
-                                        </a>
+                <motion.h2
+                    className="py-4 text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                >
+                    Let&apos;s Connect Across the Digital Galaxy
+                </motion.h2>
 
-                                        <a
-                                            href={"mailto:" + SocialLinks.mail}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-red-500 hover:text-red-500">
-                                                <FiMail />
-                                            </div>
-                                        </a>
+                <motion.p
+                    className="py-4 text-gray-300 text-lg text-center max-w-2xl mx-auto leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    viewport={{ once: true }}
+                >
+                    Ready to embark on a cosmic coding adventure? Let&apos;s create something extraordinary together!
+                </motion.p>
 
-                                        <a
-                                            href={SocialLinks.twitter}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-black/70 hover:text-black dark:hover:text-gray-400">
-                                                <RiTwitterXFill />
-                                            </div>
-                                        </a>
+                <div className="grid lg:grid-cols-2 gap-12 mt-16">
+                    {/* Contact Info */}
+                    <motion.div
+                        className="space-y-8"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="relative p-8 rounded-2xl bg-gradient-to-br from-purple-900/30 via-transparent to-pink-900/30 backdrop-blur-sm border border-purple-500/30 hover:border-purple-400 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/25">
+                            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                                🌌 Get in Touch
+                            </h3>
 
+                            <div className="space-y-6">
+                                {/* Email */}
+                                <motion.div
+                                    className="flex items-center gap-4 p-4 rounded-xl bg-purple-900/20 border border-purple-500/20 hover:border-purple-400/50 transition-all duration-300"
+                                    whileHover={{ x: 10, scale: 1.02 }}
+                                >
+                                    <div className="p-3 rounded-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30">
+                                        <FiMail className="text-purple-300 text-xl" />
+                                    </div>
+                                    <div>
+                                        <p className="text-gray-400 text-sm">Email</p>
                                         <a
-                                            href={SocialLinks.leetcode}
-                                            target="_blank"
-                                            rel="noreferrer"
+                                            href={`mailto:${SocialLinks.mail}`}
+                                            className="text-white hover:text-purple-300 transition-colors duration-300 font-medium"
                                         >
-                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-yellow-300 hover:text-yellow-500">
-                                                <SiLeetcode />
-                                            </div>
-                                        </a>
-
-                                        <a
-                                            href={SocialLinks.medium}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <div className="rounded-full cursor-pointer shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 sm:p-5 hover:scale-110 ease-in duration-300 hover:shadow-slate-800 hover:text-slate-800">
-                                                <BsMedium />
-                                            </div>
+                                            {SocialLinks.mail}
                                         </a>
                                     </div>
-                                </div>
+                                </motion.div>
+
+                                {/* Phone */}
+                                <motion.div
+                                    className="flex items-center gap-4 p-4 rounded-xl bg-purple-900/20 border border-purple-500/20 hover:border-purple-400/50 transition-all duration-300"
+                                    whileHover={{ x: 10, scale: 1.02 }}
+                                >
+                                    <div className="p-3 rounded-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30">
+                                        <FiPhone className="text-purple-300 text-xl" />
+                                    </div>
+                                    <div>
+                                        <p className="text-gray-400 text-sm">Phone</p>
+                                        <p className="text-white font-medium">+1 (555) 123-4567</p>
+                                    </div>
+                                </motion.div>
+
+                                {/* Location */}
+                                <motion.div
+                                    className="flex items-center gap-4 p-4 rounded-xl bg-purple-900/20 border border-purple-500/20 hover:border-purple-400/50 transition-all duration-300"
+                                    whileHover={{ x: 10, scale: 1.02 }}
+                                >
+                                    <div className="p-3 rounded-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30">
+                                        <FiMapPin className="text-purple-300 text-xl" />
+                                    </div>
+                                    <div>
+                                        <p className="text-gray-400 text-sm">Location</p>
+                                        <p className="text-white font-medium">Earth, Milky Way Galaxy</p>
+                                    </div>
+                                </motion.div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 dark:shadow-gray-800 rounded-xl lg:p-4">
-                        <div className="p-4">
-                            <form
-                                action="https://getform.io/f/0555cc27-ce13-404f-9a7b-b37f4e99f3a3"
-                                method="POST"
-                            >
-                                <div className="grid md:grid-cols-2 gap-4 w-full py-2">
-                                    <div className="flex flex-col">
-                                        <label
-                                            className="uppercase text-sm py-2 dark:text-gray-200"
-                                            htmlFor="name"
+
+                        {/* Social Links */}
+                        <motion.div
+                            className="relative p-8 rounded-2xl bg-gradient-to-br from-purple-900/30 via-transparent to-pink-900/30 backdrop-blur-sm border border-purple-500/30"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.5 }}
+                            viewport={{ once: true }}
+                        >
+                            <h3 className="text-xl font-bold text-white mb-6 text-center">
+                                🚀 Follow My Journey
+                            </h3>
+
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {/* Social Media Icons */}
+                                {[
+                                    { icon: FaLinkedinIn, href: SocialLinks.linkedIn, color: '#0A66C2', name: 'LinkedIn' },
+                                    { icon: FaGithub, href: SocialLinks.github, color: '#6B7280', name: 'GitHub' },
+                                    { icon: RiTwitterXFill, href: SocialLinks.twitter, color: '#1DA1F2', name: 'Twitter' },
+                                    { icon: SiLeetcode, href: SocialLinks.leetcode, color: '#FFA116', name: 'LeetCode' },
+                                    { icon: BsMedium, href: SocialLinks.medium, color: '#00AB6C', name: 'Medium' },
+                                ].map((social, index) => (
+                                    <motion.a
+                                        key={index}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="group relative"
+                                        whileHover={{ scale: 1.2, rotate: 360 }}
+                                        whileTap={{ scale: 0.9 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                    >
+                                        <div
+                                            className="p-4 rounded-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm border border-purple-500/30 transition-all duration-300 group-hover:shadow-lg"
+                                            style={{
+                                                '--hover-shadow': `0 0 20px ${social.color}50`
+                                            }}
                                         >
-                                            Name
-                                        </label>
+                                            <social.icon
+                                                className="text-xl text-purple-300 transition-colors duration-300"
+                                                style={{
+                                                    color: 'inherit'
+                                                }}
+                                            />
+                                        </div>
+
+                                        {/* Tooltip */}
+                                        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                            {social.name}
+                                        </div>
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Contact Form */}
+                    <motion.div
+                        className="relative"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="relative p-8 rounded-2xl bg-gradient-to-br from-purple-900/30 via-transparent to-pink-900/30 backdrop-blur-sm border border-purple-500/30 hover:border-purple-400 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/25">
+                            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                                📨 Send a Message
+                            </h3>
+
+                            <form className="space-y-6">
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <motion.div whileFocus={{ scale: 1.02 }}>
                                         <input
-                                            className="border-2 rounded-lg p-3 flex border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                                             type="text"
-                                            name="name"
-                                            id="name"
-                                            onChange={changeHandler}
-                                            required
+                                            placeholder="Your Name"
+                                            className="w-full p-4 rounded-xl bg-purple-900/20 border border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                                         />
-                                    </div>
+                                    </motion.div>
 
-                                    <div className="flex flex-col">
-                                        <label
-                                            className="uppercase text-sm py-2 dark:text-gray-200"
-                                            htmlFor="phone"
-                                        >
-                                            Phone No.
-                                        </label>
+                                    <motion.div whileFocus={{ scale: 1.02 }}>
                                         <input
-                                            className="border-2 rounded-lg p-3 flex border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-                                            type="tel"
-                                            name="phone"
-                                            id="phone"
-                                            onChange={changeHandler}
+                                            type="email"
+                                            placeholder="Your Email"
+                                            className="w-full p-4 rounded-xl bg-purple-900/20 border border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                                         />
-                                    </div>
-                                </div>
-                                <div className="flex flex-col py-2">
-                                    <label
-                                        className="uppercase text-sm py-2 dark:text-gray-200"
-                                        htmlFor="email"
-                                    >
-                                        Email
-                                    </label>
-                                    <input
-                                        className="border-2 rounded-lg p-3 flex border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        onChange={changeHandler}
-                                        required
-                                    />
+                                    </motion.div>
                                 </div>
 
-                                <div className="flex flex-col py-2">
-                                    <label
-                                        className="uppercase text-sm py-2 dark:text-gray-200"
-                                        htmlFor="subject"
-                                    >
-                                        Subject
-                                    </label>
+                                <motion.div whileFocus={{ scale: 1.02 }}>
                                     <input
-                                        className="border-2 rounded-lg p-3 flex border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                                         type="text"
-                                        name="subject"
-                                        id="subject"
-                                        onChange={changeHandler}
+                                        placeholder="Subject"
+                                        className="w-full p-4 rounded-xl bg-purple-900/20 border border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                                     />
-                                </div>
+                                </motion.div>
 
-                                <div className="flex flex-col py-2">
-                                    <label
-                                        className="uppercase text-sm py-2 dark:text-gray-200"
-                                        htmlFor="message"
-                                    >
-                                        Message
-                                    </label>
+                                <motion.div whileFocus={{ scale: 1.02 }}>
                                     <textarea
-                                        className="border-2 rounded-lg p-3 flex border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-                                        rows="7"
-                                        name="message"
-                                        id="message"
-                                        onChange={changeHandler}
-                                        required
-                                    ></textarea>
-                                </div>
-                                <button
-                                    className="w-full p-4 text-gray-100 mt-4 bg-[#5651e5] dark:bg-[#a29bfe] hover:bg-[#4338ca] dark:hover:bg-[#6c5ce7]"
-                                    onSubmit={submitHandler}
+                                        rows={6}
+                                        placeholder="Your message..."
+                                        className="w-full p-4 rounded-xl bg-purple-900/20 border border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 resize-none"
+                                    />
+                                </motion.div>
+
+                                <motion.button
+                                    type="submit"
+                                    className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
+                                    whileHover={{
+                                        scale: 1.02,
+                                        boxShadow: '0 0 30px rgba(139, 92, 246, 0.5)'
+                                    }}
+                                    whileTap={{ scale: 0.98 }}
                                 >
-                                    Submit
-                                </button>
+                                    🚀 Launch Message
+                                </motion.button>
                             </form>
                         </div>
-                    </div>
-                </div>
-                <div className="flex justify-center py-8">
-                    <Link href="/">
-                        <div className="rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-800 hover:shadow-violet-500 hover:text-violet-500 p-3 md:p-5 cursor-pointer hover:scale-105 ease-in duration-300">
-                            <HiOutlineChevronDoubleUp size={20} />
-                        </div>
-                    </Link>
+                    </motion.div>
                 </div>
             </div>
         </section>
