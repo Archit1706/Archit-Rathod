@@ -1,4 +1,7 @@
 // project images
+import OSMRoadClosures from "./public/assets/projects/osmroadclosures.png";
+import KeyaAI from "./public/assets/projects/keyaai.png";
+import OptimalCongestionZoneAnalysis from "./public/assets/projects/optimalcordonzones.png";
 import RealEstate360 from "./public/assets/projects/realestate360.jpg";
 import AscendAI from "./public/assets/projects/ascendai.jpg";
 import FitSphere from "./public/assets/projects/fitsphere.jpg";
@@ -57,7 +60,7 @@ import Matplotlib from "/public/assets/skills/matplotlib.png";
 
 const firstname = "Archit";
 const lastname = "Rathod";
-const tags = ["Frontend", "Backend", "Python"];
+const tags = ["Frontend", "Backend", "Python", "Full-Stack", "MERN", "AI/ML", "AI Agents"];
 const tagline =
     "I have two years of experience in creating websites. Currently I am building Web using Next.js and exploring Machine Learning and AI.";
 const about = [
@@ -69,6 +72,83 @@ const about = [
 //   . .
 
 const projects = [
+    {
+        title: "OSM Temporary Road Closures Database and API",
+        img: OSMRoadClosures,
+        alt: "OSM Temporary Road Closures Database and API",
+        url: "/osm-temporary-road-closures",
+        desc: "Temporary Road Closures is a full-stack, AGPL-licensed platform built during Google Summer of Code 2025 for the OpenStreetMap Foundation. Community users can submit closures via a responsive Next.js/Leaflet interface, while a FastAPI service backed by PostgreSQL + PostGIS validates, stores, and serves geospatial data. The system encodes locations with OpenLR to remain map-provider-agnostic and exposes a documented REST API for third-party integration. A Valhalla integration powers closure-aware routing across auto, bicycle, and pedestrian modes, with side-by-side route comparisons. Security and reliability are addressed with OAuth2/JWT auth, rate limiting, CORS, and containerized deployment (Docker, Nginx). The result is a scalable, standards-compliant foundation for real-time navigation intelligence in the OSM ecosystem.",
+        tech: [
+            "Next.js",
+            "TypeScript",
+            "Leaflet",
+            "Tailwind",
+            "FastAPI",
+            "PostgreSQL/PostGIS",
+            "Redis",
+            "OpenLR",
+            "Valhalla",
+            "Docker",
+            "Nginx"
+        ],
+        features: ["Responsive UI", "Geospatial Data Handling", "Closure-Aware Routing", "OAuth2/JWT Authentication", "Rate Limiting", "Containerized Deployment"],
+        category: "Full Stack",
+        link: "https://closures.osm.ch/",
+        github: "https://github.com/Archit1706/temporary-road-closures",
+    },
+    {
+        title: "Keya AI - Agentic AI Assistant for Real Estate",
+        img: KeyaAI,
+        alt: "Keya AI - Agentic AI Assistant for Real Estate",
+        url: "/keya-ai",
+        desc: "Keya AI is an advanced AI assistant designed to streamline the real estate process for both agents and buyers. By leveraging cutting-edge technologies such as LangChain, LLMs, and Vector Databases, Keya AI offers a comprehensive solution that simplifies property searches, enhances customer interactions, and automates routine tasks. With features like personalized property recommendations, transit information, agent chat and property specific chat interfaces. Keya AI aims to revolutionize the real estate industry by making it more efficient and user-friendly.",
+        tech: [
+            "Next JS",
+            "Tailwind",
+            "Flask",
+            "LangChain",
+            "Azure OpenAI",
+            "SerpAPI",
+            "Zillow/RapidAPI",
+            "GreatSchools",
+            "Cloudflare R2",
+            "React Context API",
+            "Custom Hooks",
+            "i18n"
+        ],
+        features: ["Personalized Property Recommendations", "Transit Information", "Agent Chat", "Property-Specific Chat Interfaces"],
+        category: "Web",
+        link: "https://keya-ai.vercel.app/",
+        github: "https://github.com/Archit1706/Keya-Agentic-AI-assistant-for-Real-Estate",
+    },
+    {
+        "title": "Optimal Congestion Zone Analysis",
+        "img": OptimalCongestionZoneAnalysis,
+        "alt": "Optimal Congestion Zone Analysis",
+        "url": "/optimal-congestion-zone-analysis",
+        "desc": "Optimal Congestion Zone Analysis is a computational urban analytics framework developed at the University of Illinois at Chicago to determine optimal congestion pricing zone boundaries. It integrates OpenStreetMap road network data, census tract geometries, and origin-destination trip flows to identify road network cycles enclosing city centers. The system leverages graph theory algorithms (NetworkX), geospatial analysis (GeoPandas, Shapely), and transportation data processing to evaluate candidate boundaries based on trip coverage, monitoring requirements, and spatial efficiency. The modular pipeline spans graph construction, cycle detection, tract-trip analysis, and cut edge optimization, producing visual outputs for decision-making. Designed for scalability, it enables evidence-based policy design for congestion pricing in urban environments.",
+        "tech": [
+            "Python",
+            "OSMnx",
+            "NetworkX",
+            "GeoPandas",
+            "Shapely",
+            "Matplotlib",
+            "Pandas",
+            "NumPy"
+        ],
+        "features": [
+            "Automated Boundary Detection",
+            "Geospatial Trip Flow Analysis",
+            "Cut Edge Optimization",
+            "Quantitative Evaluation Metrics",
+            "Modular Pipeline Architecture",
+            "Scalable Multi-City Framework"
+        ],
+        "category": "Computational Urban Analytics",
+        "link": "https://docs.google.com/document/d/1qDFizGekW9mCApi7k8pXx-rC9qcEInEFzZWHhMpDN7Y/edit?usp=sharing",
+        "github": "https://github.com/Archit1706/optimal-cordon-zones"
+    },
     {
         title: "RealEstate 360",
         img: RealEstate360,
@@ -87,6 +167,8 @@ const projects = [
             "MongoDB",
             "Three.js",
         ],
+        features: ["Immersive 3D Tours", "AI-Powered Recommendations", "Real-Time Collaboration", "Advanced Analytics Dashboard"],
+        category: "Full Stack",
         link: "https://realestate360.vercel.app/",
         github: "https://github.com/Archit1706/RealEstate360",
     },
@@ -107,6 +189,8 @@ const projects = [
             "MongoDB",
             "Whisper",
         ],
+        features: ["AI-Powered Interview Analysis", "Real-Time Tone and Pitch Feedback", "Facial Expression Recognition", "Comprehensive Video Mock Interview Reviews"],
+        category: "AI/ML",
         link: "https://ascend-ai-mpr.vercel.app/",
         github: "https://github.com/Archit1706/AscendAI",
     },
@@ -125,6 +209,8 @@ const projects = [
             "PoseNet",
             "OpenPose",
         ],
+        features: ["Automated Exercise Recognition", "Accurate Rep and Set Counting", "Progress Tracking", "Exercise Recommendations", "Warning System"],
+        category: "AI/ML",
         link: "https://fitsphere.vercel.app/",
         github: "https://github.com/Archit1706/FitSphere",
     },
@@ -144,6 +230,8 @@ const projects = [
             "OpenCV",
             "OpenAI",
         ],
+        features: ["Real-Time Phishing Detection", "Comprehensive Threat Analysis", "User-Friendly Interface", "AI-Powered Chatbot Assistance"],
+        category: "Web",
         link: "https://phishfence.vercel.app/",
         github: "https://github.com/Archit1706/PhishFence",
     },
@@ -162,6 +250,8 @@ const projects = [
             "Transformers",
             "OpenAI",
         ],
+        features: ["Dual Dashboards", "Chat Analysis", "Audio Sentiment Analysis", "Comprehensive Reporting System"],
+        category: "AI/ML",
         link: "https://swarbhaav.vercel.app/",
         github: "https://github.com/Archit1706/SwarBhaav",
     },
@@ -172,6 +262,8 @@ const projects = [
         url: "/attire-ai",
         desc: "AttireAI: Your ultimate fashion companion powered by Gen AI. Discover and create personalized fashion outfits with ease through natural, conversational interactions. Revolutionizing the way you explore fashion, AttireAI analyzes your style preferences, past purchases, and social media trends to curate tailor-made outfit recommendations. Elevate your shopping experience on Flipkart with cohesive and trendy outfit ideas that reflect your unique fashion taste.",
         tech: ["Next JS", "Tailwind", "Flask", "LangChain", "LLama", "NLTK"],
+        features: ["Personalized Outfit Recommendations", "Conversational Interface", "Style Analysis", "Trend Integration", "Google Search Integration"],
+        category: "AI/ML",
         link: "https://attire-ai.vercel.app",
         github: "https://github.com/Archit1706/Attire-AI",
     },
@@ -190,6 +282,8 @@ const projects = [
             "Socket.io",
             "Cloudinary",
         ],
+        features: ["Real-Time Bidding", "Diverse Auction Categories", "User Chat Feature", "Reverse Auction for Government Contracts", "Live Bidding"],
+        category: "Full Stack",
         link: "https://bid-bazaar.vercel.app/",
         github: "https://github.com/Archit1706/TIAA-Hackathon",
     },
@@ -200,6 +294,8 @@ const projects = [
         url: "/coupon-vault",
         desc: "A headless promotion engine that empowers merchants to generate both dynamic and static coupon codes while customizing all the attributes of the coupon code generation process. Our promotion engine is flexible, scalable, and easily integrated into any web/ app platform. Merchants can set specific rules and conditions for generating dynamic coupon codes and create bulk static coupon codes with the ability to set limits on usage, expiration dates, and customer eligibility.",
         tech: ["Next JS", "Tailwind", "Node JS", "Express", "MongoDB"],
+        features: ["Dynamic and Static Coupon Generation", "Customizable Coupon Attributes", "Flexible Integration", "Usage Limits and Expiration Settings", "SKUs and Categories"],
+        category: "Full Stack",
         link: "https://coupon-vault.vercel.app/",
         github: "https://github.com/Archit1706/Coupon-Vault",
     },
@@ -217,6 +313,8 @@ const projects = [
             "MongoDB",
             "Open AI",
         ],
+        features: ["User-Friendly Editor", "Personalized Profiles", "Content Discovery", "AI-Powered Writing Assistance", "Community Engagement"],
+        category: "Web",
         link: "https://reflections-blog.vercel.app/",
         github: "https://github.com/Archit1706/Reflections-Blogs",
     },
@@ -227,6 +325,8 @@ const projects = [
         url: "/power-up",
         desc: "Power Up is a health monitoring and diet tracking app that is compatible with a vast range of smart watches and wearable devices that run Wear OS. Data is easily collected with Google Fitness Intergation for a seamless user experience. Users can keep a track of their weight, steps, calories and also set goals, dietary preference and/or health condition. Based on the details, users can chat with differnt AI based chatbots.",
         tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB", "APIs"],
+        features: ["Wearable Device Integration", "Real-Time Health Monitoring", "Personalized Diet Plans", "AI Chatbot Support"],
+        category: "Full Stack",
         link: "https://powerup.sidd065.repl.co/",
         github: "https://github.com/Archit1706/PowerUp",
     },
@@ -237,6 +337,8 @@ const projects = [
         url: "/edusys",
         desc: "A web application that maps COs, POs and PSOs of a course to the corresponding course outcomes. It automates the entire flow of Outcome Based Education(OBE) System of a college. And reduces the manual work of the faculty.",
         tech: ["React JS", "Tailwind", "Node JS", "Express", "MongoDB"],
+        features: ["Course Outcome Mapping", "Automated OBE Workflow", "Faculty Dashboard", "Performance Analytics"],
+        category: "Full Stack",
         link: "https://edusys-tsec.netlify.app/",
         github: "https://github.com/Archit1706/EduSys-Frontend",
     },
@@ -254,6 +356,8 @@ const projects = [
             "ML Models",
             "Fast API",
         ],
+        features: ["Network Visualization", "Agenda Detection", "Propaganda Classification", "Fake News Identification", "Keyword Extraction"],
+        category: "AI/ML",
         link: "https://social-vision.vercel.app/",
         github: "https://github.com/Archit1706/SocialVision",
     },
@@ -263,7 +367,9 @@ const projects = [
         alt: "First Paper",
         url: "/first-paper",
         desc: "First Paper is a place where students, professors, researchers, learners or anyone who aims to write a research paper and is unsure about the domain, subject or topic to choose or wants to gather existing research work and can get suggestions based on their search queries run through our ML model.",
+        features: ["Research Paper Suggestions", "Domain and Topic Recommendations", "Existing Work Compilation", "User-Friendly Interface"],
         tech: ["Next JS", "Tailwind", "MongoDB", "Python", "ArXiv Dataset"],
+        category: "AI/ML",
         link: "https://first-paper.vercel.app/",
         github: "https://github.com/Archit1706/First-Paper",
     },
@@ -281,6 +387,8 @@ const projects = [
             "Python",
             "Fast API",
         ],
+        features: ["Profile Scoring System", "Sentiment Analysis", "End-to-End Encrypted Chat", "Swipe-Based Matching", "Stripe Payment Integration"],
+        category: "Full Stack",
         link: "https://the-one-finder.vercel.app/",
         github: "https://github.com/Archit1706/The-One-Finder",
     },
@@ -297,6 +405,8 @@ const projects = [
             "ML Model (Linear Reression)",
             "Fast API",
         ],
+        features: ["Accurate Price Prediction", "User-Friendly Interface", "Interactive House Gallery", "Advanced Algorithm"],
+        category: "AI/ML",
         link: "https://home-ginie.vercel.app/",
         github: "https://github.com/Archit1706/Home-Ginie",
     },
@@ -307,6 +417,8 @@ const projects = [
         url: "/mmoviescape",
         desc: "A web application that displays the latest movies and tv shows. It also displays the details of the movie or tv show when clicked on. Details include IMDB Rating, Release Date, Genres, Overview, etc.",
         tech: ["React JS", "Tailwind", "TMDB API"],
+        features: ["Responsive design optimized for all devices", "Real-time search and filtering", "User-friendly interface"],
+        category: "Web",
         link: "https://moviescape.netlify.app/",
         github: "https://github.com/Archit1706/Movie-App",
     },
@@ -317,6 +429,8 @@ const projects = [
         url: "/emoji-nation",
         desc: "A place for Emoji meanings. It is an emoji search engine. It fetches all the emojis till date from the emoji api and displays them in a grid. It also displays the meaning of the emoji when hovered over.",
         tech: ["React JS", "CSS", "API"],
+        features: ["Search Functionality", "Responsive Design", "Emoji Categories"],
+        category: "Web",
         link: "https://emoji-nation.netlify.app/",
         github: "https://github.com/Archit1706/Emoji-Nation",
     },
@@ -327,6 +441,8 @@ const projects = [
         url: "/healthy-me",
         desc: "A web application that keeps track of your daily calorie intake by taking inputs about your food and water intake during breakfast, lunch and dinner. It also displays the total calories consumed and the total water intake.",
         tech: ["React JS", "Tailwind CSS", "Node JS", "Mongo DB", "Food API"],
+        category: "Full Stack",
+        features: ["Calorie Tracking", "Water Intake Monitoring", "Food Database Integration", "User Authentication"],
         link: "",
         github: "https://github.com/Archit1706/Codeissance_22_Keyboard-Interrupt",
     },
@@ -337,6 +453,8 @@ const projects = [
         url: "/proctor-it",
         desc: "An Application that detects face before start of the exam and keeps track of eye movement during the exam.",
         tech: ["Python", "OpenCV", "Tkinter"],
+        features: ["Face Detection", "Eye Movement Tracking", "Real-Time Monitoring", "User-Friendly Interface"],
+        category: "AI/ML",
         link: "",
         github: "https://github.com/Archit1706/PROCTOR_IT-A-Virtual-Invigilator",
     },
@@ -347,6 +465,8 @@ const projects = [
         url: "/weather-today",
         desc: "A web application that displays the weather of a particular city name provided by the user. It uses the OpenWeather API to fetch the weather data. ",
         tech: ["HTML", "CSS", "Node JS", "API"],
+        features: ["Search by City Name", "Current Weather Display", "Temperature, Humidity, Wind Speed", "Responsive Design"],
+        category: "Web",
         link: "https://weather-today.architrathod1.repl.co/",
         github: "https://github.com/Archit1706/Weather-Today",
     },
@@ -357,6 +477,8 @@ const projects = [
         url: "/random-quote-generator",
         desc: "A simple web application that generates random quotes. It fetches quotes from the API and displays them in a card. The New Quote Button generates a new quote with a random colour scheme. The Tweet Quote Button tweets the quote.",
         tech: ["HTML", "CSS", "JS", "API"],
+        features: ["Random Quote Generation", "Dynamic Color Scheme", "Tweet Integration", "Responsive Design"],
+        category: "Web",
         link: "https://archit1706.github.io/Random-Quote-Generator/",
         github: "https://github.com/Archit1706/Random-Quote-Generator",
     },
@@ -569,7 +691,7 @@ const SocialLinks = {
     linkedIn: "https://www.linkedin.com/in/archit-rathod/",
     twitter: "https://twitter.com/ArchitRathod_17",
     github: "https://github.com/Archit1706",
-    mail: "arath21@uic.edu",
+    mail: "mailto:arath21@uic.edu",
     // mail: "architrathod77@gmail.com",
     leetcode: "https://leetcode.com/Archit176/",
     medium: "/blogs",
@@ -881,6 +1003,162 @@ const researchs = [
     },
 ];
 
+// Experience Data (from Archit Rathod's resume)
+const experiences = [
+    {
+        id: 1,
+        title: "Research Assistant",
+        company: "Urban Transportation Center — University of Illinois Chicago",
+        location: "Chicago, IL, USA",
+        type: "Part-time",
+        startDate: "Aug 2025",
+        endDate: "Present",
+        duration: "1–2 months",
+        description:
+            "Building bi-dimensional transportation models and AI-camera pipelines to optimize multi-modal trips and detect accident risk.",
+        responsibilities: [
+            "Engineered mode-evaluation pipeline combining access time, fixed/variable costs, and distance-weighted travel times",
+            "Prototyped Python models to optimize trips across time, cost, and transfer penalties",
+            "Supported AI Camera Study with data pipelines and model prototypes for accident risk detection"
+        ],
+        technologies: ["Python", "Pandas", "NumPy", "GIS", "OSM", "Network Analysis"],
+        achievements: [
+            "Delivered working prototypes for multi-modal trip optimization",
+            "Established reusable pipeline components for risk-detection workflows"
+        ],
+        companyUrl: null,
+        logo: "/assets/companies/uic_utc.png"
+    }, // :contentReference[oaicite:1]{index=1}
+
+    {
+        id: 2,
+        title: "Software Engineer — Contributor",
+        company: "Google Summer of Code (OpenStreetMap)",
+        location: "Chicago, IL, USA",
+        type: "Internship",
+        startDate: "May 2025",
+        endDate: "Aug 2025",
+        duration: "4 months",
+        description:
+            "Built a real-time road-closure reporting stack for OSM navigation: REST API, spatial DB, interactive mapping UI, and OpenLR integration.",
+        responsibilities: [
+            "Developed RESTful API with FastAPI and PostgreSQL/PostGIS for live road-closure reporting",
+            "Implemented interactive Leaflet.js web app for community submissions and visualization",
+            "Integrated OpenLR encoding for cross-platform location interoperability",
+            "Containerized services and set up CI/CD with Docker and GitHub Actions; configured Nginx reverse proxy"
+        ],
+        technologies: ["FastAPI", "PostgreSQL", "PostGIS", "Leaflet.js", "Docker", "GitHub Actions", "Nginx", "Ubuntu", "OpenLR"],
+        achievements: [
+            "Shipped end-to-end mapping workflow adopted by OSM contributors",
+            "Hardened deployment with CI/CD and containerized environments"
+        ],
+        companyUrl: "https://closures.osm.ch/",
+        logo: "/assets/companies/gsoc_osm.png"
+    }, // :contentReference[oaicite:2]{index=2}
+
+    {
+        id: 3,
+        title: "Research Assistant",
+        company: "University of Illinois Chicago",
+        location: "Chicago, IL, USA",
+        type: "Part-time",
+        startDate: "Feb 2025",
+        endDate: "May 2025",
+        duration: "4 months",
+        description:
+            "Designed geospatial graph pipelines to identify congestion zones and guide optimal camera placement in Chicago.",
+        responsibilities: [
+            "Constructed Chicago road-network graphs with OSMnx and NetworkX; filtered to primary/secondary roads for compute efficiency",
+            "Built bounded cycle-search algorithms to surface congestion zones and ideal camera locations",
+            "Optimized node reduction strategy over ~40–45 intersections near city centroid"
+        ],
+        technologies: ["Python", "OSMnx", "NetworkX", "Geopandas", "GIS"],
+        achievements: [
+            "Produced graph-based method improving planning insights within 3–5 miles of city center",
+            "Reduced compute by tailoring graph extraction and filtering"
+        ],
+        companyUrl: null,
+        logo: "/assets/companies/uic_cs.png"
+    }, // :contentReference[oaicite:3]{index=3}
+
+    {
+        id: 4,
+        title: "Research and Web Engineer",
+        company: "SimPPL",
+        location: "New York, USA (Remote)",
+        type: "Contract",
+        startDate: "Mar 2023",
+        endDate: "Jul 2024",
+        duration: "1 yr 5 mos",
+        description:
+            "Built full-stack research tooling, large-scale data pipelines, and interactive graph visualizations for computational social science.",
+        responsibilities: [
+            "Developed Next.js + FastAPI platform on GCP Compute for real-time LLM analysis and toxicity prevention",
+            "Created React/Node/Neo4j network visualizer handling 20K+ nodes & 100K+ edges",
+            "Automated scraping/storage of 2,300+ Stormfront threads into BigQuery",
+            "Led data engineering for a YouTube study: processed 80M+ comments across 440K videos; built Looker dashboards; optimized BigQuery"
+        ],
+        technologies: ["Next.js", "React.js", "Node.js", "FastAPI", "GCP (Compute, BigQuery)", "Neo4j", "Looker Studio"],
+        achievements: [
+            "Secured 5× API quota increase from YouTube through pipeline quality",
+            "Enabled real-time analytics at research scale"
+        ],
+        companyUrl: "https://sakhi.simppl.org/",
+        logo: "/assets/companies/simppl.png"
+    }, // :contentReference[oaicite:4]{index=4}
+
+    {
+        id: 5,
+        title: "Software Developer & AI Engineer",
+        company: "Digital Information Research Lab — Boston University",
+        location: "Boston, USA (Remote)",
+        type: "Contract",
+        startDate: "Dec 2023",
+        endDate: "Jun 2024",
+        duration: "7 months",
+        description:
+            "Led a 14-engineer team to build a gamified virtual marketplace with agentic AI participants for large-scale behavioral experiments.",
+        responsibilities: [
+            "Implemented multi-stage game logic in JavaScript with 8 consumer-producer strategies",
+            "Built React + Empirica.ly front-end with Tailwind; ensured Figma-to-code fidelity",
+            "Engineered LLM-driven autonomous agents; orchestrated experiments on AWS/Prolific under Agile"
+        ],
+        technologies: ["React.js", "Empirica.ly", "JavaScript", "Tailwind CSS", "AWS", "LLM toolchains", "Agile"],
+        achievements: [
+            "Ran studies with 2,000+ participants and AI sellers",
+            "Delivered production-grade experiment platform on schedule"
+        ],
+        companyUrl: null,
+        logo: "/assets/companies/bu_dirl.png"
+    }, // :contentReference[oaicite:5]{index=5}
+
+    {
+        id: 6,
+        title: "Machine Learning Intern",
+        company: "Kaizen Future Tech",
+        location: "Mumbai, India",
+        type: "Internship",
+        startDate: "May 2021",
+        endDate: "Jul 2021",
+        duration: "3 months",
+        description:
+            "Built disaster-image classifiers with CNN/ResNet; improved generalization via stacked ensembles with XGBoost.",
+        responsibilities: [
+            "Curated & augmented 30K+ images from Incidents1M; trained on GPU with tuned hyperparameters",
+            "Implemented EarlyStopping & model checkpoints; evaluated ensemble performance",
+            "Documented experiments and delivered reproducible training pipeline"
+        ],
+        technologies: ["PyTorch", "TensorFlow", "CNN", "ResNet", "XGBoost", "GPU Training"],
+        achievements: [
+            "Achieved ~95% classification accuracy",
+            "Deployed stacked ensemble improving robustness over base models"
+        ],
+        companyUrl: null,
+        logo: "/assets/companies/kaizen.png"
+    } // :contentReference[oaicite:6]{index=6}
+];
+
+
 export {
     firstname,
     lastname,
@@ -893,4 +1171,5 @@ export {
     tools,
     SocialLinks,
     researchs,
+    experiences
 };
