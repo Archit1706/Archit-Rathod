@@ -8,18 +8,21 @@ import { FaFilePdf, FaExternalLinkAlt, FaArrowLeft, FaCalendarAlt, FaUser, FaTag
 import { researchs } from '../../config';
 import AnimationWrapper from '../../components/AnimationWrapper';
 
-const ResearchDetail = () => {
+const ResearchDetail = ({ research }) => {
     const router = useRouter();
-    const { slug } = router.query;
+    const { research: slug } = router.query;
 
-    // Find the research based on the slug
-    const research = researchs.find(r => {
+    console.log("Research slug:", slug);
+    console.log("Research data:", research);
+
+    // Use the research prop from getStaticProps, fallback to finding by slug if needed
+    const researchData = research || researchs.find(r => {
         const researchSlug = r.url.split('/').pop();
         return researchSlug === slug;
     });
 
     // If research not found, show 404
-    if (!research) {
+    if (!researchData) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
@@ -62,11 +65,11 @@ const ResearchDetail = () => {
     return (
         <>
             <Head>
-                <title>{research.title} | Archit Rathod Research</title>
-                <meta name="description" content={research.desc} />
-                <meta property="og:title" content={`${research.title} | Archit Rathod Research`} />
-                <meta property="og:description" content={research.desc} />
-                <meta property="og:image" content={research.img} />
+                <title>{researchData.title} | Archit Rathod Research</title>
+                <meta name="description" content={researchData.desc || researchData.abstract} />
+                <meta property="og:title" content={`${researchData.title} | Archit Rathod Research`} />
+                <meta property="og:description" content={researchData.desc || researchData.abstract} />
+                <meta property="og:image" content={researchData.img} />
             </Head>
 
             <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 pt-20">
@@ -93,27 +96,29 @@ const ResearchDetail = () => {
                         {/* Research Header */}
                         <motion.div variants={itemVariants} className="text-center mb-12">
                             <div className="mb-4">
-                                <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${research.status === 'Published'
+                                <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${researchData.status === 'published'
                                     ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                                    : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
+                                    : researchData.status === 'accepted'
+                                        ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                        : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
                                     }`}>
-                                    {research.status}
+                                    {researchData.status.toUpperCase()}
                                 </span>
                             </div>
                             <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6 leading-tight">
-                                {research.title}
+                                {researchData.title}
                             </h1>
-                            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-                                {research.desc}
-                            </p>
+                            {/* <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+                                {researchData.desc || researchData.abstract}
+                            </p> */}
                         </motion.div>
 
                         {/* Research Image */}
                         <motion.div variants={itemVariants} className="mb-12">
                             <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                                 <Image
-                                    src={research.img}
-                                    alt={research.alt}
+                                    src={researchData.img}
+                                    alt={researchData.alt}
                                     width={1200}
                                     height={600}
                                     className="w-full h-auto object-cover"
@@ -131,54 +136,37 @@ const ResearchDetail = () => {
                                     </h2>
                                     <div className="prose prose-lg dark:prose-invert max-w-none">
                                         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                                            {research.desc}
+                                            {researchData.abstract}
                                         </p>
 
-                                        {/* Extended description based on research type */}
-                                        {research.category === 'machine-learning' && (
-                                            <div className="space-y-4">
-                                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                    This research investigates novel approaches to machine learning applications in healthcare settings,
-                                                    focusing on improving predictive accuracy while maintaining interpretability of results. The study
-                                                    employs advanced neural network architectures and ensemble methods.
-                                                </p>
-                                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                    Our methodology includes comprehensive data preprocessing, feature engineering, and cross-validation
-                                                    techniques to ensure robust model performance across diverse healthcare scenarios.
-                                                </p>
-                                            </div>
+                                        {/* Key Features */}
+                                        {researchData.keyFeatures && researchData.keyFeatures.length > 0 && (
+                                            <>
+                                                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mt-8 mb-4">
+                                                    Key Contributions
+                                                </h3>
+                                                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    {researchData.keyFeatures.map((feature, index) => (
+                                                        <li key={index} className="flex items-start gap-2">
+                                                            <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
+                                                            {feature}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </>
                                         )}
 
-                                        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mt-8 mb-4">
-                                            Key Contributions
-                                        </h3>
-                                        <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                                            <li className="flex items-start gap-2">
-                                                <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                                                Novel algorithmic approach with improved efficiency
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                                                Comprehensive experimental validation
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                                                Open-source implementation for reproducibility
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                                                Practical applications and case studies
-                                            </li>
-                                        </ul>
-
-                                        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mt-8 mb-4">
-                                            Methodology
-                                        </h3>
-                                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                            Our research methodology follows a systematic approach combining theoretical analysis
-                                            with empirical validation. We employed both quantitative and qualitative evaluation
-                                            metrics to assess the effectiveness of our proposed solutions.
-                                        </p>
+                                        {/* Conclusion */}
+                                        {researchData.conclusion && (
+                                            <>
+                                                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mt-8 mb-4">
+                                                    Conclusion
+                                                </h3>
+                                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                    {researchData.conclusion}
+                                                </p>
+                                            </>
+                                        )}
                                     </div>
                                 </motion.div>
                             </div>
@@ -193,9 +181,9 @@ const ResearchDetail = () => {
                                                 Research Resources
                                             </h3>
                                             <div className="space-y-3">
-                                                {research.links?.pdf && (
+                                                {researchData.links?.pdf && (
                                                     <a
-                                                        href={research.links.pdf}
+                                                        href={researchData.links.pdf}
                                                         target="_blank"
                                                         rel="noreferrer"
                                                         className="flex items-center gap-3 p-3 bg-red-100 dark:bg-red-900/30 rounded-xl hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors duration-300"
@@ -206,9 +194,22 @@ const ResearchDetail = () => {
                                                         </span>
                                                     </a>
                                                 )}
-                                                {research.links?.slides && (
+                                                {researchData.links?.arxiv && (
                                                     <a
-                                                        href={research.links.slides}
+                                                        href={researchData.links.arxiv}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="flex items-center gap-3 p-3 bg-orange-100 dark:bg-orange-900/30 rounded-xl hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors duration-300"
+                                                    >
+                                                        <FaExternalLinkAlt className="text-orange-600 dark:text-orange-400" />
+                                                        <span className="text-orange-600 dark:text-orange-400 font-medium">
+                                                            ArXiv
+                                                        </span>
+                                                    </a>
+                                                )}
+                                                {researchData.links?.slides && (
+                                                    <a
+                                                        href={researchData.links.slides}
                                                         target="_blank"
                                                         rel="noreferrer"
                                                         className="flex items-center gap-3 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-300"
@@ -219,22 +220,22 @@ const ResearchDetail = () => {
                                                         </span>
                                                     </a>
                                                 )}
-                                                {research.links?.demo && (
+                                                {researchData.links?.code && (
                                                     <a
-                                                        href={research.links.demo}
+                                                        href={researchData.links.code}
                                                         target="_blank"
                                                         rel="noreferrer"
                                                         className="flex items-center gap-3 p-3 bg-green-100 dark:bg-green-900/30 rounded-xl hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors duration-300"
                                                     >
                                                         <FaExternalLinkAlt className="text-green-600 dark:text-green-400" />
                                                         <span className="text-green-600 dark:text-green-400 font-medium">
-                                                            Live Demo
+                                                            Source Code
                                                         </span>
                                                     </a>
                                                 )}
-                                                {research.links?.video && (
+                                                {researchData.links?.video && (
                                                     <a
-                                                        href={research.links.video}
+                                                        href={researchData.links.video}
                                                         target="_blank"
                                                         rel="noreferrer"
                                                         className="flex items-center gap-3 p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors duration-300"
@@ -249,14 +250,14 @@ const ResearchDetail = () => {
                                         </div>
 
                                         {/* Authors */}
-                                        {research.authors && (
+                                        {researchData.authors && researchData.authors.length > 0 && (
                                             <div className="mb-8">
                                                 <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
                                                     <FaUser />
                                                     Authors
                                                 </h3>
                                                 <div className="space-y-2">
-                                                    {research.authors.map((author, index) => (
+                                                    {researchData.authors.map((author, index) => (
                                                         <div
                                                             key={index}
                                                             className="text-gray-600 dark:text-gray-400 py-1"
@@ -268,46 +269,42 @@ const ResearchDetail = () => {
                                             </div>
                                         )}
 
-                                        {/* Keywords */}
-                                        {research.keywords && (
-                                            <div className="mb-8">
-                                                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-                                                    <FaTags />
-                                                    Keywords
-                                                </h3>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {research.keywords.map((keyword, index) => (
-                                                        <span
-                                                            key={index}
-                                                            className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-800 dark:text-indigo-300 rounded-full text-sm font-medium"
-                                                        >
-                                                            {keyword}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
-
                                         {/* Research Info */}
                                         <div className="space-y-4">
                                             <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
                                                 Publication Info
                                             </h3>
 
-                                            <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                                                <FaCalendarAlt className="text-indigo-600 dark:text-indigo-400" />
-                                                <span>Published: {research.date}</span>
-                                            </div>
+                                            {researchData.dates?.publication && (
+                                                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                                                    <FaCalendarAlt className="text-indigo-600 dark:text-indigo-400" />
+                                                    <span>Published: {researchData.dates.publication}</span>
+                                                </div>
+                                            )}
+
+                                            {researchData.dates?.presentation && (
+                                                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                                                    <FaCalendarAlt className="text-indigo-600 dark:text-indigo-400" />
+                                                    <span>Presented: {researchData.dates.presentation}</span>
+                                                </div>
+                                            )}
 
                                             <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
                                                 <FaTags className="text-indigo-600 dark:text-indigo-400" />
-                                                <span>Category: {research.category?.replace('-', ' ') || 'Research'}</span>
+                                                <span>Status: {researchData.status}</span>
                                             </div>
 
-                                            {research.venue && (
+                                            {researchData.conference && (
                                                 <div className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
                                                     <FaUniversity className="text-indigo-600 dark:text-indigo-400 mt-1" />
-                                                    <span>{research.venue}</span>
+                                                    <span>{researchData.conference}</span>
+                                                </div>
+                                            )}
+
+                                            {researchData.workshop && (
+                                                <div className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+                                                    <FaUniversity className="text-indigo-600 dark:text-indigo-400 mt-1" />
+                                                    <span>{researchData.workshop}</span>
                                                 </div>
                                             )}
                                         </div>
@@ -336,10 +333,11 @@ const ResearchDetail = () => {
                             </h2>
                             <div className="grid md:grid-cols-3 gap-6">
                                 {researchs
-                                    .filter(r => r.id !== research.id)
+                                    .filter(r => r.title !== researchData.title)
                                     .slice(0, 3)
                                     .map((relatedResearch, index) => (
-                                        <Link key={relatedResearch.id} href={relatedResearch.url}>
+                                        // research/[slug]
+                                        <Link key={index} href={`/research${relatedResearch.url}`}>
                                             <motion.div
                                                 whileHover={{ scale: 1.02, y: -5 }}
                                                 className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 cursor-pointer"
@@ -356,12 +354,14 @@ const ResearchDetail = () => {
                                                         {relatedResearch.title}
                                                     </h3>
                                                     <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-                                                        {relatedResearch.desc.substring(0, 100)}...
+                                                        {(relatedResearch.desc || relatedResearch.abstract).substring(0, 100)}...
                                                     </p>
                                                     <div className="mt-3">
-                                                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${relatedResearch.status === 'Published'
+                                                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${relatedResearch.status === 'published'
                                                             ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                                                            : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
+                                                            : relatedResearch.status === 'accepted'
+                                                                ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                                                : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
                                                             }`}>
                                                             {relatedResearch.status}
                                                         </span>
@@ -381,36 +381,45 @@ const ResearchDetail = () => {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-    // Get the paths we want to pre-render based on research
-    const paths = researchs.map((research) => {
-        const slug = research.url.split('/').pop();
-        return {
-            params: { slug }
-        };
-    });
+    // Extract the slug from the url field
+    const paths = researchs
+        .filter(research => research.url && typeof research.url === 'string')
+        .map((researchItem) => {
+            // Extract slug from URL (remove leading slash if present)
+            const slug = researchItem.url.startsWith('/') ? researchItem.url.slice(1) : researchItem.url;
+            return {
+                params: { research: slug }
+            };
+        });
 
-    return { paths, fallback: false };
+    return {
+        paths,
+        fallback: false
+    };
 }
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-    // params contains the research slug
-    const research = researchs.find(r => {
-        const researchSlug = r.url.split('/').pop();
-        return researchSlug === params.slug;
+    const { research: slug } = params;
+
+    console.log('getStaticProps slug:', slug);
+
+    // Find the research by matching the slug
+    const researchData = researchs.find(r => {
+        const researchSlug = r.url.startsWith('/') ? r.url.slice(1) : r.url;
+        return researchSlug === slug;
     });
 
-    // If no research found, return 404
-    if (!research) {
+    if (!researchData) {
         return {
-            notFound: true,
+            notFound: true
         };
     }
 
     return {
         props: {
-            research,
-        },
+            research: researchData
+        }
     };
 }
 

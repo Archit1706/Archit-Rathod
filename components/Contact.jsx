@@ -1,12 +1,138 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaUser, FaEnvelope, FaCommentDots, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
 import AnimationWrapper from './AnimationWrapper';
+
+// Move FormField component outside to prevent recreation on each render
+const FormField = React.memo(({
+    name,
+    type = "text",
+    placeholder,
+    icon: Icon,
+    isTextarea = false,
+    value,
+    onChange,
+    onFocus,
+    onBlur,
+    focusedField,
+    error
+}) => (
+    <motion.div
+        variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                }
+            }
+        }}
+        className="relative"
+    >
+        <div className="relative">
+            <Icon className={`absolute left-4 ${isTextarea ? 'top-4' : 'top-1/2 transform -translate-y-1/2'} text-gray-400 transition-colors duration-300 ${focusedField === name ? 'text-purple-500' : ''}`} />
+
+            {isTextarea ? (
+                <motion.textarea
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    placeholder={placeholder}
+                    rows={6}
+                    variants={{
+                        focused: {
+                            scale: 1.02,
+                            boxShadow: "0 0 0 3px rgba(139, 69, 19, 0.1)",
+                            transition: { duration: 0.2 }
+                        },
+                        unfocused: {
+                            scale: 1,
+                            boxShadow: "0 0 0 0px rgba(139, 69, 19, 0)",
+                            transition: { duration: 0.2 }
+                        }
+                    }}
+                    animate={focusedField === name ? "focused" : "unfocused"}
+                    className={`w-full pl-12 pr-4 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-2 rounded-2xl text-gray-700 dark:text-gray-200 placeholder-gray-400 focus:outline-none transition-all duration-300 resize-none ${error
+                        ? 'border-red-400 focus:border-red-500'
+                        : focusedField === name
+                            ? 'border-purple-400 focus:border-purple-500'
+                            : 'border-gray-200 dark:border-gray-600 focus:border-purple-400'
+                        }`}
+                />
+            ) : (
+                <motion.input
+                    type={type}
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    placeholder={placeholder}
+                    variants={{
+                        focused: {
+                            scale: 1.02,
+                            boxShadow: "0 0 0 3px rgba(139, 69, 19, 0.1)",
+                            transition: { duration: 0.2 }
+                        },
+                        unfocused: {
+                            scale: 1,
+                            boxShadow: "0 0 0 0px rgba(139, 69, 19, 0)",
+                            transition: { duration: 0.2 }
+                        }
+                    }}
+                    animate={focusedField === name ? "focused" : "unfocused"}
+                    className={`w-full pl-12 pr-4 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-2 rounded-2xl text-gray-700 dark:text-gray-200 placeholder-gray-400 focus:outline-none transition-all duration-300 ${error
+                        ? 'border-red-400 focus:border-red-500'
+                        : focusedField === name
+                            ? 'border-purple-400 focus:border-purple-500'
+                            : 'border-gray-200 dark:border-gray-600 focus:border-purple-400'
+                        }`}
+                />
+            )}
+
+            {/* Floating Label */}
+            <AnimatePresence>
+                {(focusedField === name || value) && (
+                    <motion.label
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute -top-3 left-8 bg-white dark:bg-gray-900 px-2 text-sm font-medium text-purple-600 dark:text-purple-400"
+                    >
+                        {placeholder}
+                    </motion.label>
+                )}
+            </AnimatePresence>
+        </div>
+
+        {/* Error Message */}
+        <AnimatePresence>
+            {error && (
+                <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-red-500 text-sm mt-2 ml-4"
+                >
+                    {error}
+                </motion.p>
+            )}
+        </AnimatePresence>
+    </motion.div>
+));
+
+FormField.displayName = 'FormField';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
+        subject: '',
         message: ''
     });
     const [focusedField, setFocusedField] = useState(null);
@@ -14,7 +140,7 @@ const Contact = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errors, setErrors] = useState({});
 
-    const handleChange = (e) => {
+    const handleChange = useCallback((e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -28,9 +154,17 @@ const Contact = () => {
                 [name]: ''
             }));
         }
-    };
+    }, [errors]);
 
-    const validateForm = () => {
+    const handleFocus = useCallback((name) => {
+        setFocusedField(name);
+    }, []);
+
+    const handleBlur = useCallback(() => {
+        setFocusedField(null);
+    }, []);
+
+    const validateForm = useCallback(() => {
         const newErrors = {};
 
         if (!formData.name.trim()) {
@@ -51,26 +185,28 @@ const Contact = () => {
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
-    };
+    }, [formData]);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (!validateForm()) return;
+        if (!validateForm()) {
+            e.preventDefault();
+            return;
+        }
 
         setIsSubmitting(true);
 
-        // Simulate form submission
+        // Let the form submit naturally to Getform.io
+        // After a brief delay, show success message
         setTimeout(() => {
             setIsSubmitting(false);
             setIsSubmitted(true);
-            setFormData({ name: '', email: '', message: '' });
+            setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
 
-            // Reset success message after 3 seconds
+            // Reset success message after 5 seconds
             setTimeout(() => {
                 setIsSubmitted(false);
-            }, 3000);
-        }, 2000);
+            }, 5000);
+        }, 1000);
     };
 
     const containerVariants = {
@@ -107,97 +243,6 @@ const Contact = () => {
             }
         }
     };
-
-    const inputVariants = {
-        focused: {
-            scale: 1.02,
-            boxShadow: "0 0 0 3px rgba(139, 69, 19, 0.1)",
-            transition: {
-                duration: 0.2
-            }
-        },
-        unfocused: {
-            scale: 1,
-            boxShadow: "0 0 0 0px rgba(139, 69, 19, 0)",
-            transition: {
-                duration: 0.2
-            }
-        }
-    };
-
-    const FormField = ({ name, type = "text", placeholder, icon: Icon, isTextarea = false }) => (
-        <motion.div variants={itemVariants} className="relative">
-            <div className="relative">
-                <Icon className={`absolute left-4 ${isTextarea ? 'top-4' : 'top-1/2 transform -translate-y-1/2'} text-gray-400 transition-colors duration-300 ${focusedField === name ? 'text-purple-500' : ''}`} />
-
-                {isTextarea ? (
-                    <motion.textarea
-                        name={name}
-                        value={formData[name]}
-                        onChange={handleChange}
-                        onFocus={() => setFocusedField(name)}
-                        onBlur={() => setFocusedField(null)}
-                        placeholder={placeholder}
-                        rows={6}
-                        variants={inputVariants}
-                        animate={focusedField === name ? "focused" : "unfocused"}
-                        className={`w-full pl-12 pr-4 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-2 rounded-2xl text-gray-700 dark:text-gray-200 placeholder-gray-400 focus:outline-none transition-all duration-300 resize-none ${errors[name]
-                                ? 'border-red-400 focus:border-red-500'
-                                : focusedField === name
-                                    ? 'border-purple-400 focus:border-purple-500'
-                                    : 'border-gray-200 dark:border-gray-600 focus:border-purple-400'
-                            }`}
-                    />
-                ) : (
-                    <motion.input
-                        type={type}
-                        name={name}
-                        value={formData[name]}
-                        onChange={handleChange}
-                        onFocus={() => setFocusedField(name)}
-                        onBlur={() => setFocusedField(null)}
-                        placeholder={placeholder}
-                        variants={inputVariants}
-                        animate={focusedField === name ? "focused" : "unfocused"}
-                        className={`w-full pl-12 pr-4 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-2 rounded-2xl text-gray-700 dark:text-gray-200 placeholder-gray-400 focus:outline-none transition-all duration-300 ${errors[name]
-                                ? 'border-red-400 focus:border-red-500'
-                                : focusedField === name
-                                    ? 'border-purple-400 focus:border-purple-500'
-                                    : 'border-gray-200 dark:border-gray-600 focus:border-purple-400'
-                            }`}
-                    />
-                )}
-
-                {/* Floating Label */}
-                <AnimatePresence>
-                    {(focusedField === name || formData[name]) && (
-                        <motion.label
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            className="absolute -top-3 left-8 bg-white dark:bg-gray-900 px-2 text-sm font-medium text-purple-600 dark:text-purple-400"
-                        >
-                            {placeholder}
-                        </motion.label>
-                    )}
-                </AnimatePresence>
-            </div>
-
-            {/* Error Message */}
-            <AnimatePresence>
-                {errors[name] && (
-                    <motion.p
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="text-red-500 text-sm mt-2 ml-4"
-                    >
-                        {errors[name]}
-                    </motion.p>
-                )}
-            </AnimatePresence>
-        </motion.div>
-    );
 
     return (
         <section id="contact" className="w-full min-h-screen py-16 relative overflow-hidden">
@@ -262,7 +307,7 @@ const Contact = () => {
                             {/* Contact Methods */}
                             <motion.div variants={itemVariants} className="space-y-6">
                                 {[
-                                    { label: "Email", value: "archit@example.com", icon: "📧" },
+                                    { label: "Email", value: "arath21@uic.edu", icon: "📧" },
                                     { label: "Location", value: "Chicago, IL", icon: "📍" },
                                     { label: "Available", value: "Mon-Fri, 9AM-6PM", icon: "🕒" }
                                 ].map((item, index) => (
@@ -314,6 +359,9 @@ const Contact = () => {
                                 ) : (
                                     <motion.form
                                         key="form"
+                                        acceptCharset="UTF-8"
+                                        action="https://getform.io/f/0555cc27-ce13-404f-9a7b-b37f4e99f3a3"
+                                        method="POST"
                                         onSubmit={handleSubmit}
                                         variants={containerVariants}
                                         initial="hidden"
@@ -331,6 +379,12 @@ const Contact = () => {
                                             name="name"
                                             placeholder="Your Name"
                                             icon={FaUser}
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            onFocus={() => handleFocus('name')}
+                                            onBlur={handleBlur}
+                                            focusedField={focusedField}
+                                            error={errors.name}
                                         />
 
                                         <FormField
@@ -338,6 +392,37 @@ const Contact = () => {
                                             type="email"
                                             placeholder="Your Email"
                                             icon={FaEnvelope}
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            onFocus={() => handleFocus('email')}
+                                            onBlur={handleBlur}
+                                            focusedField={focusedField}
+                                            error={errors.email}
+                                        />
+
+                                        <FormField
+                                            name="phone"
+                                            type="tel"
+                                            placeholder="Phone Number"
+                                            icon={FaUser}
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            onFocus={() => handleFocus('phone')}
+                                            onBlur={handleBlur}
+                                            focusedField={focusedField}
+                                            error={errors.phone}
+                                        />
+
+                                        <FormField
+                                            name="subject"
+                                            placeholder="Subject"
+                                            icon={FaEnvelope}
+                                            value={formData.subject}
+                                            onChange={handleChange}
+                                            onFocus={() => handleFocus('subject')}
+                                            onBlur={handleBlur}
+                                            focusedField={focusedField}
+                                            error={errors.subject}
                                         />
 
                                         <FormField
@@ -345,6 +430,12 @@ const Contact = () => {
                                             placeholder="Your Message"
                                             icon={FaCommentDots}
                                             isTextarea={true}
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            onFocus={() => handleFocus('message')}
+                                            onBlur={handleBlur}
+                                            focusedField={focusedField}
+                                            error={errors.message}
                                         />
 
                                         <motion.button

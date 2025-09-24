@@ -357,7 +357,7 @@ const Research = () => {
                 )}
 
                 {/* Research Statistics */}
-                <AnimationWrapper direction="scale" delay={0.6} className="mt-16">
+                {/* <AnimationWrapper direction="scale" delay={0.6} className="mt-16">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {[
                             { number: researchs.length, label: 'Research Papers', icon: '📄' },
@@ -380,7 +380,7 @@ const Research = () => {
                             </motion.div>
                         ))}
                     </div>
-                </AnimationWrapper>
+                </AnimationWrapper> */}
             </div>
         </section>
     );
