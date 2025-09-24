@@ -196,7 +196,7 @@ const Projects = () => {
                                                         {project.desc?.substring(0, 100)}...
                                                     </motion.p>
 
-                                                    <Link href={`/project/${project.url}`}>
+                                                    <Link href={`/project${project.url}`}>
                                                         <motion.button
                                                             variants={buttonVariants}
                                                             whileHover="hover"
