@@ -144,7 +144,7 @@ const Main = () => {
         { href: SocialLinks.twitter, icon: RiTwitterXFill, color: "#1DA1F2", label: "Twitter" },
         { href: SocialLinks.medium, icon: BsMedium, color: "#00AB6C", label: "Medium" },
         { href: SocialLinks.leetcode, icon: SiLeetcode, color: "#FFA116", label: "LeetCode" },
-        { href: `mailto:${SocialLinks.email}`, icon: FiMail, color: "#EA4335", label: "Email" }
+        { href: SocialLinks.mail, icon: FiMail, color: "#EA4335", label: "Email" }
     ];
 
     return (
