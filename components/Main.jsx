@@ -148,7 +148,9 @@ const Main = () => {
     ];
 
     return (
-        <section id="home" className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+        <section id="home" className="relative w-full overflow-hidden flex items-center justify-center" style={{
+            minHeight: "calc(100vh - 4rem)"
+        }}>
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
                 {/* Gradient Background */}

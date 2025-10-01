@@ -100,7 +100,9 @@ const Experience = () => {
     const currentExperience = experiences[selectedExperience];
 
     return (
-        <section id="experience" className="w-full min-h-screen py-16 relative overflow-hidden">
+        <section id="experience" className="w-full py-16 relative overflow-hidden"
+            style={{ minHeight: "calc(100vh - 4rem)" }}
+        >
             {/* Animated Background */}
             <motion.div
                 className="absolute inset-0 -z-10"
@@ -143,7 +145,7 @@ const Experience = () => {
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="py-4 uppercase text-xl tracking-widest text-emerald-600 dark:text-emerald-400 font-semibold"
+                            className="py-4 uppercase text-xl tracking-widest text-purple-600 dark:text-purple-400 font-semibold"
                         >
                             Professional Experience
                         </motion.p>
@@ -159,7 +161,7 @@ const Experience = () => {
                             initial={{ width: 0 }}
                             animate={{ width: "100px" }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="h-1 bg-gradient-to-r from-emerald-500 to-blue-500 mx-auto rounded-full"
+                            className="h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"
                         />
                     </div>
                 </AnimationWrapper>
@@ -181,30 +183,30 @@ const Experience = () => {
                                         whileHover="hover"
                                         onClick={() => setSelectedExperience(index)}
                                         className={`cursor-pointer p-6 rounded-2xl border transition-all duration-300 ${selectedExperience === index
-                                            ? 'bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 border-emerald-300 dark:border-emerald-600 shadow-lg'
-                                            : 'bg-white/60 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600'
+                                            ? 'bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border-purple-300 dark:border-purple-600 shadow-lg'
+                                            : 'bg-white/60 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600'
                                             } backdrop-blur-md`}
                                     >
                                         <div className="flex items-start gap-4">
                                             <div className={`p-3 rounded-full ${selectedExperience === index
-                                                ? 'bg-emerald-100 dark:bg-emerald-900/30'
+                                                ? 'bg-purple-100 dark:bg-purple-900/30'
                                                 : 'bg-gray-100 dark:bg-gray-700'
                                                 }`}>
                                                 <FaBriefcase className={`${selectedExperience === index
-                                                    ? 'text-emerald-600 dark:text-emerald-400'
+                                                    ? 'text-purple-600 dark:text-purple-400'
                                                     : 'text-gray-600 dark:text-gray-400'
                                                     }`} />
                                             </div>
 
                                             <div className="flex-1">
                                                 <h3 className={`font-bold text-lg mb-1 ${selectedExperience === index
-                                                    ? 'text-emerald-700 dark:text-emerald-300'
+                                                    ? 'text-purple-700 dark:text-purple-300'
                                                     : 'text-gray-800 dark:text-white'
                                                     }`}>
                                                     {exp.title}
                                                 </h3>
                                                 <p className={`font-medium mb-1 ${selectedExperience === index
-                                                    ? 'text-emerald-600 dark:text-emerald-400'
+                                                    ? 'text-purple-600 dark:text-purple-400'
                                                     : 'text-gray-600 dark:text-gray-300'
                                                     }`}>
                                                     {exp.company}
@@ -215,7 +217,7 @@ const Experience = () => {
                                                 <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${exp.type === 'Full-time'
                                                     ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
                                                     : exp.type === 'Internship'
-                                                        ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                                        ? 'bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-400'
                                                         : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
                                                     }`}>
                                                     {exp.type}
@@ -249,8 +251,8 @@ const Experience = () => {
                                                 whileTap={{ scale: 0.98 }}
                                                 onClick={() => setActiveTab(tab.key)}
                                                 className={`flex items-center gap-2 px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${activeTab === tab.key
-                                                    ? 'text-emerald-600 dark:text-emerald-400 bg-white/80 dark:bg-gray-600/80 shadow-lg'
-                                                    : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400'
+                                                    ? 'text-purple-600 dark:text-purple-400 bg-white/80 dark:bg-gray-600/80 shadow-lg'
+                                                    : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
                                                     }`}
                                             >
                                                 <IconComponent size={16} />
@@ -280,7 +282,7 @@ const Experience = () => {
                                                             href={currentExperience.companyUrl}
                                                             target="_blank"
                                                             rel="noreferrer"
-                                                            className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300"
+                                                            className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300"
                                                         >
                                                             <FaExternalLinkAlt />
                                                         </a>
@@ -289,15 +291,15 @@ const Experience = () => {
 
                                                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                                                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                                                        <FaBriefcase className="text-emerald-600 dark:text-emerald-400" />
+                                                        <FaBriefcase className="text-purple-600 dark:text-purple-400" />
                                                         <span>{currentExperience.company}</span>
                                                     </div>
                                                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                                                        <FaMapMarkerAlt className="text-emerald-600 dark:text-emerald-400" />
+                                                        <FaMapMarkerAlt className="text-purple-600 dark:text-purple-400" />
                                                         <span>{currentExperience.location}</span>
                                                     </div>
                                                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                                                        <FaCalendarAlt className="text-emerald-600 dark:text-emerald-400" />
+                                                        <FaCalendarAlt className="text-purple-600 dark:text-purple-400" />
                                                         <span>{currentExperience.duration}</span>
                                                     </div>
                                                 </div>
@@ -314,7 +316,7 @@ const Experience = () => {
                                                         {currentExperience.technologies.map((tech, index) => (
                                                             <span
                                                                 key={index}
-                                                                className="px-3 py-2 bg-gradient-to-r from-emerald-100 to-blue-100 dark:from-emerald-900/30 dark:to-blue-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-medium"
+                                                                className="px-3 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium"
                                                             >
                                                                 {tech}
                                                             </span>
@@ -336,9 +338,9 @@ const Experience = () => {
                                                             initial={{ opacity: 0, x: 20 }}
                                                             animate={{ opacity: 1, x: 0 }}
                                                             transition={{ delay: index * 0.1 }}
-                                                            className="flex items-start gap-3 p-4 bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 rounded-xl"
+                                                            className="flex items-start gap-3 p-4 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl"
                                                         >
-                                                            <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
+                                                            <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
                                                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                                                                 {responsibility}
                                                             </p>
@@ -360,10 +362,10 @@ const Experience = () => {
                                                             initial={{ opacity: 0, scale: 0.8 }}
                                                             animate={{ opacity: 1, scale: 1 }}
                                                             transition={{ delay: index * 0.1 }}
-                                                            className="bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-700"
+                                                            className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6 border border-purple-200 dark:border-purple-700"
                                                         >
                                                             <div className="flex items-start gap-3">
-                                                                <FaAward className="text-emerald-600 dark:text-emerald-400 text-xl mt-1" />
+                                                                <FaAward className="text-purple-600 dark:text-purple-400 text-xl mt-1" />
                                                                 <p className="text-gray-700 dark:text-gray-300 font-medium">
                                                                     {achievement}
                                                                 </p>
@@ -395,7 +397,7 @@ const Experience = () => {
                                 className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20 shadow-lg"
                             >
                                 <div className="text-3xl mb-2">{stat.icon}</div>
-                                <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
+                                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">
                                     {stat.number}
                                 </div>
                                 <div className="text-gray-600 dark:text-gray-400 text-sm font-medium">

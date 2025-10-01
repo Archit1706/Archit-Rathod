@@ -32,7 +32,7 @@ const ProjectDetail = () => {
                     <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
                         Project Not Found
                     </h1>
-                    <Link href="/#projects">
+                    <Link href="/projects">
                         <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-300">
                             Back to Projects
                         </button>
@@ -84,7 +84,7 @@ const ProjectDetail = () => {
                     >
                         {/* Back Button */}
                         <motion.div variants={itemVariants} className="mb-8">
-                            <Link href="/#projects">
+                            <Link href="/projects">
                                 <motion.button
                                     whileHover={{ scale: 1.05, x: -5 }}
                                     whileTap={{ scale: 0.95 }}
@@ -231,7 +231,7 @@ const ProjectDetail = () => {
 
                                         {/* CTA */}
                                         <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
-                                            <Link href="/#contact">
+                                            <Link href="/contact">
                                                 <motion.button
                                                     whileHover={{ scale: 1.05 }}
                                                     whileTap={{ scale: 0.95 }}

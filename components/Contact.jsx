@@ -245,7 +245,9 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="w-full min-h-screen py-16 relative overflow-hidden">
+        <section id="contact" className="w-full py-16 relative overflow-hidden"
+            style={{ minHeight: "calc(100vh - 4rem)" }}
+        >
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20" />
 

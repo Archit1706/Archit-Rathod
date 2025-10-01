@@ -108,7 +108,9 @@ const Research = () => {
     };
 
     return (
-        <section id="research" className="w-full min-h-screen p-2 py-16 relative overflow-hidden">
+        <section id="research" className="w-full p-2 py-16 relative overflow-hidden"
+            style={{ minHeight: "calc(100vh - 4rem)" }}
+        >
             {/* Animated Background */}
             <motion.div
                 className="absolute inset-0 -z-10"

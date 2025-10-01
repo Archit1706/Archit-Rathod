@@ -16,19 +16,21 @@ const Navbar = () => {
     const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     const navItems = [
-        { name: 'Home', href: '/#home' },
-        { name: 'About', href: '/#about' },
-        { name: 'Experience', href: '/#experience' },
-        { name: 'Skills', href: '/#skills' },
-        { name: 'Projects', href: '/#projects' },
-        { name: 'Research', href: '/#research' },
-        { name: 'Contact', href: '/#contact' }
+        { name: 'Home', href: '/' },
+        { name: 'About', href: '/about' },
+        { name: 'Experience', href: '/experience' },
+        { name: 'Skills', href: '/skills' },
+        { name: 'Projects', href: '/projects' },
+        { name: 'Research', href: '/research' },
+        { name: 'Experience', href: '/experience' },
+        { name: 'Resume', href: '/resume' },
+        { name: 'Contact', href: '/contact' }
     ];
 
     const socialLinks = [
         { href: SocialLinks.github, icon: FaGithub, label: 'GitHub' },
         { href: SocialLinks.linkedIn, icon: FaLinkedinIn, label: 'LinkedIn' },
-        { href: `mailto:${SocialLinks.email}`, icon: FaEnvelope, label: 'Email' }
+        { href: SocialLinks.mail, icon: FaEnvelope, label: 'Email' }
     ];
 
     const handleNav = () => {

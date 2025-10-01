@@ -86,7 +86,9 @@ const Skills = () => {
     };
 
     return (
-        <section id="skills" className="w-full min-h-screen p-2 pt-20 relative overflow-hidden">
+        <section id="skills" className="w-full p-2 pt-20 relative overflow-hidden"
+            style={{ minHeight: "calc(100vh - 4rem)" }}
+        >
             {/* Animated Background */}
             <motion.div
                 className="absolute inset-0 -z-10"
@@ -160,8 +162,8 @@ const Skills = () => {
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => setActiveTab(key)}
                                     className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === key
-                                            ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
-                                            : "text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400"
+                                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                                        : "text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400"
                                         }`}
                                 >
                                     <span>{category.icon}</span>

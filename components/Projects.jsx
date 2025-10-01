@@ -103,7 +103,9 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="w-full min-h-screen p-2 py-16 dark:bg-gray-900 relative overflow-hidden">
+        <section id="projects" className="w-full p-2 py-16 dark:bg-gray-900 relative overflow-hidden"
+            style={{ minHeight: "calc(100vh - 4rem)" }}
+        >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5 dark:opacity-10">
                 <div className="absolute inset-0" style={{
