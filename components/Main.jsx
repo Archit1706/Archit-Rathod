@@ -142,7 +142,7 @@ const Main = () => {
         { href: SocialLinks.linkedIn, icon: FaLinkedinIn, color: "#0A66C2", label: "LinkedIn" },
         { href: SocialLinks.github, icon: FaGithub, color: "#333", label: "GitHub" },
         { href: SocialLinks.twitter, icon: RiTwitterXFill, color: "#1DA1F2", label: "Twitter" },
-        { href: SocialLinks.medium, icon: BsMedium, color: "#00AB6C", label: "Medium" },
+        { href: SocialLinks.medium, icon: BsMedium, color: "#00AB6C", label: "Blogs" },
         { href: SocialLinks.leetcode, icon: SiLeetcode, color: "#FFA116", label: "LeetCode" },
         { href: SocialLinks.mail, icon: FiMail, color: "#EA4335", label: "Email" }
     ];
@@ -284,7 +284,7 @@ const Main = () => {
                     className="mb-16 flex flex-col sm:flex-row gap-4 justify-center items-center"
                 >
                     <motion.a
-                        href="#contact"
+                        href="/contact"
                         whileHover={{ scale: 1.05, boxShadow: "0 10px 40px rgba(139, 92, 246, 0.3)" }}
                         whileTap={{ scale: 0.95 }}
                         className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform"
@@ -293,7 +293,7 @@ const Main = () => {
                     </motion.a>
 
                     <motion.a
-                        href="#projects"
+                        href="/projects"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-gray-700 dark:text-gray-300 font-semibold rounded-full hover:bg-white/20 transition-all duration-300"

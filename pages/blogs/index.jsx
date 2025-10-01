@@ -119,8 +119,8 @@ const BlogPostsIndex = () => {
                                 key={tag}
                                 onClick={() => setFilter(tag)}
                                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${filter === tag
-                                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
-                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
+                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                     }`}
                             >
                                 {tag.charAt(0).toUpperCase() + tag.slice(1)}
@@ -232,12 +232,12 @@ const BlogPostsIndex = () => {
                     transition={{ delay: 0.5 }}
                     className="text-center mt-16"
                 >
-                    <Link href="/">
+                    <Link href="/blogs/posts">
                         <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 flex items-center gap-2 mx-auto">
+                            See all Posts
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                            Back to Portfolio
                         </button>
                     </Link>
                 </motion.div>

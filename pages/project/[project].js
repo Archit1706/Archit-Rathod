@@ -73,6 +73,14 @@ const ProjectDetail = () => {
                 <meta property="og:title" content={`${projectData.title} | Archit Rathod Portfolio`} />
                 <meta property="og:description" content={projectData.desc} />
                 <meta property="og:image" content={projectData.img} />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${projectData.title} | Archit Rathod Portfolio`} />
+                <meta name="twitter:description" content={projectData.desc} />
+                <meta name="twitter:image" content={projectData.img} />
+                <link rel="canonical" href={`https://archit-rathod.vercel.app/project${projectData.url}`} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 pt-20">
@@ -256,7 +264,7 @@ const ProjectDetail = () => {
                                     .filter(p => p.url !== projectData.url) // ✅ Fixed: Filter by URL instead of ID
                                     .slice(0, 3)
                                     .map((relatedProject, index) => (
-                                        <Link key={relatedProject.url} href={`/project/${relatedProject.url}`}>
+                                        <Link key={relatedProject.url} href={`/project${relatedProject.url}`}>
                                             <motion.div
                                                 whileHover={{ scale: 1.02, y: -5 }}
                                                 className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 cursor-pointer"

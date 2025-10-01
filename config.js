@@ -694,7 +694,7 @@ const SocialLinks = {
     mail: "mailto:arath21@uic.edu",
     // mail: "architrathod77@gmail.com",
     leetcode: "https://leetcode.com/Archit176/",
-    medium: "/blogs",
+    medium: "/blogs/posts",
     resume: "/resume",
 };
 

@@ -1,10 +1,17 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import CustomCursor from './CustomCursor';
 import TableOfContents from './TableOfContents';
 
 const BlogLayout = ({ children }) => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [showBackToTop, setShowBackToTop] = useState(false);
+    const [showTOC, setShowTOC] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setShowTOC(window.location.pathname.startsWith('/blogs/posts/'));
+        }
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,7 +42,9 @@ const BlogLayout = ({ children }) => {
             <CustomCursor />
 
             {/* Table of Contents - Sticky on Right */}
-            <TableOfContents />
+            {/* only show on /blogs/posts/<post-name> pages*/}
+
+            {showTOC && <TableOfContents />}
 
             {/* Reading Progress Bar */}
             <div
