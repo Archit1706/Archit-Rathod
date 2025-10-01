@@ -1,6 +1,46 @@
+import { useState } from 'react';
 import Cusdis from "nextra-theme-blog/cusdis";
 
 const YEAR = new Date().getFullYear();
+
+// Copy Button Component for Code Blocks
+const CopyButton = ({ text }) => {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    };
+
+    return (
+        <button
+            onClick={handleCopy}
+            className="absolute top-3 right-3 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 bg-gray-700 hover:bg-gray-600 text-white border border-gray-600"
+            aria-label="Copy code"
+        >
+            {copied ? (
+                <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Copied!
+                </span>
+            ) : (
+                <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    Copy
+                </span>
+            )}
+        </button>
+    );
+};
 
 export default {
     comments: (
@@ -82,15 +122,15 @@ export default {
             </a>
         ),
 
-        // Lists - Clean and Well-Spaced
+        // Lists - Clean and Well-Spaced (FIXED: removed default list markers)
         ul: ({ children }) => (
-            <ul className="blog-list space-y-4 mb-10 ml-0 max-w-3xl">
+            <ul className="blog-list space-y-4 mb-10 ml-0 max-w-3xl list-none">
                 {children}
             </ul>
         ),
 
         ol: ({ children }) => (
-            <ol className="blog-list-ordered space-y-4 mb-10 ml-6 list-decimal max-w-3xl">
+            <ol className="blog-list-ordered space-y-4 mb-10 ml-6 list-none max-w-3xl">
                 {children}
             </ol>
         ),
@@ -125,12 +165,27 @@ export default {
             );
         },
 
-        // Code Blocks - Clean and Modern
-        pre: ({ children }) => (
-            <pre className="blog-code-block my-10 p-6 md:p-8 bg-gray-900 dark:bg-black rounded-2xl overflow-x-auto shadow-xl max-w-4xl border border-gray-800 dark:border-gray-700">
-                {children}
-            </pre>
-        ),
+        // Code Blocks - Clean and Modern with Copy Button
+        pre: ({ children }) => {
+            // Extract text content for copy button
+            const getTextContent = (element) => {
+                if (typeof element === 'string') return element;
+                if (Array.isArray(element)) return element.map(getTextContent).join('');
+                if (element?.props?.children) return getTextContent(element.props.children);
+                return '';
+            };
+
+            const codeText = getTextContent(children);
+
+            return (
+                <div className="relative my-10 max-w-4xl">
+                    <pre className="blog-code-block p-6 md:p-8 bg-gray-900 dark:bg-black rounded-2xl overflow-x-auto shadow-xl border border-gray-800 dark:border-gray-700">
+                        {children}
+                    </pre>
+                    <CopyButton text={codeText} />
+                </div>
+            );
+        },
 
         // Tables - Clean and Minimal
         table: ({ children }) => (

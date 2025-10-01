@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CustomCursor from './CustomCursor';
+import TableOfContents from './TableOfContents';
 
 const BlogLayout = ({ children }) => {
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -32,6 +33,9 @@ const BlogLayout = ({ children }) => {
         <div className="blog-layout min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-white dark:from-gray-900 dark:via-purple-950 dark:to-gray-900 transition-colors duration-500">
             {/* Custom Cursor */}
             <CustomCursor />
+
+            {/* Table of Contents - Sticky on Right */}
+            <TableOfContents />
 
             {/* Reading Progress Bar */}
             <div
