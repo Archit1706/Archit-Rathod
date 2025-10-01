@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
     if (isBlogPage) {
         return (
             <PageTransition>
-                <BlogLayout>
+                <BlogLayout isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}>
                     <Component {...pageProps} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
                 </BlogLayout>
             </PageTransition>
