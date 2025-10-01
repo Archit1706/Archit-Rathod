@@ -1,7 +1,9 @@
 import '../styles/globals.css';
+import '../styles/blog.css';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
+import BlogLayout from '../components/BlogLayout';
 import PageTransition from '../components/PageTransition';
 
 function MyApp({ Component, pageProps }) {
@@ -22,13 +24,26 @@ function MyApp({ Component, pageProps }) {
         }
     }, []);
 
-    // Check if current route should use Layout
-    // Exclude blog pages and individual project/research pages that have their own layouts
-    const useLayout = !router.pathname.startsWith('/blogs') &&
-        !router.pathname.startsWith('/project/') &&
-        !router.pathname.startsWith('/research/');
+    // Check if current route should use Layout or BlogLayout
+    const isBlogPage = router.pathname.startsWith('/blogs');
+    const isProjectPage = router.pathname.startsWith('/project/');
+    const isResearchPage = router.pathname.startsWith('/research/');
 
-    if (useLayout) {
+    const useMainLayout = !isBlogPage && !isProjectPage && !isResearchPage;
+
+    // For blog pages, use BlogLayout
+    if (isBlogPage) {
+        return (
+            <PageTransition>
+                <BlogLayout>
+                    <Component {...pageProps} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+                </BlogLayout>
+            </PageTransition>
+        );
+    }
+
+    // For main portfolio pages, use Layout
+    if (useMainLayout) {
         return (
             <PageTransition>
                 <Layout isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}>
@@ -38,7 +53,7 @@ function MyApp({ Component, pageProps }) {
         );
     }
 
-    // For pages that don't use the layout (blogs, individual projects/research)
+    // For pages that don't use any layout (individual projects/research)
     return (
         <PageTransition>
             <Component {...pageProps} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
