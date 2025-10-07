@@ -384,7 +384,7 @@ const About = () => {
                                 className="text-center lg:text-left mt-8"
                             >
                                 <motion.a
-                                    href="#contact"
+                                    href="/contact"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
